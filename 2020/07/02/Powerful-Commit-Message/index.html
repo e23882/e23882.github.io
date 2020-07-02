@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          WPF Property、Dependency Property - Leo&#39;s Note
+          Powerful Commit Message - Leo&#39;s Note
         
     </title>
 
-    <link rel="canonical" href="https://e23882.github.io/2020/07/02/WPF-Property、Dependency-Property/">
+    <link rel="canonical" href="https://e23882.github.io/2020/07/02/Powerful-Commit-Message/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,14 +90,10 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#C#" title="C#">C#</a>
-                            
-                              <a class="tag" href="/tags/#WPF" title="WPF">WPF</a>
-                            
-                              <a class="tag" href="/tags/#xaml" title="xaml">xaml</a>
+                              <a class="tag" href="/tags/#git" title="git">git</a>
                             
                         </div>
-                        <h1>WPF Property、Dependency Property</h1>
+                        <h1>Powerful Commit Message</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leo Yang on
@@ -218,33 +214,23 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h5><span id="dependency-property依賴屬性">Dependency Property(依賴屬性)</span></h5>
-<p>主要用在xaml，在其他畫面xaml使用元件的時候可以透過DP存取資料<br>
-在CodeBehind打 <strong>Propdp</strong>再按兩下Tab，visual studio會自動產生Dependency Property的範本，再把依賴屬性的資料型態、名稱、預設值改成自己要的，就可以有一個自己的依賴屬性，依賴屬性常用在自己做的元件上，原生的元件沒有自己需要的屬性，所以自己做一個</p>
-<ul>
-<li>資料型態 : int</li>
-<li>名稱 : MyProperty</li>
-<li>預設值 : PropertyMetadata(0)</li>
-</ul>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span> MyProperty</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span> &#123; <span class="keyword">return</span> (<span class="keyword">int</span>)GetValue(MyPropertyProperty); &#125;</span><br><span class="line">    <span class="keyword">set</span> &#123; SetValue(MyPropertyProperty, <span class="keyword">value</span>); &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">readonly</span> DependencyProperty MyPropertyProperty =</span><br><span class="line">    DependencyProperty.Register(<span class="string">"MyProperty"</span>, <span class="keyword">typeof</span>(<span class="keyword">int</span>), <span class="keyword">typeof</span>(ownerclass), <span class="keyword">new</span> PropertyMetadata(<span class="number">0</span>));</span><br></pre></td></tr></table></figure>
-<h5><span id="property屬性">Property(屬性)</span></h5>
-<p>主要用在CodeBehind，xaml沒辦法用自訂的屬性Property</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">bool</span> _DefaultPropertyName;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">bool</span> DefaultPropertyName</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> _DefaultPropertyName;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">    &#123;</span><br><span class="line">        _DefaultPropertyName = <span class="keyword">value</span>;</span><br><span class="line">        OnPropertyChanged();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5><span id="property跟dependency-property之間溝通">Property跟Dependency Property之間溝通</span></h5>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//取得資料 : </span></span><br><span class="line"><span class="keyword">var</span> data = (DataType)GetValue(DependencyPropertyName);</span><br><span class="line"><span class="comment">//設定資料 : </span></span><br><span class="line">SetValue(DependencyPropertyName, <span class="keyword">value</span>);</span><br></pre></td></tr></table></figure>
+                <h4><span id="make-git-commit-more-powerful">Make git commit more powerful</span></h4>
+<h5><span id="1準備一張充滿力量的圖片">1.準備一張充滿力量的圖片</span></h5>
+<p><img src="Powerful-Commit-Message%5CpowerfulD.jpg" alt="DataTemplateResult"></p>
+<h5><span id="2用工具把圖片轉換成文字">2.用工具把圖片轉換成文字</span></h5>
+<p><a href="https://manytools.org/hacker-tools/convert-images-to-ascii-art/" target="_blank" rel="noopener">Tool</a></p>
+<h5><span id="3commit上去">3.commit上去</span></h5>
+<p><img src="Powerful-Commit-Message%5CpowerfulCommit.png" alt="DataTemplateResult"></p>
+
                 
 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2020/07/02/常用Git/" data-toggle="tooltip" data-placement="top" title="常用Git">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2020/07/02/使用HierarchicalDataTemplate讓TreeView自動長整棵樹/" data-toggle="tooltip" data-placement="top" title="使用HierarchicalDataTemplate讓TreeView自動長整棵樹">Next Post &rarr;</a>
+                            <a href="/2020/07/02/WPF-套用Metro樣式/" data-toggle="tooltip" data-placement="top" title="WPF 套用Metro樣式">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -274,7 +260,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Dependency Property(依賴屬性)</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">Property(屬性)</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">Property跟Dependency Property之間溝通</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Make git commit more powerful</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">1.準備一張充滿力量的圖片</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">2.用工具把圖片轉換成文字</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">3.commit上去</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -294,11 +280,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#C#" title="C#">C#</a>
-                        
-                          <a class="tag" href="/tags/#WPF" title="WPF">WPF</a>
-                        
-                          <a class="tag" href="/tags/#xaml" title="xaml">xaml</a>
+                          <a class="tag" href="/tags/#git" title="git">git</a>
                         
                     </div>
                 </section>
@@ -327,8 +309,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "your-disqus-ID";
-    var disqus_identifier = "https://e23882.github.io/2020/07/02/WPF-Property、Dependency-Property/";
-    var disqus_url = "https://e23882.github.io/2020/07/02/WPF-Property、Dependency-Property/";
+    var disqus_identifier = "https://e23882.github.io/2020/07/02/Powerful-Commit-Message/";
+    var disqus_url = "https://e23882.github.io/2020/07/02/Powerful-Commit-Message/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
