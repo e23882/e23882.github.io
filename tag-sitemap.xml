@@ -128,20 +128,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2020-07-02T11:21:02.699Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/WPF/</loc>
-        <lastmod>2020-07-02T11:21:02.699Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/MahApps/</loc>
         <lastmod>2020-07-02T11:21:02.699Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -158,6 +144,62 @@
     <url>
         <loc>https://e23882.github.io/tags/git/</loc>
         <lastmod>2020-07-02T11:46:20.381Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/knowhow/</loc>
+        <lastmod>2020-07-02T12:14:08.774Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/net-core/</loc>
+        <lastmod>2020-07-02T12:22:30.330Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Command/</loc>
+        <lastmod>2020-07-02T12:22:30.330Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Chart/</loc>
+        <lastmod>2020-07-02T12:25:06.360Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/AppCenter/</loc>
+        <lastmod>2020-07-02T12:27:22.835Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Resource/</loc>
+        <lastmod>2020-07-02T12:45:05.399Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/C/</loc>
+        <lastmod>2020-07-02T13:09:13.561Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/WPF/</loc>
+        <lastmod>2020-07-02T13:09:13.561Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
