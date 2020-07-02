@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          post - Leo&#39;s Note
+          WPF 漸層背景顏色 - Leo&#39;s Note
         
     </title>
 
-    <link rel="canonical" href="https://e23882.github.io/2020/07/02/post/">
+    <link rel="canonical" href="https://e23882.github.io/2020/07/02/WPF-漸層背景顏色/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,8 +90,12 @@
                     <div class="post-heading">
                         <div class="tags">
                             
+                              <a class="tag" href="/tags/#C#" title="C#">C#</a>
+                            
+                              <a class="tag" href="/tags/#WPF" title="WPF">WPF</a>
+                            
                         </div>
-                        <h1>post</h1>
+                        <h1>WPF 漸層背景顏色</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leo Yang on
@@ -119,7 +123,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">LeoDerNote</a>
+            <a class="navbar-brand" href="/">Leo&#39;s Note</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -149,14 +153,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -212,16 +216,20 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                
+                <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Style</span> <span class="attr">TargetType</span>=<span class="string">"&#123;x:Type ToggleButton&#125;"</span> <span class="attr">x:Key</span>=<span class="string">"TogCommon"</span>&gt;</span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Property</span>=<span class="string">"Template"</span>&gt;</span></span></span><br><span class="line"><span class="css">		&lt;<span class="selector-tag">Setter</span><span class="selector-class">.Value</span>&gt;</span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">ControlTemplate</span> <span class="attr">TargetType</span>=<span class="string">"ToggleButton"</span>&gt;</span></span></span><br><span class="line"><span class="xml">				<span class="tag">&lt;<span class="name">Border</span> <span class="attr">BorderBrush</span>=<span class="string">"&#123;TemplateBinding BorderBrush&#125;"</span> <span class="attr">Background</span>=<span class="string">"&#123;TemplateBinding Background&#125;"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;/<span class="name">ControlTemplate</span>&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;/<span class="name">Setter.Value</span>&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;/<span class="name">Setter</span>&gt;</span></span></span><br><span class="line"><span class="css">	&lt;<span class="selector-tag">Style</span><span class="selector-class">.Triggers</span>&gt;</span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">Trigger</span> <span class="attr">Property</span>=<span class="string">"IsChecked"</span> <span class="attr">Value</span>=<span class="string">"True"</span>&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Property</span>=<span class="string">"Background"</span> <span class="attr">Value</span>=<span class="string">"Red"</span> /&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;/<span class="name">Trigger</span>&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">Trigger</span> <span class="attr">Property</span>=<span class="string">"IsChecked"</span> <span class="attr">Value</span>=<span class="string">"False"</span>&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Property</span>=<span class="string">"Background"</span> <span class="attr">Value</span>=<span class="string">"Green"</span> /&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;/<span class="name">Trigger</span>&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;/<span class="name">Style.Triggers</span>&gt;</span></span></span><br><span class="line"><span class="css">	 &lt;<span class="selector-tag">Style</span><span class="selector-class">.Triggers</span>&gt;</span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">Trigger</span> <span class="attr">Property</span>=<span class="string">"IsChecked"</span> <span class="attr">Value</span>=<span class="string">"True"</span>&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Property</span>=<span class="string">"Background"</span>&gt;</span></span></span><br><span class="line"><span class="css">				&lt;<span class="selector-tag">Setter</span><span class="selector-class">.Value</span>&gt;</span></span><br><span class="line"><span class="xml">					<span class="tag">&lt;<span class="name">LinearGradientBrush</span>  <span class="attr">StartPoint</span>=<span class="string">"0,0"</span> <span class="attr">EndPoint</span>=<span class="string">"0,1"</span>&gt;</span></span></span><br><span class="line"><span class="xml">						<span class="tag">&lt;<span class="name">GradientStop</span> <span class="attr">Color</span>=<span class="string">"#00A000"</span> <span class="attr">Offset</span>=<span class="string">"0"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">						<span class="tag">&lt;<span class="name">GradientStop</span> <span class="attr">Color</span>=<span class="string">"#00AF00"</span> <span class="attr">Offset</span>=<span class="string">"0.445"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">						<span class="tag">&lt;<span class="name">GradientStop</span> <span class="attr">Color</span>=<span class="string">"#00A000"</span> <span class="attr">Offset</span>=<span class="string">"0.53"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">					<span class="tag">&lt;/<span class="name">LinearGradientBrush</span>&gt;</span></span></span><br><span class="line"><span class="xml">				<span class="tag">&lt;/<span class="name">Setter.Value</span>&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;/<span class="name">Setter</span>&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Property</span>=<span class="string">"Foreground"</span> <span class="attr">Value</span>=<span class="string">"White"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Property</span>=<span class="string">"Content"</span> <span class="attr">Value</span>=<span class="string">"以上"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;/<span class="name">Trigger</span>&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">Trigger</span> <span class="attr">Property</span>=<span class="string">"IsChecked"</span> <span class="attr">Value</span>=<span class="string">"False"</span>&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Property</span>=<span class="string">"Background"</span>&gt;</span></span></span><br><span class="line"><span class="css">				&lt;<span class="selector-tag">Setter</span><span class="selector-class">.Value</span>&gt;</span></span><br><span class="line"><span class="xml">					<span class="tag">&lt;<span class="name">LinearGradientBrush</span>  <span class="attr">StartPoint</span>=<span class="string">"0,0"</span> <span class="attr">EndPoint</span>=<span class="string">"0,1"</span>&gt;</span></span></span><br><span class="line"><span class="xml">						<span class="tag">&lt;<span class="name">GradientStop</span> <span class="attr">Color</span>=<span class="string">"#FF0000"</span> <span class="attr">Offset</span>=<span class="string">"0"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">						<span class="tag">&lt;<span class="name">GradientStop</span> <span class="attr">Color</span>=<span class="string">"#EA0000"</span> <span class="attr">Offset</span>=<span class="string">"0.445"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">						<span class="tag">&lt;<span class="name">GradientStop</span> <span class="attr">Color</span>=<span class="string">"#CE0000"</span> <span class="attr">Offset</span>=<span class="string">"0.53"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">					<span class="tag">&lt;/<span class="name">LinearGradientBrush</span>&gt;</span></span></span><br><span class="line"><span class="xml">				<span class="tag">&lt;/<span class="name">Setter.Value</span>&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;/<span class="name">Setter</span>&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Property</span>=<span class="string">"Foreground"</span> <span class="attr">Value</span>=<span class="string">"White"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Property</span>=<span class="string">"Content"</span> <span class="attr">Value</span>=<span class="string">"以下"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;/<span class="name">Trigger</span>&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;/<span class="name">Style.Triggers</span>&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Style</span>&gt;</span></span><br></pre></td></tr></table></figure>
                 
 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
                     
+                        <li class="previous">
+                            <a href="/2020/07/02/WPF-TextBox浮水印/" data-toggle="tooltip" data-placement="top" title="WPF TextBox浮水印">&larr; Previous Post</a>
+                        </li>
+                    
                     
                         <li class="next">
-                            <a href="/2020/07/02/test/" data-toggle="tooltip" data-placement="top" title="test">Next Post &rarr;</a>
+                            <a href="/2020/07/02/WPF-DataGrid中的元件Binding-Command失敗/" data-toggle="tooltip" data-placement="top" title="WPF DataGrid中的元件Binding Command失敗">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -271,6 +279,10 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
+                          <a class="tag" href="/tags/#C#" title="C#">C#</a>
+                        
+                          <a class="tag" href="/tags/#WPF" title="WPF">WPF</a>
+                        
                     </div>
                 </section>
                 
@@ -304,8 +316,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "your-disqus-ID";
-    var disqus_identifier = "https://e23882.github.io/2020/07/02/post/";
-    var disqus_url = "https://e23882.github.io/2020/07/02/post/";
+    var disqus_identifier = "https://e23882.github.io/2020/07/02/WPF-漸層背景顏色/";
+    var disqus_url = "https://e23882.github.io/2020/07/02/WPF-漸層背景顏色/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
