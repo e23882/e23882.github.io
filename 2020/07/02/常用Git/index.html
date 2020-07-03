@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          常用Git - Leo&#39;s Note
+          常用Git - Leo&#39;s Technical Debt
         
     </title>
 
@@ -144,14 +144,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -230,7 +230,9 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --no-merges --pretty=format:\&quot;%an_%ae|%s|%ad\&quot; --name-only --since=&apos;2020/3/1&apos; --until &apos;2020/3/30&apos; -- *.cs *.sql *.xaml &gt; logs.txt</span><br></pre></td></tr></table></figure>
 <h5><span id="一次push到多個遠端儲存庫">一次push到多個遠端儲存庫</span></h5>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">push</span><br><span class="line">git remote set-url RemoteName --push --add \\123.1.1.1\GitLocation1</span><br><span class="line">git remote set-url RemoteName --push --add \\123.1.1.1\GitLocation2</span><br><span class="line">git remote set-url RemoteName --push --add \\123.1.1.1\GitLocation3</span><br><span class="line"></span><br><span class="line">查詢</span><br><span class="line">git remote -v</span><br><span class="line"></span><br><span class="line">刪除</span><br><span class="line">git remote remove RemoteName</span><br></pre></td></tr></table></figure>
-
+<h4><span id="hard-復原">HARD 復原</span></h4>
+<h5><span id></span></h5>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">回復到最新版本(目前最新的)</span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard HEAD</span></span><br><span class="line">回復到上一個版本</span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard HEAD~</span></span><br><span class="line">回復到前n個版本</span><br><span class="line">git <span class="keyword">reset</span> <span class="comment">--hard HEAD~n</span></span><br></pre></td></tr></table></figure>
                 
 
                 <hr>
@@ -273,7 +275,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">建立版本庫</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">加入目前資料夾所有檔案到git</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">commit</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">加入gitserver位置</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">push到master</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">移除版控上檔案</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">顯示出某日區間所有異動檔案清單(會重複)</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">一次push到多個遠端儲存庫</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">建立版本庫</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">加入目前資料夾所有檔案到git</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">commit</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">加入gitserver位置</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">push到master</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">移除版控上檔案</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">顯示出某日區間所有異動檔案清單(會重複)</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">8.</span> <span class="toc-nav-text">一次push到多個遠端儲存庫</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number"></span> <span class="toc-nav-text">HARD 復原</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text"></span></a></li></ol>
         
         </div>
       </aside>
@@ -498,7 +500,7 @@
 
 <script>
     // dynamic User by Hux
-    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaId = 'UA-113183997-2';
     var _gaDomain = 'https://e23882.github.io/';
 
     // Originial

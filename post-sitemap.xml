@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://e23882.github.io/2020/07/02/%E5%B8%B8%E7%94%A8Git/</loc>
+        <lastmod>2020-07-03T07:56:56.695Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://e23882.github.io/2020/07/02/WPF-Binding-Command/</loc>
         <lastmod>2020-07-02T13:09:13.561Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -177,14 +185,6 @@
     <url>
         <loc>https://e23882.github.io/2017/03/18/hexo-theme-beantech/</loc>
         <lastmod>2020-07-02T09:04:08.888Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/2020/07/02/%E5%B8%B8%E7%94%A8Git/</loc>
-        <lastmod>2020-07-02T09:03:46.873Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
