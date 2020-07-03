@@ -422,8 +422,9 @@ DataGrid因為ItemSource已經Binding ViewModel中的指定的集合屬性(DataS
             
         </h3>
         <div class="post-content-preview">
-            ###先定義會用到的ViewModel
-123456789101112131415161718192021222324252627282930313233343536373839public class ViewModel : INotifyPropertyChanged&#123;    public event PropertyChangedEventHandler PropertyCh......
+            DataBinding 範例
+1.定義會用到的視圖模型(ViewModel)
+12345678910111213141516171819202122232425262728293031323334353637383940//繼承INotifyPropertyChanged Interface，讓元件透過Binding訂閱ViewModel中的屬性，資料更新時UI會自己更新，很方便class ......
         </div>
     </a>
     
@@ -534,16 +535,19 @@ Visual Studio 使用NUnit執行單元測試，看測試涵蓋率、
             
         </h3>
         <div class="post-content-preview">
-            建立版本庫
+            基本指令
+init － 建立版本庫
 1git init
-加入目前資料夾所有檔案到git
+
+add － 加入目前資料夾所有檔案到git
 1git add .
-commit
-1git commit -m &quot;first version commit&quot;
-加入gitserver位置
-1git remote add origin https://github.com/e23882/test.git
-push到master
-1git push -u or......
+
+commit － 提交
+1git commit -m &quot;commit message&quot;
+
+remote － 設定git remote位置(git server)
+設定
+1git remote add origin https://github.co......
         </div>
     </a>
     
@@ -617,9 +621,15 @@ push到master
             
         
             
+            <a href="/tags/#git" title="git" rel="2">git</a>
+            
         
             
-            <a href="/tags/#git" title="git" rel="2">git</a>
+        
+            
+        
+            
+        
             
         
             
@@ -633,13 +643,7 @@ push到master
             
         
             
-        
-            
-        
-            
             <a href="/tags/#DataGrid" title="DataGrid" rel="2">DataGrid</a>
-            
-        
             
         
             

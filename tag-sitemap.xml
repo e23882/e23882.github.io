@@ -79,13 +79,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/DataBinding/</loc>
-        <lastmod>2020-07-02T09:56:37.462Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/DataGrid/</loc>
         <lastmod>2020-07-02T10:35:23.091Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -185,21 +178,28 @@
 
     <url>
         <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2020-07-02T13:09:13.561Z</lastmod>
+        <lastmod>2020-07-03T10:45:52.591Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/WPF/</loc>
-        <lastmod>2020-07-02T13:09:13.561Z</lastmod>
+        <lastmod>2020-07-03T10:45:52.591Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/DataBinding/</loc>
+        <lastmod>2020-07-03T10:45:52.591Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/git/</loc>
-        <lastmod>2020-07-03T07:56:56.695Z</lastmod>
+        <lastmod>2020-07-03T11:28:58.942Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
