@@ -51,36 +51,8 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/NUnit/</loc>
-        <lastmod>2020-07-02T09:27:37.549Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/UnitTest/</loc>
-        <lastmod>2020-07-02T09:27:37.549Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6/</loc>
-        <lastmod>2020-07-02T09:27:37.549Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/xaml/</loc>
         <lastmod>2020-07-02T09:36:00.469Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/DataGrid/</loc>
-        <lastmod>2020-07-02T10:35:23.091Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -135,13 +107,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/knowhow/</loc>
-        <lastmod>2020-07-02T12:14:08.774Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/net-core/</loc>
         <lastmod>2020-07-02T12:22:30.330Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -177,20 +142,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2020-07-03T10:45:52.591Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/WPF/</loc>
-        <lastmod>2020-07-03T10:45:52.591Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/DataBinding/</loc>
         <lastmod>2020-07-03T10:45:52.591Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -200,6 +151,55 @@
     <url>
         <loc>https://e23882.github.io/tags/git/</loc>
         <lastmod>2020-07-03T11:28:58.942Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/knowhow/</loc>
+        <lastmod>2020-07-03T11:35:36.662Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/DataGrid/</loc>
+        <lastmod>2020-07-03T12:02:13.400Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/WPF/</loc>
+        <lastmod>2020-07-06T05:33:37.389Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/C/</loc>
+        <lastmod>2020-07-06T05:40:45.415Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/NUnit/</loc>
+        <lastmod>2020-07-06T05:40:45.415Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/UnitTest/</loc>
+        <lastmod>2020-07-06T05:40:45.415Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6/</loc>
+        <lastmod>2020-07-06T05:40:45.415Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

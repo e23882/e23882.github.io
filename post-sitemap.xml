@@ -7,6 +7,46 @@
     </url>
 
     <url>
+        <loc>https://e23882.github.io/2020/07/02/Unit%20testing%20using%20NUnit%20test%20framework/</loc>
+        <lastmod>2020-07-06T05:40:45.415Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/2020/07/02/Visual-Studio-%E4%BD%BF%E7%94%A8NUnit%E5%81%9A%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6/</loc>
+        <lastmod>2020-07-06T05:39:30.790Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/2020/07/02/WPF-Binding-Command/</loc>
+        <lastmod>2020-07-06T05:33:37.389Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/2020/07/03/WPF-DataGrid/</loc>
+        <lastmod>2020-07-03T12:02:13.400Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/2020/07/02/DomainKnowhow/</loc>
+        <lastmod>2020-07-03T11:35:36.662Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://e23882.github.io/2020/07/02/%E5%B8%B8%E7%94%A8Git/</loc>
         <lastmod>2020-07-03T11:28:58.942Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -17,14 +57,6 @@
     <url>
         <loc>https://e23882.github.io/2020/07/02/WPF-DataBinding/</loc>
         <lastmod>2020-07-03T10:45:52.591Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/2020/07/02/WPF-Binding-Command/</loc>
-        <lastmod>2020-07-02T13:09:13.561Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -73,14 +105,6 @@
     <url>
         <loc>https://e23882.github.io/2020/07/02/Command%E3%80%81dotnet/</loc>
         <lastmod>2020-07-02T12:22:30.330Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/2020/07/02/DomainKnowhow/</loc>
-        <lastmod>2020-07-02T12:14:08.774Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -169,14 +193,6 @@
     <url>
         <loc>https://e23882.github.io/2020/07/02/WPF-DataGrid%E5%80%BC%E7%99%BC%E7%94%9F%E6%94%B9%E8%AE%8A%E6%99%82%E6%94%B9%E8%AE%8A%E8%83%8C%E6%99%AF%E9%A1%8F%E8%89%B2/</loc>
         <lastmod>2020-07-02T09:31:49.671Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/2020/07/02/Visual-Studio-%E4%BD%BF%E7%94%A8NUnit%E5%81%9A%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6/</loc>
-        <lastmod>2020-07-02T09:27:37.549Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
