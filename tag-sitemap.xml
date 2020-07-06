@@ -107,13 +107,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/AppCenter/</loc>
-        <lastmod>2020-07-02T12:27:22.835Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/DataBinding/</loc>
         <lastmod>2020-07-03T10:45:52.591Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -123,13 +116,6 @@
     <url>
         <loc>https://e23882.github.io/tags/knowhow/</loc>
         <lastmod>2020-07-03T11:35:36.662Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/DataGrid/</loc>
-        <lastmod>2020-07-03T12:02:13.400Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -184,22 +170,36 @@
     </url>
 
     <url>
+        <loc>https://e23882.github.io/tags/Dockable/</loc>
+        <lastmod>2020-07-06T06:09:36.107Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/AppCenter/</loc>
+        <lastmod>2020-07-06T09:30:34.349Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2020-07-06T06:04:45.049Z</lastmod>
+        <lastmod>2020-07-06T09:35:47.646Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/WPF/</loc>
-        <lastmod>2020-07-06T06:04:45.049Z</lastmod>
+        <lastmod>2020-07-06T09:35:47.646Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/Dockable/</loc>
-        <lastmod>2020-07-06T06:04:45.049Z</lastmod>
+        <loc>https://e23882.github.io/tags/DataGrid/</loc>
+        <lastmod>2020-07-06T09:35:47.646Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
