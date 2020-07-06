@@ -86,27 +86,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/Dockable/</loc>
-        <lastmod>2020-07-02T11:15:50.318Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/MahApps/</loc>
-        <lastmod>2020-07-02T11:21:02.699Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/Metro-Style/</loc>
-        <lastmod>2020-07-02T11:21:02.699Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/net-core/</loc>
         <lastmod>2020-07-02T12:22:30.330Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -135,22 +114,8 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/Resource/</loc>
-        <lastmod>2020-07-02T12:45:05.399Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/DataBinding/</loc>
         <lastmod>2020-07-03T10:45:52.591Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/git/</loc>
-        <lastmod>2020-07-03T11:28:58.942Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -170,36 +135,71 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/WPF/</loc>
-        <lastmod>2020-07-06T05:33:37.389Z</lastmod>
+        <loc>https://e23882.github.io/tags/Resource/</loc>
+        <lastmod>2020-07-06T05:58:00.265Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2020-07-06T05:40:45.415Z</lastmod>
+        <loc>https://e23882.github.io/tags/git/</loc>
+        <lastmod>2020-07-06T05:58:57.952Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/MahApps/</loc>
+        <lastmod>2020-07-06T06:03:27.603Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Metro-Style/</loc>
+        <lastmod>2020-07-06T06:03:27.603Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/NUnit/</loc>
-        <lastmod>2020-07-06T05:40:45.415Z</lastmod>
+        <lastmod>2020-07-06T06:04:08.753Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/UnitTest/</loc>
-        <lastmod>2020-07-06T05:40:45.415Z</lastmod>
+        <lastmod>2020-07-06T06:04:08.753Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6/</loc>
-        <lastmod>2020-07-06T05:40:45.415Z</lastmod>
+        <lastmod>2020-07-06T06:04:08.753Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/C/</loc>
+        <lastmod>2020-07-06T06:04:45.049Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/WPF/</loc>
+        <lastmod>2020-07-06T06:04:45.049Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Dockable/</loc>
+        <lastmod>2020-07-06T06:04:45.049Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

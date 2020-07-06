@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -228,10 +228,8 @@
 <p>跟2的code一樣只是改放到app.xaml裡</p>
 <h4><span id="4resourcedictionary">4.ResourceDictionary</span></h4>
 <p>跟2的code一樣只是改放到新增的ResourceDictionary裡<br>
-要用的時候要先宣告Resource、ResourceDictionary<br>
-&lt;Window.Resources&gt;<br>
-<resourcedictionary source="Dictionary1.xaml"><br>
-&lt;/Window.Resources&gt;</resourcedictionary></p>
+要用的時候要先宣告Resource、ResourceDictionary</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Window.Resources</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">ResourceDictionary</span> <span class="attr">Source</span>=<span class="string">"Dictionary1.xaml"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Window.Resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>標籤一樣是透過StaticResource去取得樣式</p>
 <h4><span id="如果元件標籤中有設定樣式再用resource設定一樣的樣式">如果元件標籤中有設定樣式，再用Resource設定一樣的樣式</span></h4>
 <p>resource中相同屬性會失效</p>
