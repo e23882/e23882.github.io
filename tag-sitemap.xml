@@ -16,27 +16,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/Python/</loc>
-        <lastmod>2020-07-02T09:00:46.859Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/Git/</loc>
-        <lastmod>2020-07-02T09:00:46.859Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/CI/</loc>
-        <lastmod>2020-07-02T09:00:46.859Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/Hexo/</loc>
         <lastmod>2020-07-02T09:04:08.888Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -53,20 +32,6 @@
     <url>
         <loc>https://e23882.github.io/tags/xaml/</loc>
         <lastmod>2020-07-02T09:36:00.469Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/HierarchicalDataTemplate/</loc>
-        <lastmod>2020-07-02T10:40:01.171Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/TreeView/</loc>
-        <lastmod>2020-07-02T10:40:01.171Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -156,20 +121,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/AppCenter/</loc>
-        <lastmod>2020-07-06T09:30:34.349Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/WPF/</loc>
-        <lastmod>2020-07-06T09:35:47.646Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/DataGrid/</loc>
         <lastmod>2020-07-06T09:35:47.646Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -177,29 +128,78 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2020-07-08T02:15:22.661Z</lastmod>
+        <loc>https://e23882.github.io/tags/Python/</loc>
+        <lastmod>2020-07-08T02:20:08.784Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Git/</loc>
+        <lastmod>2020-07-08T02:20:08.784Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/CI/</loc>
+        <lastmod>2020-07-08T02:20:08.784Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/AppCenter/</loc>
+        <lastmod>2020-07-08T02:20:10.897Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/NUnit/</loc>
-        <lastmod>2020-07-08T02:15:22.661Z</lastmod>
+        <lastmod>2020-07-08T02:20:11.560Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/UnitTest/</loc>
-        <lastmod>2020-07-08T02:15:22.661Z</lastmod>
+        <lastmod>2020-07-08T02:20:11.560Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6/</loc>
-        <lastmod>2020-07-08T02:15:22.661Z</lastmod>
+        <lastmod>2020-07-08T02:20:11.560Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/C/</loc>
+        <lastmod>2020-07-08T02:20:46.501Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/WPF/</loc>
+        <lastmod>2020-07-08T02:20:46.501Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/HierarchicalDataTemplate/</loc>
+        <lastmod>2020-07-08T02:20:46.501Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/TreeView/</loc>
+        <lastmod>2020-07-08T02:20:46.501Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
