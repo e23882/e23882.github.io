@@ -149,27 +149,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/NUnit/</loc>
-        <lastmod>2020-07-06T06:04:08.753Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/UnitTest/</loc>
-        <lastmod>2020-07-06T06:04:08.753Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6/</loc>
-        <lastmod>2020-07-06T06:04:08.753Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/Dockable/</loc>
         <lastmod>2020-07-06T06:09:36.107Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -184,13 +163,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2020-07-06T09:35:47.646Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/WPF/</loc>
         <lastmod>2020-07-06T09:35:47.646Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -200,6 +172,34 @@
     <url>
         <loc>https://e23882.github.io/tags/DataGrid/</loc>
         <lastmod>2020-07-06T09:35:47.646Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/C/</loc>
+        <lastmod>2020-07-08T02:15:22.661Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/NUnit/</loc>
+        <lastmod>2020-07-08T02:15:22.661Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/UnitTest/</loc>
+        <lastmod>2020-07-08T02:15:22.661Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6/</loc>
+        <lastmod>2020-07-08T02:15:22.661Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
