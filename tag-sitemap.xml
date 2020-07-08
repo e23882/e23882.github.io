@@ -86,13 +86,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/DataGrid/</loc>
-        <lastmod>2020-07-06T09:35:47.646Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/Python/</loc>
         <lastmod>2020-07-08T02:20:08.784Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -177,20 +170,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2020-07-08T02:28:42.589Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/WPF/</loc>
-        <lastmod>2020-07-08T02:28:42.589Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/DataTemplate/</loc>
         <lastmod>2020-07-08T02:28:42.589Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -200,6 +179,27 @@
     <url>
         <loc>https://e23882.github.io/tags/ControlTemplate/</loc>
         <lastmod>2020-07-08T02:28:42.589Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/C/</loc>
+        <lastmod>2020-07-08T02:40:23.517Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/WPF/</loc>
+        <lastmod>2020-07-08T02:40:23.517Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/DataGrid/</loc>
+        <lastmod>2020-07-08T02:40:23.517Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
