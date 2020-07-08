@@ -157,14 +157,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -244,7 +244,7 @@ HierarchicalDataTemplate會自己找出子層然後生出UI</p>
 <h5><span id="datamodel">DataModel</span></h5>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public class Node: Jepun.Services.Common.Contract.AppPrincipals</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> _RowNo;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> _Parent;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">string</span> _Name;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> RowNo</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span>&#123;...&#125;;<span class="keyword">set</span>&#123;...&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Parent</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span>&#123;...&#125;;<span class="keyword">set</span>&#123;...&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Name</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span>&#123;...&#125;;<span class="keyword">set</span>&#123;...&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ObservableCollection _Children = <span class="keyword">new</span> ObservableCollection();</span><br><span class="line">    <span class="keyword">public</span> ObservableCollection Children</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> _Children;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span></span><br><span class="line">        &#123;</span><br><span class="line">            _Children = <span class="keyword">value</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5><span id="結果">結果</span></h5>
-<p><img src="result.PNG" alt="Result"></p>
+<p><img src="Result.PNG" alt="Result"></p>
 
                 
 

@@ -37,20 +37,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/DataTemplate/</loc>
-        <lastmod>2020-07-02T11:12:16.640Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/ControlTemplate/</loc>
-        <lastmod>2020-07-02T11:12:16.640Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/net-core/</loc>
         <lastmod>2020-07-02T12:22:30.330Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -100,27 +86,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/MahApps/</loc>
-        <lastmod>2020-07-06T06:03:27.603Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/Metro-Style/</loc>
-        <lastmod>2020-07-06T06:03:27.603Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/Dockable/</loc>
-        <lastmod>2020-07-06T06:09:36.107Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/DataGrid/</loc>
         <lastmod>2020-07-06T09:35:47.646Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -149,57 +114,92 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/AppCenter/</loc>
-        <lastmod>2020-07-08T02:20:10.897Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/NUnit/</loc>
-        <lastmod>2020-07-08T02:20:11.560Z</lastmod>
+        <lastmod>2020-07-08T02:24:24.369Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/UnitTest/</loc>
-        <lastmod>2020-07-08T02:20:11.560Z</lastmod>
+        <lastmod>2020-07-08T02:24:24.369Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/%E5%96%AE%E5%85%83%E6%B8%AC%E8%A9%A6/</loc>
-        <lastmod>2020-07-08T02:20:11.560Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2020-07-08T02:20:46.501Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/WPF/</loc>
-        <lastmod>2020-07-08T02:20:46.501Z</lastmod>
+        <lastmod>2020-07-08T02:24:24.369Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/HierarchicalDataTemplate/</loc>
-        <lastmod>2020-07-08T02:20:46.501Z</lastmod>
+        <lastmod>2020-07-08T02:25:49.201Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/TreeView/</loc>
-        <lastmod>2020-07-08T02:20:46.501Z</lastmod>
+        <lastmod>2020-07-08T02:25:49.201Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/AppCenter/</loc>
+        <lastmod>2020-07-08T02:26:49.535Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/MahApps/</loc>
+        <lastmod>2020-07-08T02:27:49.709Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Metro-Style/</loc>
+        <lastmod>2020-07-08T02:27:49.709Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Dockable/</loc>
+        <lastmod>2020-07-08T02:28:14.446Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/C/</loc>
+        <lastmod>2020-07-08T02:28:42.589Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/WPF/</loc>
+        <lastmod>2020-07-08T02:28:42.589Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/DataTemplate/</loc>
+        <lastmod>2020-07-08T02:28:42.589Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/ControlTemplate/</loc>
+        <lastmod>2020-07-08T02:28:42.589Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

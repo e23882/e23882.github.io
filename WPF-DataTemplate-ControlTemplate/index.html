@@ -157,14 +157,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -224,11 +224,11 @@
 <p>用資料(集合)產生元件</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 定義使用資料集合中的什麼欄位，每個欄位要長怎樣 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Window.Resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">DataTemplate</span> <span class="attr">x:Key</span>=<span class="string">"template"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">StackPanel</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">TextBox</span> <span class="attr">Text</span>=<span class="string">"&#123;Binding Name&#125;"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">StackPanel</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">DataTemplate</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">Window.Resources</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Grid</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 綁定資料來源(Itemsource)、指定資料要用什麼樣的範本長出來 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">ListBox</span> <span class="attr">ItemTemplate</span>=<span class="string">"&#123;StaticResource template&#125;"</span> <span class="attr">ItemsSource</span>=<span class="string">"&#123;Binding DataCollection&#125;"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Grid</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>所以MainData如果有十筆資料，每筆資料中只要有Name欄位的就會長出一個TextBox Text屬性是Name的值<br>
-<img src="WPF-DataTemplate-ControlTemplate%5CDataResult.PNG" alt="DataTemplateResult"></p>
+<img src="DataResult.PNG" alt="DataTemplateResult"></p>
 <h3><span id="controltemplate">ControlTemplate</span></h3>
 <p>定義元件的樣式</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 定義Button的ControlTemplate --&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">Window.Resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ControlTemplate</span> <span class="attr">TargetType</span>=<span class="string">"Button"</span> <span class="attr">x:Key</span>=<span class="string">"ButtonTemplate"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">Border</span> <span class="attr">CornerRadius</span>=<span class="string">"10"</span> <span class="attr">Background</span>=<span class="string">"LightBlue"</span> <span class="attr">Height</span>=<span class="string">"100"</span> <span class="attr">Width</span>=<span class="string">"100"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">TextBlock</span> <span class="attr">Text</span>=<span class="string">"123"</span> <span class="attr">TextAlignment</span>=<span class="string">"Center"</span> <span class="attr">VerticalAlignment</span>=<span class="string">"Center"</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">Border</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">ControlTemplate</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Window.Resources</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">StackPanel</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Button使用定義好的ControlTemplate --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span> <span class="attr">Template</span>=<span class="string">"&#123;StaticResource ButtonTemplate&#125;"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">StackPanel</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="WPF-DataTemplate-ControlTemplate%5CControlTemplate.PNG" alt="ControlTemplateResult"></p>
+<p><img src="ControlTemplate.PNG" alt="ControlTemplateResult"></p>
 <h3><span id="datatemplate-controltemplate-差別">DataTemplate、ControlTemplate 差別</span></h3>
 <ul>
 <li>DataTemplate : 定義資料長出怎樣的畫面</li>
