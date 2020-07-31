@@ -148,14 +148,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -233,7 +233,7 @@
 <h4><span id="一般的databinding">一般的DataBinding</span></h4>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Textblock</span> <span class="attr">Text</span>=<span class="string">&#123;Binding</span> <span class="attr">Content</span>&#125;/&gt;</span></span><br></pre></td></tr></table></figure>
 <h4><span id="binding指定元件的指定屬性">Binding指定元件的指定屬性</span></h4>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Textblock</span> <span class="attr">x:Name</span>=<span class="string">"tbContent"</span> <span class="attr">Text</span>=<span class="string">&#123;Binding</span> <span class="attr">Content</span>&#125;/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 第一種 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Textblock</span> <span class="attr">Text</span>=<span class="string">&#123;Binding</span> <span class="attr">Source</span>=<span class="string">&#123;x:Reference</span> <span class="attr">tbContent</span>&#125;, <span class="attr">Path</span>=<span class="string">Text&#125;/</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 第二種 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Textblock</span> <span class="attr">Text</span>=<span class="string">&#123;Binding</span> <span class="attr">Content</span>, <span class="attr">ElementName</span> = <span class="string">tbContent&#125;/</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 更多 Binding --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Coming Soon.... --&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Textblock</span> <span class="attr">x:Name</span>=<span class="string">"tbContent"</span> <span class="attr">Text</span>=<span class="string">&#123;Binding</span> <span class="attr">Content</span>&#125;/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 第一種 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Textblock</span> <span class="attr">Text</span>=<span class="string">&#123;Binding</span> <span class="attr">Source</span>=<span class="string">&#123;x:Reference</span> <span class="attr">tbContent</span>&#125;, <span class="attr">Path</span>=<span class="string">Text&#125;/</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 第二種 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Textblock</span> <span class="attr">Text</span>=<span class="string">&#123;Binding</span> <span class="attr">Content</span>, <span class="attr">ElementName</span> = <span class="string">tbContent&#125;/</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 第三種 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">i:InvokeCommandAction</span> <span class="attr">Command</span>=<span class="string">"&#123;Binding TabitemMouseDownCommand&#125;"</span> <span class="attr">CommandParameter</span>=<span class="string">"&#123;Binding ElementName=tcControl, Path=SelectedIndex&#125;"</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 更多 Binding --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Coming Soon.... --&gt;</span></span><br></pre></td></tr></table></figure>
 <hr>
 <h2><span id="databinding很常遇到的例外-引動過程的目標傳回例外狀況">DataBinding很常遇到的例外 : 引動過程的目標傳回例外狀況</span></h2>
 <h3><span id="一般是發生在有使用staticresource的情況發生的"><strong>一般是發生在有使用StaticResource的情況發生的 :</strong></span></h3>
