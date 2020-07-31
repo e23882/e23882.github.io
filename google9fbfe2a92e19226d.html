@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          WPF OnPropertyChanged不寫死參數PropertyName - Leo&#39;s Technical Debt
+          Leo&#39;s Technical Debt
         
     </title>
 
-    <link rel="canonical" href="https://e23882.github.io/2020/07/02/WPF-OnPropertyChanged不寫死參數PropertyName/">
+    <link rel="canonical" href="https://e23882.github.io/google9fbfe2a92e19226d.html">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,8 +69,8 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('null')
-            /*post*/
+            background-image: url('/undefined')
+            /*page*/
         
     }
     
@@ -87,20 +87,10 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
-                    <div class="post-heading">
-                        <div class="tags">
-                            
-                              <a class="tag" href="/tags/#C#" title="C#">C#</a>
-                            
-                              <a class="tag" href="/tags/#WPF" title="WPF">WPF</a>
-                            
-                        </div>
-                        <h1>WPF OnPropertyChanged不寫死參數PropertyName</h1>
-                        <h2 class="subheading"></h2>
-                        <span class="meta">
-                            Posted by Leo Yang on
-                            2020-07-02
-                        </span>
+                    <div class="site-heading">
+                        <h1>Leo&#39;s Technical Debt</h1>
+                        <!--<hr class="small">-->
+                        <span class="subheading">So many things, so little time.</span>
                     </div>
                 
 
@@ -206,169 +196,249 @@
 
 
     <!-- Main Content -->
-    <!-- Modify by Yu-Hsuan Yen -->
+    <!-- Main Content -->
+<div class="container">
+    <div class="row">
+        
 
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-
-            <!-- Post Container -->
+<!-- USE SIDEBAR -->
+    <!-- Post Container -->
             <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+            
+                google-site-verification: google9fbfe2a92e19226d.html
 
-                <h4><span id="net-framework-45-使用callermembername-attribute">[.net framework 4.5 ↑]使用CallerMemberName Attribute</span></h4>
-<h5><span id="一般寫法">一般寫法</span></h5>
-<p>繼承INotifyPropertyChanged Interface<br>
-實做介面</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnPropertyChanged</span>(<span class="params"><span class="keyword">string</span> parameter</span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-<h5><span id="callermembername-attribute">CallerMemberName Attribute</span></h5>
-<p>這樣OnPropertyChanged(“ProperyName”)這樣的東西要寫很多次,沒什麼意義<br>
-.net framework4.5之後加入了CallerMemberNameAttribute</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">functionName</span>(<span class="params">[CallerMeberName] <span class="keyword">string</span> parameter=<span class="string">""</span></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//以後都可以</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">string</span> _TestProperty = <span class="keyword">string</span>.Empty;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> TestProperty</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> _TestProperty;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">    &#123;</span><br><span class="line">        _TestProperty = <span class="keyword">value</span>;</span><br><span class="line">        <span class="comment">//不用寫參數很方便</span></span><br><span class="line">        <span class="comment">//OnPropertyChanged("TestProperty");</span></span><br><span class="line">        OnPropertyChanged();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <!-- 如果开启评论功能 -->
                 
+                    <hr>
 
-                <hr>
-                <!-- Pager -->
-                <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2020/07/02/元件事件、委派、interactivity-Command-觸發順序/" data-toggle="tooltip" data-placement="top" title="元件事件、委派、interactivity(Command)觸發順序">&larr; Previous Post</a>
-                        </li>
-                    
-                    
-                        <li class="next">
-                            <a href="/2020/07/02/AppCenter/" data-toggle="tooltip" data-placement="top" title="AppCenter">Next Post &rarr;</a>
-                        </li>
-                    
-                </ul>
 
-                <!-- duoshuo Share start -->
-                
-                <!-- 多说 Share end-->
-
-                <!-- 多说评论框 start -->
-                
-                <!-- 多说评论框 end -->
-
-                <!-- disqus comment start -->
-                
+                    
+                    <!-- disqus 评论框 start -->
                     <div class="comment">
                         <div id="disqus_thread" class="disqus-thread"></div>
                     </div>
+                    <!-- disqus 评论框 end -->
+                    
+
+
+                    
+
+                    
+                    <!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+                    <script type="text/javascript">
+                        /* * * CONFIGURATION VARIABLES * * */
+                        var disqus_shortname = "your-disqus-ID";
+                        var disqus_identifier = "https://e23882.github.io/google9fbfe2a92e19226d.html";
+                        var disqus_url = "https://e23882.github.io/google9fbfe2a92e19226d.html";
+
+                        (function() {
+                            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                        })();
+
+                        
+                    </script>
+                    <!-- disqus 公共JS代码 end -->
+                    
                 
-                <!-- disqus comment end -->
             </div>
+
+          <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Featured Tags -->
+
+<section>
+    <!-- no hr -->
+    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
             
-            <!-- Tabe of Content -->
-            <!-- Table of Contents -->
-
-    
-      <aside id="sidebar">
-        <div id="toc" class="toc-article">
-        <strong class="toc-title">Contents</strong>
+            <a href="/tags/#C#" title="C#" rel="22">C#</a>
+            
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">[.net framework 4.5 ↑]使用CallerMemberName Attribute</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">一般寫法</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">CallerMemberName Attribute</span></a></li></ol></li></ol>
+            
         
-        </div>
-      </aside>
-    
-
-                
-            <!-- Sidebar Container -->
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                       
-                          <a class="tag" href="/tags/#C#" title="C#">C#</a>
-                        
-                          <a class="tag" href="/tags/#WPF" title="WPF">WPF</a>
-                        
-                    </div>
-                </section>
-                
-
-                <!-- Friends Blog -->
-                
-                <hr>
-                <h5>FRIENDS</h5>
-                <ul class="list-inline">
-
-                    
-                        <li><a href="#" target="_blank">It Helps SEO</a></li>
-                    
-                </ul>
-                
-            </div>
-        </div>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#git" title="git" rel="2">git</a>
+            
+        
+            
+            <a href="/tags/#WPF" title="WPF" rel="17">WPF</a>
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#Python" title="Python" rel="3">Python</a>
+            
+        
+            
+            <a href="/tags/#DataGrid" title="DataGrid" rel="3">DataGrid</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
     </div>
-</article>
+</section>
 
+        <hr>
+    
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+    <h5><a href="/about/">ABOUT ME</a></h5>
+    <div class="short-about">
 
+        
+            <img id = "avatar_pic" src="/img/Head.png" />
+        
 
+        
+            <p>Hello Hello, I&#39;m Leo.</p>
+        
 
-<!-- disqus embedded js code start (one page only need to embed once) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "your-disqus-ID";
-    var disqus_identifier = "https://e23882.github.io/2020/07/02/WPF-OnPropertyChanged不寫死參數PropertyName/";
-    var disqus_url = "https://e23882.github.io/2020/07/02/WPF-OnPropertyChanged不寫死參數PropertyName/";
+        <!-- SNS Link -->
+        <ul class="list-inline">
+            
+            
+            
 
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus embedded js code start end -->
+            
 
+            
 
+            
+                <li>
+                    <a target="_blank"  href="https://github.com/e23882">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
+            
+            
+            
+                <li>
+                    <a target="_blank"  href="https://www.linkedin.com/in/作賢-楊-1ba614185">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
+        </ul>
+    </div>
+</section>
+        <hr>
+    
+        
+  <h5>RECENT POSTS</h3>
+  <div class="widget">
+    <ul>
+      
+        <li>
+          <a href="/2020/07/08/StyleCop/">StyleCop</a>
+        </li>
+      
+        <li>
+          <a href="/2020/07/06/NUnit/">NUnit</a>
+        </li>
+      
+        <li>
+          <a href="/2020/07/03/WPF-DataGrid/">WPF DataGrid</a>
+        </li>
+      
+        <li>
+          <a href="/2020/07/02/WPF-Binding-Command/">WPF Binding Command</a>
+        </li>
+      
+        <li>
+          <a href="/2020/07/02/WPF-元件Resource/">WPF Resource用法</a>
+        </li>
+      
+    </ul>
+  </div>
 
+        <hr>
+    
+        <!-- Friends Blog -->
 
-<!-- async load function -->
-<script>
-    function async(u, c) {
-      var d = document, t = 'script',
-          o = d.createElement(t),
-          s = d.getElementsByTagName(t)[0];
-      o.src = u;
-      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
-      s.parentNode.insertBefore(o, s);
-    }
-</script>
-<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
-<script>
-    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
-        anchors.options = {
-          visible: 'hover',
-          placement: 'left',
-          icon: 'ℬ'
-        };
-        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
-    })
-</script>
-<style>
-    /* place left on bigger screen */
-    @media all and (min-width: 800px) {
-        .anchorjs-link{
-            position: absolute;
-            left: -0.75em;
-            font-size: 1.1em;
-            margin-top : -0.1em;
-        }
-    }
-</style>
+<h5>FRIENDS</h5>
+<ul class="list-inline">
 
+    
+        <li><a href="#" target="_blank">It Helps SEO</a></li>
+    
+</ul>
+
+        <hr>
+    
+</div>
+
+        
+    </div>
+</div>
 
 
     <!-- Footer -->
