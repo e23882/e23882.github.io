@@ -100,13 +100,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/git/</loc>
-        <lastmod>2020-07-10T03:43:15.477Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/xaml/</loc>
         <lastmod>2020-07-10T03:43:15.478Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -123,13 +116,6 @@
     <url>
         <loc>https://e23882.github.io/tags/TreeView/</loc>
         <lastmod>2020-07-10T03:43:15.482Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/Python/</loc>
-        <lastmod>2020-07-10T03:43:15.483Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -207,6 +193,48 @@
     <url>
         <loc>https://e23882.github.io/tags/Dockable/</loc>
         <lastmod>2020-07-30T10:01:08.391Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/git/</loc>
+        <lastmod>2020-08-05T03:57:37.604Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Python/</loc>
+        <lastmod>2020-08-07T11:12:07.157Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Jetbrains/</loc>
+        <lastmod>2020-08-07T11:18:23.075Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Rider/</loc>
+        <lastmod>2020-08-07T11:18:23.075Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Pycharm/</loc>
+        <lastmod>2020-08-07T11:18:23.075Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/DataGrip/</loc>
+        <lastmod>2020-08-07T11:18:23.075Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

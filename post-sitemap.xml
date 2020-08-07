@@ -7,6 +7,30 @@
     </url>
 
     <url>
+        <loc>https://e23882.github.io/2020/08/07/Jetbrains%E5%B7%A5%E5%85%B7%E5%BF%AB%E6%8D%B7%E9%8D%B5%E5%90%8D%E7%A8%B1/</loc>
+        <lastmod>2020-08-07T11:18:23.075Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/2020/08/07/Pythonm%E5%B8%B8%E7%94%A8%E8%AA%9E%E6%B3%95/</loc>
+        <lastmod>2020-08-07T11:12:07.157Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/2020/07/02/%E5%B8%B8%E7%94%A8Git/</loc>
+        <lastmod>2020-08-05T03:57:37.604Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://e23882.github.io/2020/07/02/WPF-Dockable/</loc>
         <lastmod>2020-07-30T10:01:08.391Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -89,14 +113,6 @@
     <url>
         <loc>https://e23882.github.io/2020/07/02/WPF-Property%E3%80%81Dependency-Property/</loc>
         <lastmod>2020-07-10T03:43:15.478Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/2020/07/02/%E5%B8%B8%E7%94%A8Git/</loc>
-        <lastmod>2020-07-10T03:43:15.477Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
