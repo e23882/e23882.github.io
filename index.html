@@ -139,14 +139,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -216,9 +216,74 @@
 
 <div class="post-preview">
 
+    <a href="/2020/08/18/DI注入依賴/">
+        <h2 class="post-title">
+            DI注入依賴
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            為啥要用DI
+之前有寫一篇實現DIP原則，主要就是把類別的屬性、方法設計在介面中，然後讓一個類別去繼承這個介面實作出來，讓產生的實例依賴在介面上去符合DIP，使用的時候大概是長這樣
+12345678910111213141516171819class Program&#123;    static void Main(string[] args)    &#123;        ISend......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-18
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#.Net Core" title=".Net Core">.Net Core</a>
+            
+              <a href="/tags/#DI" title="DI">DI</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/14/DIP/">
+        <h2 class="post-title">
+            DIP
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            反轉依賴原則(Dependency Inversion Principle)
+解釋
+High-level modules should not depend on low-level modules. Both should depend on abstractions.
+Abstractions should not depend on details. Details should de......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-14
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#SOLID" title="SOLID">SOLID</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2020/08/11/yolo/">
         <h2 class="post-title">
-            'yolo'
+            yolo
         </h2>
         <h3 class="post-subtitle">
             
@@ -265,6 +330,7 @@ tensorflow目前只支援到python3.7，python3.7還只能裝版本2.0.0以下�
 停止執行 : Stop
 Debug : Debug
 收合/打開所有程式碼 : Expand All
+註解/取消註解 : Comment/Uncomment Code
 
 垂直選取
 ctrl + ctrl 按住不要放+ 上/下
@@ -298,7 +364,7 @@ LiveTemplate
 
     <a href="/2020/08/07/Python常用語法/">
         <h2 class="post-title">
-            Pythonm常用語法
+            Python常用語法
         </h2>
         <h3 class="post-subtitle">
             
@@ -521,76 +587,6 @@ Style
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2020/07/02/元件事件、委派、interactivity-Command-觸發順序/">
-        <h2 class="post-title">
-            元件事件、委派、interactivity(Command)觸發順序
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            情境
-主視窗某動作new了一個物件(ex : 視窗)的實例(instance)，在實例產生時把事件委派回主視窗
-但被產生的實例本身也有寫被委派的事件,在xaml還有用Interactivity 將事件binding 到特定Command上
-被委派的事件(DelegatedMainWindowEvent)
-12SubWindow sb = new SubWindow();sb.close +=......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-OnPropertyChanged不寫死參數PropertyName/">
-        <h2 class="post-title">
-            WPF OnPropertyChanged不寫死參數PropertyName
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            [.net framework 4.5 ↑]使用CallerMemberName Attribute
-一般寫法
-繼承INotifyPropertyChanged Interface
-實做介面
-1public void OnPropertyChanged(string parameter)&#123;&#125;
-CallerMemberName Attribute
-這樣OnPropertyC......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -627,15 +623,7 @@ CallerMemberName Attribute
     <div class="tags">
         
             
-            <a href="/tags/#C#" title="C#" rel="22">C#</a>
-            
-        
-            
-        
-            
-        
-            
-        
+            <a href="/tags/#C#" title="C#" rel="23">C#</a>
             
         
             
@@ -648,6 +636,20 @@ CallerMemberName Attribute
         
             
             <a href="/tags/#WPF" title="WPF" rel="17">WPF</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
             
         
             
@@ -769,7 +771,15 @@ CallerMemberName Attribute
     <ul>
       
         <li>
-          <a href="/2020/08/11/yolo/">&#39;yolo&#39;</a>
+          <a href="/2020/08/18/DI注入依賴/">DI注入依賴</a>
+        </li>
+      
+        <li>
+          <a href="/2020/08/14/DIP/">DIP</a>
+        </li>
+      
+        <li>
+          <a href="/2020/08/11/yolo/">yolo</a>
         </li>
       
         <li>
@@ -777,15 +787,7 @@ CallerMemberName Attribute
         </li>
       
         <li>
-          <a href="/2020/08/07/Python常用語法/">Pythonm常用語法</a>
-        </li>
-      
-        <li>
-          <a href="/2020/07/08/StyleCop/">StyleCop</a>
-        </li>
-      
-        <li>
-          <a href="/2020/07/06/NUnit/">NUnit</a>
+          <a href="/2020/08/07/Python常用語法/">Python常用語法</a>
         </li>
       
     </ul>

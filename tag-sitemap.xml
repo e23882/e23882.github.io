@@ -177,13 +177,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2020-07-30T10:01:08.391Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/WPF/</loc>
         <lastmod>2020-07-30T10:01:08.391Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -205,50 +198,78 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/Jetbrains/</loc>
-        <lastmod>2020-08-07T11:19:23.378Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/Rider/</loc>
-        <lastmod>2020-08-07T11:19:23.378Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/Pycharm/</loc>
-        <lastmod>2020-08-07T11:19:23.378Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/DataGrip/</loc>
-        <lastmod>2020-08-07T11:19:23.378Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/Python/</loc>
-        <lastmod>2020-08-11T09:38:05.163Z</lastmod>
+        <lastmod>2020-08-14T07:17:13.719Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/python/</loc>
-        <lastmod>2020-08-11T11:05:57.819Z</lastmod>
+        <lastmod>2020-08-14T07:17:20.907Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/yolo/</loc>
-        <lastmod>2020-08-11T11:05:57.819Z</lastmod>
+        <lastmod>2020-08-14T07:17:20.907Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Jetbrains/</loc>
+        <lastmod>2020-08-14T07:20:34.018Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Rider/</loc>
+        <lastmod>2020-08-14T07:20:34.018Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Pycharm/</loc>
+        <lastmod>2020-08-14T07:20:34.018Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/DataGrip/</loc>
+        <lastmod>2020-08-14T07:20:34.018Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/C/</loc>
+        <lastmod>2020-08-18T10:10:33.174Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/SOLID/</loc>
+        <lastmod>2020-08-18T10:10:33.174Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Net-Core/</loc>
+        <lastmod>2020-08-18T11:20:53.643Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/DI/</loc>
+        <lastmod>2020-08-18T11:20:53.643Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
