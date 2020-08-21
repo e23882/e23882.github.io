@@ -170,20 +170,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/DataBinding/</loc>
-        <lastmod>2020-07-16T03:58:31.555Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/WPF/</loc>
-        <lastmod>2020-07-30T10:01:08.391Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/Dockable/</loc>
         <lastmod>2020-07-30T10:01:08.391Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -214,13 +200,6 @@
     <url>
         <loc>https://e23882.github.io/tags/yolo/</loc>
         <lastmod>2020-08-14T07:17:20.907Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/Jetbrains/</loc>
-        <lastmod>2020-08-14T07:20:34.018Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -270,6 +249,55 @@
     <url>
         <loc>https://e23882.github.io/tags/DI/</loc>
         <lastmod>2020-08-18T11:39:22.356Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/WPF/</loc>
+        <lastmod>2020-08-21T05:40:20.772Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/DataBinding/</loc>
+        <lastmod>2020-08-21T05:40:20.772Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/%E5%BC%95%E5%8B%95%E9%81%8E%E7%A8%8B%E7%9A%84%E7%9B%AE%E6%A8%99%E5%82%B3%E5%9B%9E%E4%BE%8B%E5%A4%96%E7%8B%80%E6%B3%81/</loc>
+        <lastmod>2020-08-21T05:40:20.772Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Jetbrains/</loc>
+        <lastmod>2020-08-21T05:47:23.409Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/jetbrains/</loc>
+        <lastmod>2020-08-21T06:07:52.475Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/rider/</loc>
+        <lastmod>2020-08-21T06:07:52.475Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/live-templates/</loc>
+        <lastmod>2020-08-21T06:07:52.475Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -213,6 +213,115 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2020/07/03/WPF-DataGrid/">
+        <h2 class="post-title">
+            WPF DataGrid
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            簡單DataGrid範例
+畫面
+
+程式(MVVM)
+1. DataModel.cs
+123456789namespace DataGridDemo&#123;    //定義ViewModel中資料集合每筆資料有哪些欄位    class DataModel    &#123;        public string Name &#123; get; set; &#125;        ......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-03
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+              <a href="/tags/#DataGrid" title="DataGrid">DataGrid</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/07/02/WPF-Binding-Command/">
+        <h2 class="post-title">
+            WPF Binding Command
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            為什麼要用Command不用事件
+
+改用Command取代掉事件可以避免記憶體洩漏
+可以降低畫面跟程式的耦合性,可以更好釐清問題發生的地方
+開發邏輯的人可以直接測試Command引發的動作
+
+定義一個Command
+123456789101112131415161718192021//繼承ICommand interface並實做方法public class RelayCommand : I......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/07/02/WPF-元件Resource/">
+        <h2 class="post-title">
+            WPF Resource用法
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Resource類型
+Resource Property
+Style
+12345678910&lt;Window&gt;	&lt;!-- 定義checkbox樣式 CheckBoxStyle--&gt;	&lt;Window.Resources&gt;		&lt;Style TargetType="&#123;x:Type CheckBox&#125;" x:Key="CheckBoxSty......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+              <a href="/tags/#Resource" title="Resource">Resource</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -466,122 +575,6 @@ Tool
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-套用Metro樣式/">
-        <h2 class="post-title">
-            WPF 套用Metro樣式
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Nuget安裝MahApps相關套件
-123MahApps.Metro.IconPacksMahApps.Metro.MetroMahApps.Metro.Resources
-主程式(MainWindow.xaml)套用MahApp樣式
-Xaml
-1xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Me......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-              <a href="/tags/#MahApps" title="MahApps">MahApps</a>
-            
-              <a href="/tags/#Metro Style" title="Metro Style">Metro Style</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-Dockable/">
-        <h2 class="post-title">
-            WPF Dockable
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            讓WPF有Dockable的功能
-
-###使用
-Nuget安裝Wpf Toolkit
-nuget搜尋WPF Toolkit，有一個作者是Xceed的就是了
-
-xaml加入引用資源
-1xmlns:avalondock="http://schemas.xceed.com/wpf/xaml/avalondock"
-實際使用
-
-123456789101112131415161718192021222......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-              <a href="/tags/#Dockable" title="Dockable">Dockable</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-DataTemplate-ControlTemplate/">
-        <h2 class="post-title">
-            WPF DataTemplate ControlTemplate
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            DataTemplate
-用資料(集合)產生元件
-123456789101112&lt;!-- 定義使用資料集合中的什麼欄位，每個欄位要長怎樣 --&gt;&lt;Window.Resources&gt;        &lt;DataTemplate x:Key="template"&gt;            &lt;StackPanel&gt;                &lt;......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-              <a href="/tags/#DataTemplate" title="DataTemplate">DataTemplate</a>
-            
-              <a href="/tags/#ControlTemplate" title="ControlTemplate">ControlTemplate</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -626,11 +619,17 @@ xaml加入引用資源
             
         
             
-            <a href="/tags/#WPF" title="WPF" rel="17">WPF</a>
-            
         
             
         
+            
+        
+            
+            <a href="/tags/#Jetbrains" title="Jetbrains" rel="2">Jetbrains</a>
+            
+        
+            
+            <a href="/tags/#WPF" title="WPF" rel="18">WPF</a>
             
         
             
@@ -660,13 +659,19 @@ xaml加入引用資源
             
         
             
+        
+            
+        
+            
+        
+            
+        
+            
             <a href="/tags/#Python" title="Python" rel="4">Python</a>
             
         
             
-        
-            
-        
+            <a href="/tags/#DataBinding" title="DataBinding" rel="2">DataBinding</a>
             
         
             
@@ -770,23 +775,23 @@ xaml加入引用資源
     <ul>
       
         <li>
+          <a href="/2020/08/21/Rider-Live-Templates/">Rider Live Templates</a>
+        </li>
+      
+        <li>
+          <a href="/2020/08/21/Jetbrains-Rider-同步設定/">Jetbrains-Rider 同步設定</a>
+        </li>
+      
+        <li>
+          <a href="/2020/08/21/WPF-引動過程的目標傳回例外狀況/">WPF 引動過程的目標傳回例外狀況</a>
+        </li>
+      
+        <li>
           <a href="/2020/08/18/DI注入依賴/">DI注入依賴</a>
         </li>
       
         <li>
           <a href="/2020/08/14/DIP/">DIP</a>
-        </li>
-      
-        <li>
-          <a href="/2020/08/11/yolo/">yolo</a>
-        </li>
-      
-        <li>
-          <a href="/2020/08/07/Jetbrains工具快捷鍵名稱/">Jetbrains工具快捷鍵名稱</a>
-        </li>
-      
-        <li>
-          <a href="/2020/08/07/Python常用語法/">Python常用語法</a>
         </li>
       
     </ul>

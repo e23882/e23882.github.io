@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -213,6 +213,116 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2020/08/21/Rider-Live-Templates/">
+        <h2 class="post-title">
+            Rider Live Templates
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Live Templates
+其實就是產生程式碼的範本，如果有一段常常要寫的程式碼要打很多次會浪費很多時間在做一樣的事情
+怎麼用
+在rider主視窗中按兩下shift，輸入live templates
+
+可以在要寫的語言中設定常用的template，按圖片中右上角的圖案可以新增template
+Shortcut 是呼叫範本的代碼，在程式中輸入了代碼再按tab就會自動產生對應的程式碼範本
+Re......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-21
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#jetbrains" title="jetbrains">jetbrains</a>
+            
+              <a href="/tags/#rider" title="rider">rider</a>
+            
+              <a href="/tags/#live templates" title="live templates">live templates</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/21/Jetbrains-Rider-同步設定/">
+        <h2 class="post-title">
+            Jetbrains-Rider 同步設定
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            同步環境設定
+在開發時常常會有習慣的快捷鍵，但因為原本的快捷鍵設定跟Rider的不一樣，這時候我們就會去設定自己習慣的設定
+如果開發環境不是只有在一台電腦上而是有好幾台電腦的時候就會很麻煩
+像我自己公司、常用的筆電、家裡的電腦我有三個開發環境，裡面都會裝Rider、Pycharm、DataGrip…，等於是我一樣的設定最多要設定9次
+jetbrains已經有幫使用者想好了
+在
+1File &......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-21
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Jetbrains" title="Jetbrains">Jetbrains</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/21/WPF-引動過程的目標傳回例外狀況/">
+        <h2 class="post-title">
+            WPF 引動過程的目標傳回例外狀況
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            引動過程的目標傳回例外狀況
+發生原因
+在XAML中把原件的屬性Binding在ViewModel中的屬性上，如果ViewModel在執行的過程中發生例外就會跳出來這個例外
+StaticResource
+常常為了不要讓CodeBehind有程式碼，會把ViewModel的宣告拿到Xaml的Resource裡面
+如果在Resource產生ViewModel實例(instance)的時候發生例外，......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-21
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+              <a href="/tags/#DataBinding" title="DataBinding">DataBinding</a>
+            
+              <a href="/tags/#引動過程的目標傳回例外狀況" title="引動過程的目標傳回例外狀況">引動過程的目標傳回例外狀況</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -478,115 +588,6 @@ Visual Studio 使用NUnit執行單元測試，看測試涵蓋率、
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2020/07/03/WPF-DataGrid/">
-        <h2 class="post-title">
-            WPF DataGrid
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            簡單DataGrid範例
-畫面
-
-程式(MVVM)
-1. DataModel.cs
-123456789namespace DataGridDemo&#123;    //定義ViewModel中資料集合每筆資料有哪些欄位    class DataModel    &#123;        public string Name &#123; get; set; &#125;        ......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-03
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-              <a href="/tags/#DataGrid" title="DataGrid">DataGrid</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-Binding-Command/">
-        <h2 class="post-title">
-            WPF Binding Command
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            為什麼要用Command不用事件
-
-改用Command取代掉事件可以避免記憶體洩漏
-可以降低畫面跟程式的耦合性,可以更好釐清問題發生的地方
-開發邏輯的人可以直接測試Command引發的動作
-
-定義一個Command
-123456789101112131415161718192021//繼承ICommand interface並實做方法public class RelayCommand : I......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-元件Resource/">
-        <h2 class="post-title">
-            WPF Resource用法
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Resource類型
-Resource Property
-Style
-12345678910&lt;Window&gt;	&lt;!-- 定義checkbox樣式 CheckBoxStyle--&gt;	&lt;Window.Resources&gt;		&lt;Style TargetType="&#123;x:Type CheckBox&#125;" x:Key="CheckBoxSty......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-              <a href="/tags/#Resource" title="Resource">Resource</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -627,11 +628,17 @@ Style
             
         
             
-            <a href="/tags/#WPF" title="WPF" rel="17">WPF</a>
-            
         
             
         
+            
+        
+            
+            <a href="/tags/#Jetbrains" title="Jetbrains" rel="2">Jetbrains</a>
+            
+        
+            
+            <a href="/tags/#WPF" title="WPF" rel="18">WPF</a>
             
         
             
@@ -661,13 +668,19 @@ Style
             
         
             
+        
+            
+        
+            
+        
+            
+        
+            
             <a href="/tags/#Python" title="Python" rel="4">Python</a>
             
         
             
-        
-            
-        
+            <a href="/tags/#DataBinding" title="DataBinding" rel="2">DataBinding</a>
             
         
             
@@ -771,23 +784,23 @@ Style
     <ul>
       
         <li>
+          <a href="/2020/08/21/Rider-Live-Templates/">Rider Live Templates</a>
+        </li>
+      
+        <li>
+          <a href="/2020/08/21/Jetbrains-Rider-同步設定/">Jetbrains-Rider 同步設定</a>
+        </li>
+      
+        <li>
+          <a href="/2020/08/21/WPF-引動過程的目標傳回例外狀況/">WPF 引動過程的目標傳回例外狀況</a>
+        </li>
+      
+        <li>
           <a href="/2020/08/18/DI注入依賴/">DI注入依賴</a>
         </li>
       
         <li>
           <a href="/2020/08/14/DIP/">DIP</a>
-        </li>
-      
-        <li>
-          <a href="/2020/08/11/yolo/">yolo</a>
-        </li>
-      
-        <li>
-          <a href="/2020/08/07/Jetbrains工具快捷鍵名稱/">Jetbrains工具快捷鍵名稱</a>
-        </li>
-      
-        <li>
-          <a href="/2020/08/07/Python常用語法/">Python常用語法</a>
         </li>
       
     </ul>
