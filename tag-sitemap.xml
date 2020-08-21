@@ -205,27 +205,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/Rider/</loc>
-        <lastmod>2020-08-14T07:20:34.018Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/Pycharm/</loc>
-        <lastmod>2020-08-14T07:20:34.018Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/DataGrip/</loc>
-        <lastmod>2020-08-14T07:20:34.018Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/C/</loc>
         <lastmod>2020-08-18T10:10:33.174Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -254,50 +233,71 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/WPF/</loc>
-        <lastmod>2020-08-21T05:40:20.772Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/DataBinding/</loc>
-        <lastmod>2020-08-21T05:40:20.772Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/%E5%BC%95%E5%8B%95%E9%81%8E%E7%A8%8B%E7%9A%84%E7%9B%AE%E6%A8%99%E5%82%B3%E5%9B%9E%E4%BE%8B%E5%A4%96%E7%8B%80%E6%B3%81/</loc>
-        <lastmod>2020-08-21T05:40:20.772Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/Jetbrains/</loc>
-        <lastmod>2020-08-21T05:47:23.409Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/jetbrains/</loc>
-        <lastmod>2020-08-21T06:07:52.475Z</lastmod>
+        <lastmod>2020-08-21T06:08:19.759Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/rider/</loc>
-        <lastmod>2020-08-21T06:07:52.475Z</lastmod>
+        <lastmod>2020-08-21T06:08:19.759Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/live-templates/</loc>
-        <lastmod>2020-08-21T06:07:52.475Z</lastmod>
+        <lastmod>2020-08-21T06:08:19.759Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/WPF/</loc>
+        <lastmod>2020-08-21T06:08:19.761Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/DataBinding/</loc>
+        <lastmod>2020-08-21T06:08:19.761Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/%E5%BC%95%E5%8B%95%E9%81%8E%E7%A8%8B%E7%9A%84%E7%9B%AE%E6%A8%99%E5%82%B3%E5%9B%9E%E4%BE%8B%E5%A4%96%E7%8B%80%E6%B3%81/</loc>
+        <lastmod>2020-08-21T06:08:19.761Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Jetbrains/</loc>
+        <lastmod>2020-08-21T06:38:39.176Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Rider/</loc>
+        <lastmod>2020-08-21T06:38:39.176Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Pycharm/</loc>
+        <lastmod>2020-08-21T06:38:39.176Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/DataGrip/</loc>
+        <lastmod>2020-08-21T06:38:39.176Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
