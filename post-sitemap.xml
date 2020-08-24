@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>https://e23882.github.io/2020/07/06/NUnit/</loc>
+        <lastmod>2020-08-24T08:54:53.715Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://e23882.github.io/2020/07/02/WPF-Dockable/</loc>
         <lastmod>2020-08-24T08:15:45.647Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -105,14 +113,6 @@
     <url>
         <loc>https://e23882.github.io/2020/07/02/WPF-%E5%85%83%E4%BB%B6Resource/</loc>
         <lastmod>2020-07-13T05:41:23.341Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/2020/07/06/NUnit/</loc>
-        <lastmod>2020-07-13T03:51:15.283Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
