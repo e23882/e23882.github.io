@@ -7,8 +7,16 @@
     </url>
 
     <url>
+        <loc>https://e23882.github.io/2020/07/02/WPF-TextBox%E6%B5%AE%E6%B0%B4%E5%8D%B0/</loc>
+        <lastmod>2020-08-24T09:22:03.991Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://e23882.github.io/2020/07/06/NUnit/</loc>
-        <lastmod>2020-08-24T08:59:04.185Z</lastmod>
+        <lastmod>2020-08-24T09:01:51.143Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -193,14 +201,6 @@
     <url>
         <loc>https://e23882.github.io/2020/07/02/WPF-%E5%A5%97%E7%94%A8Metro%E6%A8%A3%E5%BC%8F/</loc>
         <lastmod>2020-07-10T03:43:15.441Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/2020/07/02/WPF-TextBox%E6%B5%AE%E6%B0%B4%E5%8D%B0/</loc>
-        <lastmod>2020-07-10T03:43:15.439Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
