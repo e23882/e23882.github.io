@@ -289,15 +289,29 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/C/</loc>
+        <loc>https://e23882.github.io/tags/WPF/</loc>
         <lastmod>2020-08-24T09:22:03.991Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/WPF/</loc>
-        <lastmod>2020-08-24T09:22:03.991Z</lastmod>
+        <loc>https://e23882.github.io/tags/C/</loc>
+        <lastmod>2020-08-24T11:20:49.485Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/async/</loc>
+        <lastmod>2020-08-24T11:20:49.485Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/await/</loc>
+        <lastmod>2020-08-24T11:20:49.485Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Rider Live Templates - Leo&#39;s Technical Debt
+          C# 常用方法 - Leo&#39;s Technical Debt
         
     </title>
 
-    <link rel="canonical" href="https://e23882.github.io/2020/08/21/Rider-Live-Templates/">
+    <link rel="canonical" href="https://e23882.github.io/2020/08/24/C-常用方法/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -90,18 +90,14 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#jetbrains" title="jetbrains">jetbrains</a>
-                            
-                              <a class="tag" href="/tags/#rider" title="rider">rider</a>
-                            
-                              <a class="tag" href="/tags/#live templates" title="live templates">live templates</a>
+                              <a class="tag" href="/tags/#C#" title="C#">C#</a>
                             
                         </div>
-                        <h1>Rider Live Templates</h1>
+                        <h1>C# 常用方法</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leo Yang on
-                            2020-08-21
+                            2020-08-24
                         </span>
                     </div>
                 
@@ -221,26 +217,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2><span id="live-templates">Live Templates</span></h2>
-<p>其實就是產生程式碼的範本，如果有一段常常要寫的程式碼要打很多次會浪費很多時間在做一樣的事情</p>
-<h3><span id="怎麼用">怎麼用</span></h3>
-<p>在rider主視窗中按兩下shift，輸入live templates<br>
-<img src="show.png" alt="show"></p>
-<p>可以在要寫的語言中設定常用的template，按圖片中右上角的圖案可以新增template<br><br>
-Shortcut 是呼叫範本的代碼，在程式中輸入了代碼再按tab就會自動產生對應的程式碼範本<br>
-Refotmat 不要勾<br>
-<img src="setting.png" alt="show"></p>
-<h3><span id="實際展示">實際展示</span></h3>
-<p>我常寫的一段產生屬性的方法</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">string</span> _Height;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">string</span> Height</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">get</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> _Height;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span></span><br><span class="line">    &#123;</span><br><span class="line">        _Height = <span class="keyword">value</span>;</span><br><span class="line">        OnPropertyChanged();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在WPF開發時常常要寫很多屬性，這段code我真的寫了無數次</p>
-<p>如果我們要用live templates來讓之後可以重複產生這段代碼，但是資料型態跟屬性名稱我希望可以照著我要使用的時候去設定可以這樣設定</p>
-<p><img src="demo.png" alt="Demo"></p>
-<p>我先設定這組範本叫做ppt(ProPreTy)，再把資料型態sting 換成變數 $Type$，屬性名稱PropertyName換成變數$PropertyName$，最後再讓游標停留在$END$的位置<br></p>
-<p>在寫程式時只要打ppt再按tab就會產生出這段範本，但是我要輸入兩個變數 $Type$跟$PropertyName$</p>
-<p>所以整個流程會是</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ppt &gt; <span class="literal">tab</span> &gt; <span class="built_in">string</span> &gt; <span class="literal">tab</span> &gt; Name &gt; <span class="literal">tab</span> &gt; 結束</span><br></pre></td></tr></table></figure>
-
+                <h2><span id="xml">XML</span></h2>
+<h4><span id="讀取xml">讀取XML</span></h4>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span></span><br><span class="line">&#123;</span><br><span class="line">    XmlDocument xmlDoc = <span class="keyword">new</span> XmlDocument();</span><br><span class="line">    xmlDoc.Load(<span class="string">"Setting.xml"</span>);<span class="comment">//載入xml檔</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> data = xmlDoc.SelectNodes(<span class="string">"Setting"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> data)</span><br><span class="line">    &#123;</span><br><span class="line">        ServiceName = ((XmlElement)item).GetAttribute(<span class="string">"ServiceName"</span>);</span><br><span class="line">        ServerName = ((XmlElement)item).GetAttribute(<span class="string">"ServerName"</span>);</span><br><span class="line">        UserName = ((XmlElement)item).GetAttribute(<span class="string">"UserName"</span>);</span><br><span class="line">        PassWord = ((XmlElement)item).GetAttribute(<span class="string">"PassWord"</span>);</span><br><span class="line">        Source = ((XmlElement)item).GetAttribute(<span class="string">"SourcePath"</span>);</span><br><span class="line">        ServicePath = ((XmlElement)item).GetAttribute(<span class="string">"ServicePath"</span>);</span><br><span class="line">        ClientPath = ((XmlElement)item).GetAttribute(<span class="string">"ClientPath"</span>);</span><br><span class="line">        Domain = ((XmlElement)item).GetAttribute(<span class="string">"Domain"</span>);</span><br><span class="line">        SQLPath = ((XmlElement)item).GetAttribute(<span class="string">"SQLPath"</span>);</span><br><span class="line">        BackupPath = ((XmlElement)item).GetAttribute(<span class="string">"BackupPath"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">catch</span> (Exception ie)</span><br><span class="line">&#123;</span><br><span class="line">    CreatDefaultSetting();</span><br><span class="line">    ReadRule();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="建立預設xml">建立預設XML</span></h4>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">XElement xElement = <span class="keyword">new</span> XElement</span><br><span class="line">    (</span><br><span class="line">    <span class="keyword">new</span> XElement</span><br><span class="line">    (<span class="string">"Setting"</span>,</span><br><span class="line">        <span class="keyword">new</span> XAttribute(<span class="string">"ServiceName"</span>, <span class="string">"Service1"</span>),</span><br><span class="line">        <span class="keyword">new</span> XAttribute(<span class="string">"ServerName"</span>, <span class="string">"Server1"</span>),</span><br><span class="line">        <span class="keyword">new</span> XAttribute(<span class="string">"UserName"</span>, <span class="string">"Administrator"</span>),</span><br><span class="line">        <span class="keyword">new</span> XAttribute(<span class="string">"PassWord"</span>, <span class="string">"12345"</span>),</span><br><span class="line">        <span class="keyword">new</span> XAttribute(<span class="string">"SourcePath"</span>, <span class="string">@".\Source"</span>)</span><br><span class="line">    )</span><br><span class="line">    );</span><br><span class="line">XmlWriterSettings settings = <span class="keyword">new</span> XmlWriterSettings();</span><br><span class="line">settings.Encoding = <span class="keyword">new</span> UTF8Encoding(<span class="literal">false</span>);</span><br><span class="line">settings.Indent = <span class="literal">true</span>;</span><br><span class="line">XmlWriter xw = XmlWriter.Create(System.Environment.CurrentDirectory + <span class="string">"\\setting.xml"</span>, settings);</span><br><span class="line">xElement.Save(xw);</span><br><span class="line"><span class="comment">//寫入檔案</span></span><br><span class="line">xw.Flush();</span><br><span class="line">xw.Close();</span><br></pre></td></tr></table></figure>
+<hr>
+<h2><span id="遞迴檢查目錄下所有檔案目錄">遞迴檢查目錄下所有檔案/目錄</span></h2>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Recursive2</span></span><br><span class="line">&#123;</span><br><span class="line">    List&lt;<span class="keyword">string</span>&gt; FileCollection = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Recursive2</span>(<span class="params"><span class="keyword">string</span> rootPath</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        GetAllFiles(rootPath);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">GetAllFiles</span>(<span class="params"><span class="keyword">string</span> rootPath</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="comment">//取得目錄下所有目錄</span></span><br><span class="line">        <span class="keyword">var</span> AllFolder = Directory.GetDirectories(rootPath);</span><br><span class="line">        <span class="keyword">if</span> (AllFolder.Length &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> AllFolder)</span><br><span class="line">            &#123;</span><br><span class="line">                GetAllFiles(item);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">var</span> AllFile = Directory.GetFiles(rootPath);</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="keyword">var</span> item <span class="keyword">in</span> AllFile)</span><br><span class="line">            FileCollection.Add(item);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;<span class="keyword">string</span>&gt; <span class="title">GetAllFile</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">return</span> FileCollection;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
                 
 
                 <hr>
@@ -248,12 +232,12 @@ Refotmat 不要勾<br>
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/2020/08/24/C-常用方法/" data-toggle="tooltip" data-placement="top" title="C# 常用方法">&larr; Previous Post</a>
+                            <a href="/2020/08/24/Async-Await/" data-toggle="tooltip" data-placement="top" title="Async/Await">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/2020/08/21/Jetbrains-Rider-同步設定/" data-toggle="tooltip" data-placement="top" title="Jetbrains-Rider 同步設定">Next Post &rarr;</a>
+                            <a href="/2020/08/21/Rider-Live-Templates/" data-toggle="tooltip" data-placement="top" title="Rider Live Templates">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -283,7 +267,7 @@ Refotmat 不要勾<br>
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">Live Templates</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">怎麼用</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">實際展示</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">XML</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.0.1.</span> <span class="toc-nav-text">讀取XML</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.0.2.</span> <span class="toc-nav-text">建立預設XML</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">遞迴檢查目錄下所有檔案/目錄</span></a></li></ol>
         
         </div>
       </aside>
@@ -303,11 +287,7 @@ Refotmat 不要勾<br>
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#jetbrains" title="jetbrains">jetbrains</a>
-                        
-                          <a class="tag" href="/tags/#rider" title="rider">rider</a>
-                        
-                          <a class="tag" href="/tags/#live templates" title="live templates">live templates</a>
+                          <a class="tag" href="/tags/#C#" title="C#">C#</a>
                         
                     </div>
                 </section>
@@ -336,8 +316,8 @@ Refotmat 不要勾<br>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "your-disqus-ID";
-    var disqus_identifier = "https://e23882.github.io/2020/08/21/Rider-Live-Templates/";
-    var disqus_url = "https://e23882.github.io/2020/08/21/Rider-Live-Templates/";
+    var disqus_identifier = "https://e23882.github.io/2020/08/24/C-常用方法/";
+    var disqus_url = "https://e23882.github.io/2020/08/24/C-常用方法/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
