@@ -223,7 +223,8 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h2><span id="nunit">##NUnit</span></h2>
+                <h2><span id="nunit">NUnit</span></h2>
+<hr>
 <h3><span id="nunit是什麼">NUnit是什麼</span></h3>
 <p>NUnit是一種測試框架，常見的還有MSTest、xUnit，我因為要用AXOCover去看測試涵蓋率，所以選了一個AXOCover有支援的測試框架</p>
 <h3><span id="visual-studio-使用nunit執行單元測試">Visual Studio 使用NUnit執行單元測試</span></h3>
@@ -247,8 +248,8 @@
 <p><img src="testExplorer.PNG" alt="Origin Test Explorer"></p>
 <p>測試結果<br>
 <img src="axoResult.PNG" alt="NUnitResult"></p>
-<h3><span id="axocover-使用axocover看測試涵蓋率">AXOCover - 使用AXOCover看測試涵蓋率</span></h3>
-<h4><span id="安裝visual-studio-axo-cover-extension">安裝visual studio AXO Cover extension</span></h4>
+<h2><span id="axocover-使用axocover看測試涵蓋率">AXOCover - 使用AXOCover看測試涵蓋率</span></h2>
+<h3><span id="安裝visual-studio-axo-cover-extension">安裝visual studio AXO Cover extension</span></h3>
 <p><img src="axo.PNG" alt="Axo Cover"></p>
 <p>如果沒裝，執行結果大概長這樣<br>
 <img src="nunitResult.PNG" alt="NUnitResult"></p>
@@ -260,13 +261,13 @@
 <img src="cover.PNG" alt="NUnitResult"></p>
 <p>還能輸出報表，透過Risk Hotspots知道自己程式哪邊可能有問題哪邊寫得很爛(Scrap Score)，可以用這個垃圾分數當成依據，去把程式改得更好，或是從根本調整自己寫程式的習慣<br>
 <img src="Report.PNG" alt="NUnitResult"></p>
-<h4><span id="使用testcase-attribute">使用TestCase Attribute</span></h4>
+<h3><span id="使用testcase-attribute">使用TestCase Attribute</span></h3>
 <p>如果客戶發生問題，可以針對他的情境去測試，不用額外再寫一個<br>
 <img src="Attribute.PNG" alt="NUnitAttribute"><br>
 <img src="NUnitAttrNewResult.PNG" alt="NUnitAttributeResult"></p>
-<h4><span id="為啥要寫測試">為啥要寫測試</span></h4>
+<h3><span id="為啥要寫測試">為啥要寫測試</span></h3>
 <p>常常會有那種改A壞B、改B壞C，如果改完程式有測出來問題那就算了，往往都是改了之後只針對當下的情境去測試，沒有測到其他的情況，最後發現問題的時候都是資料已經錯很久了，要花時間查、還要想辦法把有問題的資料修正，很麻煩</p>
-<h4><span id="啥時要寫測試">啥時要寫測試</span></h4>
+<h3><span id="啥時要寫測試">啥時要寫測試</span></h3>
 <p>有時間就寫，你不知道什麼時候程式會壞掉或是被誰改壞掉，如果有寫測試，每次Pull完就可以執行一下，看程式還能不能正常運作、哪個地方有問題。<br><br>
 就算公司沒人在做，你也可以自己寫給自己用，最好是開發時估工時就把寫測試的時間算進去，code寫完過了一年三年，中間就算經手很多人，只要當初的測試依跑，就能知道到底還有多少地方可以正常執行，還可以透過測試知道他運作的流程是什麼</p>
 
@@ -312,7 +313,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">##NUnit</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">NUnit是什麼</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Visual Studio 使用NUnit執行單元測試</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">測試怎麼寫</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">SetUp</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">TestCase</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.3.</span> <span class="toc-nav-text">範例</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.4.</span> <span class="toc-nav-text">執行測試</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">AXOCover - 使用AXOCover看測試涵蓋率</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.4.1.</span> <span class="toc-nav-text">安裝visual studio AXO Cover extension</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.4.2.</span> <span class="toc-nav-text">使用TestCase Attribute</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.4.3.</span> <span class="toc-nav-text">為啥要寫測試</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.4.4.</span> <span class="toc-nav-text">啥時要寫測試</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">NUnit</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">NUnit是什麼</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">Visual Studio 使用NUnit執行單元測試</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">測試怎麼寫</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">SetUp</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">TestCase</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.3.</span> <span class="toc-nav-text">範例</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.4.</span> <span class="toc-nav-text">執行測試</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">AXOCover - 使用AXOCover看測試涵蓋率</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">安裝visual studio AXO Cover extension</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">使用TestCase Attribute</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">為啥要寫測試</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.4.</span> <span class="toc-nav-text">啥時要寫測試</span></a></li></ol></li></ol>
         
         </div>
       </aside>
