@@ -79,13 +79,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/Chart/</loc>
-        <lastmod>2020-07-10T03:43:15.442Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/Hexo/</loc>
         <lastmod>2020-07-10T03:43:15.476Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -170,13 +163,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/Dockable/</loc>
-        <lastmod>2020-07-30T10:01:08.391Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/git/</loc>
         <lastmod>2020-08-05T03:57:37.604Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -200,13 +186,6 @@
     <url>
         <loc>https://e23882.github.io/tags/yolo/</loc>
         <lastmod>2020-08-14T07:17:20.907Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2020-08-18T10:10:33.174Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -254,13 +233,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/WPF/</loc>
-        <lastmod>2020-08-21T06:08:19.761Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/DataBinding/</loc>
         <lastmod>2020-08-21T06:08:19.761Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -298,6 +270,34 @@
     <url>
         <loc>https://e23882.github.io/tags/DataGrip/</loc>
         <lastmod>2020-08-21T06:38:39.176Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Chart/</loc>
+        <lastmod>2020-08-24T08:13:40.686Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/C/</loc>
+        <lastmod>2020-08-24T08:15:45.647Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/WPF/</loc>
+        <lastmod>2020-08-24T08:15:45.647Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Dockable/</loc>
+        <lastmod>2020-08-24T08:15:45.647Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
