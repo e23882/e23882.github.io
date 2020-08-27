@@ -216,6 +216,76 @@
 
 <div class="post-preview">
 
+    <a href="/2020/07/02/WPF-DataGrid中的元件Binding-Command失敗/">
+        <h2 class="post-title">
+            WPF DataGrid中的元件Binding Command失敗
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            WPF DataGrid中的元件Binding Command失敗
+原因
+DataGrid因為ItemSource已經Binding ViewModel中的指定的集合屬性(DataSource)
+它的xaml結構大概長這樣:
+123456789&lt;DataGrid ItemsSource="&#123;Binding DataSource&#125;"&gt;    &lt;DataGr......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+              <a href="/tags/#DataGrid" title="DataGrid">DataGrid</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/07/02/WPF-DataBinding/">
+        <h2 class="post-title">
+            WPF DataBinding
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            DataBinding 範例
+1.定義會用到的視圖模型(ViewModel)
+12345678910111213141516171819202122232425262728293031323334353637383940//繼承INotifyPropertyChanged Interface，讓元件透過Binding訂閱ViewModel中的屬性，資料更新時UI會自己更新，很方便class ......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+              <a href="/tags/#DataBinding" title="DataBinding">DataBinding</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2020/07/02/WPF-DataGrid值發生改變時改變背景顏色/">
         <h2 class="post-title">
             WPF DataGrid值發生改變時改變背景顏色
@@ -505,76 +575,6 @@ curl to Python Code
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2020/07/02/MS-SQL-Temp-Table/">
-        <h2 class="post-title">
-            MS-SQL Temp Table
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            MS-SQL  Temp Table
-#TempTable
-資料表真的會存在資料庫裡面,要完要記得Drop掉
-1234567891011121314CREATE TABLE #temp(	Pno			int,	Sno			int,	Qty			decimal(19,5),	Cost			decimal(19,5),	[Date]			date,	Profit			decimal(19,5),......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#SQL" title="SQL">SQL</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/18/hexo-theme-beantech/">
-        <h2 class="post-title">
-            [Hexo] Theme BeanTech
-        </h2>
-        <h3 class="post-subtitle">
-            This is hexo theme Demo.
-        </h3>
-        <div class="post-content-preview">
-            
-Ported Theme of Hux Blog, Thank Huxpro for designing such a flawless theme.
-This BeanTech theme created by YuHsuan modified from the original Porter Kaijun
-
-
-
-
-Usage
-
-I publish the whole project f......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2017-03-18
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Hexo" title="Hexo">Hexo</a>
-            
-              <a href="/tags/#Blog" title="Blog">Blog</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -585,6 +585,10 @@ I publish the whole project f......
             <a href="/archives/3/">&larr; Newer Posts</a>
         </li>
     
+    
+        <li class="next">
+            <a href="/archives/5/">Older Posts &rarr;</a>
+        </li>
     
 </ul>
 
@@ -615,17 +619,31 @@ I publish the whole project f......
             
         
             
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
             <a href="/tags/#WPF" title="WPF" rel="18">WPF</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
             
         
             
@@ -645,12 +663,6 @@ I publish the whole project f......
             
         
             
-        
-            
-        
-            
-        
-            
             <a href="/tags/#git" title="git" rel="2">git</a>
             
         
@@ -661,7 +673,7 @@ I publish the whole project f......
             
         
             
-            <a href="/tags/#Python" title="Python" rel="4">Python</a>
+            <a href="/tags/#Python" title="Python" rel="5">Python</a>
             
         
             
@@ -674,8 +686,6 @@ I publish the whole project f......
         
             
         
-            
-            <a href="/tags/#DataBinding" title="DataBinding" rel="2">DataBinding</a>
             
         
             
@@ -688,6 +698,10 @@ I publish the whole project f......
         
             
         
+            
+        
+            
+            <a href="/tags/#DataBinding" title="DataBinding" rel="2">DataBinding</a>
             
         
             
@@ -775,6 +789,14 @@ I publish the whole project f......
     <ul>
       
         <li>
+          <a href="/2020/08/27/Linux安裝mysql-phpmyadmin/">Linux安裝mysql.phpmyadmin</a>
+        </li>
+      
+        <li>
+          <a href="/2020/08/27/Python-Request/">Python-Request</a>
+        </li>
+      
+        <li>
           <a href="/2020/08/24/Async-Await/">Async/Await</a>
         </li>
       
@@ -784,14 +806,6 @@ I publish the whole project f......
       
         <li>
           <a href="/2020/08/21/Rider-Live-Templates/">Rider Live Templates</a>
-        </li>
-      
-        <li>
-          <a href="/2020/08/21/Jetbrains-Rider-同步設定/">Jetbrains-Rider 同步設定</a>
-        </li>
-      
-        <li>
-          <a href="/2020/08/21/WPF-引動過程的目標傳回例外狀況/">WPF 引動過程的目標傳回例外狀況</a>
         </li>
       
     </ul>
