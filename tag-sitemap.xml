@@ -170,13 +170,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/Net-Core/</loc>
-        <lastmod>2020-08-18T11:39:22.356Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/DI/</loc>
         <lastmod>2020-08-18T11:39:22.356Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -289,20 +282,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2020-08-24T11:51:52.487Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/Python/</loc>
-        <lastmod>2020-08-27T10:01:01.983Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/Request/</loc>
         <lastmod>2020-08-27T10:01:01.983Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -338,15 +317,57 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/WPF/</loc>
+        <loc>https://e23882.github.io/tags/DataBinding/</loc>
         <lastmod>2020-08-31T11:16:10.033Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/DataBinding/</loc>
-        <lastmod>2020-08-31T11:16:10.033Z</lastmod>
+        <loc>https://e23882.github.io/tags/WPF/</loc>
+        <lastmod>2020-09-07T06:10:05.567Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Python/</loc>
+        <lastmod>2020-09-18T10:28:25.276Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/C/</loc>
+        <lastmod>2020-09-23T07:29:33.237Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Net-Core/</loc>
+        <lastmod>2020-09-23T07:29:33.237Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/IIS/</loc>
+        <lastmod>2020-09-23T07:29:33.237Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/WebAPI/</loc>
+        <lastmod>2020-09-23T07:29:33.237Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Publish/</loc>
+        <lastmod>2020-09-23T07:29:33.237Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

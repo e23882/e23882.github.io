@@ -139,14 +139,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -213,6 +213,71 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2020/08/18/DI注入依賴/">
+        <h2 class="post-title">
+            DI注入依賴
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            為啥要用DI
+之前有寫一篇實現DIP原則，主要就是把類別的屬性、方法設計在介面中，然後讓一個類別去繼承這個介面實作出來，讓產生的實例依賴在介面上去符合DIP，使用的時候大概是長這樣
+12345678910111213141516171819class Program&#123;    static void Main(string[] args)    &#123;        ISend......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-18
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#.Net Core" title=".Net Core">.Net Core</a>
+            
+              <a href="/tags/#DI" title="DI">DI</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/14/DIP/">
+        <h2 class="post-title">
+            DIP
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            反轉依賴原則(Dependency Inversion Principle)
+解釋
+High-level modules should not depend on low-level modules. Both should depend on abstractions.
+Abstractions should not depend on details. Details should de......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-14
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#SOLID" title="SOLID">SOLID</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -516,76 +581,6 @@ Style
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2020/07/02/元件事件、委派、interactivity-Command-觸發順序/">
-        <h2 class="post-title">
-            元件事件、委派、interactivity(Command)觸發順序
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            情境
-主視窗某動作new了一個物件(ex : 視窗)的實例(instance)，在實例產生時把事件委派回主視窗
-但被產生的實例本身也有寫被委派的事件,在xaml還有用Interactivity 將事件binding 到特定Command上
-被委派的事件(DelegatedMainWindowEvent)
-12SubWindow sb = new SubWindow();sb.close +=......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-OnPropertyChanged不寫死參數PropertyName/">
-        <h2 class="post-title">
-            WPF OnPropertyChanged不寫死參數PropertyName
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            [.net framework 4.5 ↑]使用CallerMemberName Attribute
-一般寫法
-繼承INotifyPropertyChanged Interface
-實做介面
-1public void OnPropertyChanged(string parameter)&#123;&#125;
-CallerMemberName Attribute
-這樣OnPropertyC......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -626,7 +621,7 @@ CallerMemberName Attribute
     <div class="tags">
         
             
-            <a href="/tags/#C#" title="C#" rel="25">C#</a>
+            <a href="/tags/#C#" title="C#" rel="26">C#</a>
             
         
             
@@ -646,6 +641,8 @@ CallerMemberName Attribute
             
         
             
+            <a href="/tags/#.Net Core" title=".Net Core" rel="2">.Net Core</a>
+            
         
             
         
@@ -664,23 +661,23 @@ CallerMemberName Attribute
             
         
             
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
             <a href="/tags/#git" title="git" rel="2">git</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
             
         
             
@@ -698,13 +695,19 @@ CallerMemberName Attribute
             
         
             
-        
-            
             <a href="/tags/#DataBinding" title="DataBinding" rel="3">DataBinding</a>
             
         
             
+        
+            
             <a href="/tags/#DataGrid" title="DataGrid" rel="3">DataGrid</a>
+            
+        
+            
+        
+            
+        
             
         
             
@@ -800,6 +803,14 @@ CallerMemberName Attribute
     <ul>
       
         <li>
+          <a href="/2020/09/23/發布-Net-Core-Webapi到IIS/">發布.Net Core Webapi到IIS</a>
+        </li>
+      
+        <li>
+          <a href="/2020/09/04/資料結構/">資料結構</a>
+        </li>
+      
+        <li>
           <a href="/2020/08/31/WPF-MultiBinding/">WPF MultiBinding</a>
         </li>
       
@@ -809,14 +820,6 @@ CallerMemberName Attribute
       
         <li>
           <a href="/2020/08/27/Python-Request/">Python-Request</a>
-        </li>
-      
-        <li>
-          <a href="/2020/08/24/Async-Await/">Async/Await</a>
-        </li>
-      
-        <li>
-          <a href="/2020/08/24/C-常用方法/">C# 常用方法</a>
         </li>
       
     </ul>
