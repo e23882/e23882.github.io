@@ -30,13 +30,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/SQL/</loc>
-        <lastmod>2020-07-10T03:43:15.424Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/StyleCop/</loc>
         <lastmod>2020-07-10T03:43:15.427Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -339,35 +332,42 @@
 
     <url>
         <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2020-09-23T07:29:33.237Z</lastmod>
+        <lastmod>2020-10-13T07:18:44.494Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/Net-Core/</loc>
-        <lastmod>2020-09-23T07:29:33.237Z</lastmod>
+        <lastmod>2020-10-13T07:18:44.494Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/IIS/</loc>
-        <lastmod>2020-09-23T07:29:33.237Z</lastmod>
+        <lastmod>2020-10-13T07:18:44.494Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/WebAPI/</loc>
-        <lastmod>2020-09-23T07:29:33.237Z</lastmod>
+        <lastmod>2020-10-13T07:18:44.494Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://e23882.github.io/tags/Publish/</loc>
-        <lastmod>2020-09-23T07:29:33.237Z</lastmod>
+        <lastmod>2020-10-13T07:18:44.494Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/SQL/</loc>
+        <lastmod>2020-12-10T07:20:54.004Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
