@@ -135,13 +135,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/git/</loc>
-        <lastmod>2020-08-05T03:57:37.604Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/python/</loc>
         <lastmod>2020-08-14T07:17:20.907Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -368,6 +361,13 @@
     <url>
         <loc>https://e23882.github.io/tags/SQL/</loc>
         <lastmod>2020-12-10T07:40:44.316Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/git/</loc>
+        <lastmod>2020-12-14T03:30:32.351Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
