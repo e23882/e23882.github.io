@@ -98,6 +98,8 @@
                             
                               <a class="tag" href="/tags/#單元測試" title="單元測試">單元測試</a>
                             
+                              <a class="tag" href="/tags/#AXOCover" title="AXOCover">AXOCover</a>
+                            
                         </div>
                         <h1>NUnit</h1>
                         <h2 class="subheading"></h2>
@@ -226,7 +228,7 @@
                 <h2><span id="nunit">NUnit</span></h2>
 <hr>
 <h3><span id="nunit是什麼">NUnit是什麼</span></h3>
-<p>NUnit是一種測試框架，常見的還有MSTest、xUnit，我因為要用AXOCover去看測試涵蓋率，所以選了一個AXOCover有支援的測試框架</p>
+<p>NUnit是一種測試框架，常見的還有MSTest、xUnit，但因為我需要免費的工具(AXOCover)去看測試涵蓋率，所以選了一個AXOCover有支援的測試框架</p>
 <h3><span id="visual-studio-使用nunit執行單元測試">Visual Studio 使用NUnit執行單元測試</span></h3>
 <p>安裝visual studio NUnit2 test adapter extension<br><br>
 一定要裝，不然不能執行NUnit測試框架(Visual Studio 2017 Community)<br>
@@ -236,13 +238,13 @@
 <p>測試專案結構大概長這樣，有SetUp跟TestCase Attribute</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Tests</span></span><br><span class="line">&#123;</span><br><span class="line">    [<span class="meta">SetUp</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Setup</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">TestCase</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Test1</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        Assert.Pass();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4><span id="setup">SetUp</span></h4>
-<p>SetUp attribute 是每個測試(TestCase)執行之前都會執行的動作，像是把要測試的物件產生實例(instance)就可以放在Setup方法裡面，要注意這邊他是依照SetUp Attribute去做初始化的動作，不是因為方法名稱在會有這樣的行為</p>
+<p>SetUp attribute 是每個測試(TestCase)執行之前都會執行的動作，像是把要測試的物件產生實例(instance)就可以放在Setup方法裡面，要注意這邊他是依照SetUp Attribute去做初始化的動作，不是因為方法名稱才會有這樣的行為</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Tests</span></span><br><span class="line">&#123;</span><br><span class="line">    [<span class="meta">SetUp</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Setup</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4><span id="testcase">TestCase</span></h4>
 <p>TestCase 就是每個測試的案例</p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Tests</span></span><br><span class="line">&#123;</span><br><span class="line">    [<span class="meta">TestCase</span>]</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">TestPropertyXXX</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4><span id="範例">範例</span></h4>
-<p><strong>要先把MSTest的專案卸載掉，不然Visual Studio會只執行MSTest專案的測試</strong></p>
+<p><strong>要先把方案(Solution)中 MSTest的專案卸載掉，不然Visual Studio會只執行MSTest專案的測試</strong></p>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Tests</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//宣告變數vm</span></span><br><span class="line">  ViewModel vm = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//初始化，產生實例</span></span><br><span class="line">  [<span class="meta">SetUp</span>]</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Setup</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>  &#123;</span><br><span class="line">      vm = <span class="keyword">new</span> ViewModel();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//測試單元</span></span><br><span class="line">  [<span class="meta">Test</span>]</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Test1</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>  &#123;</span><br><span class="line">      <span class="comment">//預期值</span></span><br><span class="line">      <span class="keyword">var</span> Expected = <span class="string">"Leo"</span>;</span><br><span class="line">      <span class="comment">//設定物件屬性(test object setter)</span></span><br><span class="line">      vm.Field = Expected;</span><br><span class="line">      <span class="comment">//檢查物件屬性是不是跟預期相同</span></span><br><span class="line">      Assert.AreEqual(vm.Field, Expected);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4><span id="執行測試">執行測試</span></h4>
 <p><img src="testExplorer.PNG" alt="Origin Test Explorer"></p>
@@ -256,14 +258,14 @@
 <img src="nunitResult.PNG" alt="NUnitResult"></p>
 <p>如果有裝的話…<br>
 <img src="axoResult.PNG" alt="NUnitResult"></p>
-<p>B度不同，而且AXO Cover可以看<br>
-測試涵蓋率<br>
-<img src="axoCover.PNG" alt="NUnitResult"><br>
+<p>AXO Cover - 測試涵蓋率<br>
+<img src="axoCover.PNG" alt="NUnitResult"></p>
+<p>在Code中了解目前測試的狀態(已測試、尚未測試、部分測試)更清楚問題可能會發生在那些地方<br>
 <img src="cover.PNG" alt="NUnitResult"></p>
 <p>還能輸出報表，透過Risk Hotspots知道自己程式哪邊可能有問題哪邊寫得很爛(Scrap Score)，可以用這個垃圾分數當成依據，去把程式改得更好，或是從根本調整自己寫程式的習慣<br>
 <img src="Report.PNG" alt="NUnitResult"></p>
 <h3><span id="使用testcase-attribute">使用TestCase Attribute</span></h3>
-<p>如果客戶發生問題，可以針對他的情境去測試，不用額外再寫一個<br>
+<p>如果客戶發生問題，可以針對他的情境去測試，不用額外再開UI出來，可以在測試專案中，組出來User的操作，模擬問題<br>
 <img src="Attribute.PNG" alt="NUnitAttribute"><br>
 <img src="NUnitAttrNewResult.PNG" alt="NUnitAttributeResult"></p>
 <h3><span id="為啥要寫測試">為啥要寫測試</span></h3>
@@ -341,6 +343,8 @@
                           <a class="tag" href="/tags/#UnitTest" title="UnitTest">UnitTest</a>
                         
                           <a class="tag" href="/tags/#單元測試" title="單元測試">單元測試</a>
+                        
+                          <a class="tag" href="/tags/#AXOCover" title="AXOCover">AXOCover</a>
                         
                     </div>
                 </section>
