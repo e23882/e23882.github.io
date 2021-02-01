@@ -1,11 +1,13 @@
 ---
 title: MS-SQL Temp Table
 catalog: true
+tags:
+  - SQL
+abbrlink: d825a7ba
+categories: uncategorized
 date: 2020-07-02 15:54:53
 subtitle:
 header-img:
-tags:
-- SQL
 ---
 # MS-SQL  Temp Table
 ##### #TempTable

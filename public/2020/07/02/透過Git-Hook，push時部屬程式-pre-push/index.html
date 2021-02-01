@@ -5,7 +5,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="google-site-verification" content="HTi_MBYQPgKEJxGDQGGS83spHWuAGSOfrVmhoFwi5ko">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content>
     <meta name="keyword" content>
@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          透過Git Hook，push時部屬程式(pre-push) - Leo&#39;s Note
+          透過Git Hook，push時部屬程式(pre-push) - Leo&#39;s Technical Debt
         
     </title>
 
@@ -125,7 +125,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Leo&#39;s Note</a>
+            <a class="navbar-brand" href="/">Leo&#39;s Technical Debt</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -141,6 +141,9 @@
                         <a href="/">Home</a>
                     </li>
 
+                    
+
+                        
                     
 
                         
@@ -233,12 +236,12 @@
 <p>在prepush中增加下面內容，也可以視情況移除掉不需要的指令或是更改路徑、命名</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line"># 取得最後一次commit內容到文字檔</span><br><span class="line">git log -n 1 &gt; &quot;D:\NeverRemove.txt&quot;</span><br><span class="line"></span><br><span class="line"># 通知</span><br><span class="line">## Notify通知重啟服務</span><br><span class="line">python .git/hooks/LineNotifyReboot.py</span><br><span class="line">## Mail通知重啟服務</span><br><span class="line">python .git/hooks/MailNotifyReboot.py</span><br><span class="line"></span><br><span class="line"># 停用服務</span><br><span class="line">.git/hooks/StartOrStopService.exe</span><br><span class="line"></span><br><span class="line"># 備份 &amp;&amp; 發布</span><br><span class="line">.git/hooks/backup.bat</span><br><span class="line"></span><br><span class="line"># 啟用服務</span><br><span class="line">.git/hooks/StartOrStop.exe</span><br><span class="line"></span><br><span class="line"># 通知</span><br><span class="line">## Notify通知更新完成</span><br><span class="line">python .git/hooks/LineNotifyRelease.py</span><br><span class="line">## Mail通知更新完成</span><br><span class="line">python .git/hooks/MailNotifyRelease.py</span><br></pre></td></tr></table></figure>
 <h4><span id="準備通知程式">準備通知程式</span></h4>
-<p>#####<a href="http://MailNotifyReboot.py" target="_blank" rel="noopener">MailNotifyReboot.py</a> – 信件通知重啟程式</p>
+<h5><span id="mailnotifyrebootpy-信件通知重啟程式"> – 信件通知重啟程式</span></h5>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Account infomation load</span></span><br><span class="line">gmailUser = <span class="string">'yourmail@gmail.com'</span></span><br><span class="line">gmailPasswd = <span class="string">'yourpassword'</span></span><br><span class="line">to = [<span class="string">'receiver1@gmail.com'</span>, <span class="string">'receiver2@gmail.com'</span>, <span class="string">'receiverˇ@gmail.com'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create message</span></span><br><span class="line">emails = [t.split(<span class="string">','</span>) <span class="keyword">for</span> t <span class="keyword">in</span> to]</span><br><span class="line">message = MIMEText(<span class="string">'Dear all,\n\nOO系統服務將在幾分鐘內重新啟動，請盡快將正在操作的資料儲存避免資料遺失。\n如果有任何問題需要協助請隨時與我聯繫，感謝 !\n\nRegards,\n'</span>, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">message[<span class="string">'Subject'</span>] = <span class="string">'OO系統更新'</span></span><br><span class="line">message[<span class="string">'From'</span>] = gmailUser</span><br><span class="line">message[<span class="string">'To'</span>] = <span class="string">','</span>.join(to)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set smtp</span></span><br><span class="line">smtp = smtplib.SMTP(<span class="string">"mail.com.tw:25"</span>)</span><br><span class="line">smtp.ehlo()</span><br><span class="line">smtp.starttls()</span><br><span class="line">smtp.login(gmailUser, gmailPasswd)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Send msil</span></span><br><span class="line">smtp.sendmail(message[<span class="string">'From'</span>], message[<span class="string">'To'</span>], message.as_string())</span><br><span class="line">print(<span class="string">'Send mails OK!'</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="%E9%80%8F%E9%81%8EGit-Hook%EF%BC%8Cpush%E6%99%82%E9%83%A8%E5%B1%AC%E7%A8%8B%E5%BC%8F-pre-push%5CMail.png" alt="Mail Notify"><br>
-#####<a href="http://LineNotifyReboot.py" target="_blank" rel="noopener">LineNotifyReboot.py</a> – LineNotify通知重啟程式</p>
+<p><img src="Mail.png" alt="Mail Notify"></p>
+<h5><span id="linenotifyrebootpy-linenotify通知重啟程式"> – LineNotify通知重啟程式</span></h5>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lineNotifyMessage</span><span class="params">(token, msg, url)</span>:</span></span><br><span class="line">      headers = &#123;</span><br><span class="line">          <span class="string">"Authorization"</span>: <span class="string">"Bearer "</span> + token, </span><br><span class="line">          <span class="string">"Content-Type"</span> : <span class="string">"application/x-www-form-urlencoded"</span></span><br><span class="line">      &#125;</span><br><span class="line">	</span><br><span class="line">      payload = &#123;<span class="string">'message'</span>: msg,  <span class="string">'imageThumbnail'</span>: url,<span class="string">'imageFullsize'</span>: url&#125;</span><br><span class="line">      r = requests.post(<span class="string">"https://notify-api.line.me/api/notify"</span>, headers = headers, params = payload)</span><br><span class="line">      <span class="keyword">return</span> r.status_code</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">"D:/NeverRemove.txt"</span>, <span class="string">"r"</span>,encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">message = <span class="string">"Dear all,\n\nOOO system service will be rebooted in a few minutes, please save important data to avoid data loss.\nIf you have any questions, please feel free to contact me, thank you!\n\n128 Leo\n\nRegards,\n"</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">"https://e23882.github.io/img/maybe.PNG"</span></span><br><span class="line"><span class="comment"># 修改為你的權杖內容</span></span><br><span class="line">token= <span class="string">'yourlinenotifytoken'</span></span><br><span class="line"><span class="comment">#lineNotifyMessage(token, message, url)</span></span><br></pre></td></tr></table></figure>
-<p><img src="%E9%80%8F%E9%81%8EGit-Hook%EF%BC%8Cpush%E6%99%82%E9%83%A8%E5%B1%AC%E7%A8%8B%E5%BC%8F-pre-push%5CLine.png" alt="Mail Notify"></p>
+<p><img src="Line.png" alt="Mail Notify"></p>
 <h4><span id="準備備份-發布批次檔">準備備份、發布批次檔</span></h4>
 <p>backup.bat :</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">:: 產生備份目錄</span><br><span class="line">set Date_folder=%date:~0,4%%date:~5,2%%date:~8,2%_%time:~0,2%%time:~3,2%%time:~6,2%</span><br><span class="line">:: 產生備份目錄</span><br><span class="line">md &quot;\\Server\備份\&quot;%Date_folder%</span><br><span class="line">:: 備份 client 64/32bits</span><br><span class="line">xcopy &quot;\\Server\Deploy&quot; &quot;\\Server\備份\&quot;%Date_folder% /E /H /C /I /Y</span><br><span class="line"></span><br><span class="line">:: 備份 service</span><br><span class="line">xcopy &quot;\\Server\ApServices&quot; &quot;\\Server\備份\&quot;%Date_folder%&quot;\Service&quot; /E /H /C /I /Y</span><br><span class="line"></span><br><span class="line">:: 更新Client檔案</span><br><span class="line">xcopy &quot;D:\Backup\Project\bin\Debug&quot; &quot;\\Server\JepunShare_IMS\JepunIMSDeploy\32&quot; /E /H /C /I /Y /exclude:D:\Backup\Project\.git\hooks\Exclude.txt</span><br><span class="line">xcopy &quot;D:\Backup\Project\bin\Debug&quot; &quot;\\Server\JepunShare_IMS\JepunIMSDeploy\64&quot; /E /H /C /I /Y /exclude:D:\Backup\Project\.git\hooks\Exclude.txt</span><br><span class="line"></span><br><span class="line">:: 更新服務</span><br><span class="line">xcopy &quot;D:\Backup\Project\Service\bin\Debug&quot; &quot;\\Server\Services&quot; /E /H /C /I /Y /exclude:D:\Backup\Project\.git\hooks\Exclude.txt</span><br></pre></td></tr></table></figure>
@@ -288,7 +291,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">透過GitHook Prepush機制，Push時部屬程式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">環境準備</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">準備githook - Prepush</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">準備通知程式</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">準備備份、發布批次檔</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">透過GitHook Prepush機制，Push時部屬程式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">環境準備</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">準備githook - Prepush</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">準備通知程式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text"> – 信件通知重啟程式</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text"> – LineNotify通知重啟程式</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">準備備份、發布批次檔</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -418,10 +421,19 @@
                 
 
                 
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/作賢-楊-1ba614185">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Leo Yang 2020 
+                    Copyright &copy; Leo Yang 2021 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> 
                     <span style="display: inline-block; margin: 0 5px;">
@@ -506,20 +518,16 @@
 <!-- Google Analytics -->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113183997-2"></script>
 <script>
-    // dynamic User by Hux
-    var _gaId = 'UA-XXXXXXXX-X';
-    var _gaDomain = 'https://e23882.github.io/';
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
+  gtag('config', 'UA-113183997-2');
 </script>
+
 
 
 

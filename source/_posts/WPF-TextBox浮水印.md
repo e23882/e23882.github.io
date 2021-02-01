@@ -1,13 +1,16 @@
 ---
 title: WPF TextBox浮水印
 catalog: true
+tags:
+  - C#
+  - WPF
+abbrlink: a3f6b311
+categories: uncategorized
 date: 2020-07-02 18:16:17
 subtitle:
 header-img:
-tags:
-- C#
-- WPF
 ---
+## Code
 ```xml
 <TextBox>
 	<TextBox.Style>
@@ -34,3 +37,5 @@ tags:
 	</TextBox.Style>
 </TextBox>
 ```
+## 結果
+![Result](result.PNG)

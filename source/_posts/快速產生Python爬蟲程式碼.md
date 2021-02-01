@@ -1,11 +1,13 @@
 ---
 title: 快速產生Python爬蟲程式碼
 catalog: true
+tags:
+  - Python
+abbrlink: d1b1c247
+categories: uncategorized
 date: 2020-07-02 16:12:09
 subtitle:
 header-img:
-tags:
-- Python
 ---
 #### 透過Chrome Dev Tools執行結果轉換成Python程式碼
 ##### Chrome Dev Tools

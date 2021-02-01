@@ -1,14 +1,16 @@
 ---
 title: WPF DataTemplate ControlTemplate
 catalog: true
+tags:
+  - C#
+  - WPF
+  - DataTemplate
+  - ControlTemplate
+abbrlink: d251a427
+categories: uncategorized
 date: 2020-07-02 18:21:23
 subtitle:
 header-img:
-tags:
-- C#
-- WPF
-- DataTemplate
-- ControlTemplate
 ---
 
 ### DataTemplate
@@ -28,7 +30,7 @@ tags:
 </Grid>
 ```
 所以MainData如果有十筆資料，每筆資料中只要有Name欄位的就會長出一個TextBox Text屬性是Name的值
-![DataTemplateResult](WPF-DataTemplate-ControlTemplate\DataResult.PNG)
+![DataTemplateResult](DataResult.PNG)
 ### ControlTemplate
 定義元件的樣式
 ```xml
@@ -46,7 +48,7 @@ tags:
     <Button Template="{StaticResource ButtonTemplate}"/>
 </StackPanel>
 ```
-![ControlTemplateResult](WPF-DataTemplate-ControlTemplate\ControlTemplate.PNG)
+![ControlTemplateResult](ControlTemplate.PNG)
 
 ### DataTemplate、ControlTemplate 差別
 - DataTemplate : 定義資料長出怎樣的畫面

@@ -1,11 +1,13 @@
 ---
 title: Python Selenium - 解決requests沒辦法解決的問題
 catalog: true
+tags:
+  - Python
+abbrlink: a88eb325
+categories: uncategorized
 date: 2020-07-02 16:02:36
 subtitle:
 header-img:
-tags:
-- Python
 ---
 
 #Python Selenium - 解決requests沒辦法解決的問題

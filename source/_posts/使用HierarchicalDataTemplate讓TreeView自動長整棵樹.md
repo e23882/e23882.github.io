@@ -1,14 +1,16 @@
 ---
 title: 使用HierarchicalDataTemplate讓TreeView自動長整棵樹
 catalog: true
+tags:
+  - C#
+  - WPF
+  - HierarchicalDataTemplate
+  - TreeView
+abbrlink: 55be9099
+categories: uncategorized
 date: 2020-07-02 16:40:52
 subtitle:
 header-img:
-tags:
-- C#
-- WPF
-- HierarchicalDataTemplate
-- TreeView
 ---
 ### 使用HierarchicalDataTemplate讓TreeView自動長整棵樹
 #### xaml
@@ -127,4 +129,4 @@ public class Node: Jepun.Services.Common.Contract.AppPrincipals
 }
 ```
 ##### 結果
-![NUnitResult](使用HierarchicalDataTemplate讓TreeView自動長整棵樹\result.PNG)
+![Result](Result.PNG)

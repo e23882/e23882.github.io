@@ -1,14 +1,16 @@
 ---
 title: WPF 套用Metro樣式
 catalog: true
+tags:
+  - C#
+  - WPF
+  - MahApps
+  - Metro Style
+abbrlink: c3a3a6d2
+categories: uncategorized
 date: 2020-07-02 19:16:16
 subtitle:
 header-img:
-tags:
-- C#
-- WPF
-- MahApps
-- Metro Style
 ---
 
 #### Nuget安裝MahApps相關套件
@@ -42,3 +44,5 @@ public partial class WindowName:MetroWindow
     <</ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
 ```
+### 結果
+![Mahapps](Mahapps.PNG)

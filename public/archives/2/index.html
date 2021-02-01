@@ -5,7 +5,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="google-site-verification" content="HTi_MBYQPgKEJxGDQGGS83spHWuAGSOfrVmhoFwi5ko">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content>
     <meta name="keyword" content>
@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          Leo&#39;s Note
+          Leo&#39;s Technical Debt
         
     </title>
 
@@ -88,9 +88,9 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 
                     <div class="site-heading">
-                        <h1>Leo&#39;s Note</h1>
+                        <h1>Leo&#39;s Technical Debt</h1>
                         <!--<hr class="small">-->
-                        <span class="subheading">Leo的筆記往往就是這麼樸實無華，且枯燥</span>
+                        <span class="subheading">So many things, so little time.</span>
                     </div>
                 
 
@@ -113,7 +113,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Leo&#39;s Note</a>
+            <a class="navbar-brand" href="/">Leo&#39;s Technical Debt</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -129,6 +129,9 @@
                         <a href="/">Home</a>
                     </li>
 
+                    
+
+                        
                     
 
                         
@@ -213,34 +216,37 @@
 
 <div class="post-preview">
 
-    <a href="/2020/07/02/常用Git/">
+    <a href="/2020/08/27/Python-Request/">
         <h2 class="post-title">
-            常用Git
+            Python-Request
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            建立版本庫
-1git init
-加入目前資料夾所有檔案到git
-1git add .
-commit
-1git commit -m &quot;first version commit&quot;
-加入gitserver位置
-1git remote add origin https://github.com/e23882/test.git
-push到master
-1git push -u or......
+            #Requests
+using library
+安裝
+1pip install requests
+引用
+1import requests
+基本用法
+12requests.get('url')requests.post('url', data=&#123;'key':'value'&#125;)
+常遇到問題－Encoding
+看到奇怪的字
+1234# \xe7result.encoding =......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leo Yang on
-            2020-07-02
+            2020-08-27
         </p>
         <div class="tags">
             
-              <a href="/tags/#git" title="git">git</a>
+              <a href="/tags/#Python" title="Python">Python</a>
+            
+              <a href="/tags/#Request" title="Request">Request</a>
             
         </div>
     
@@ -250,31 +256,171 @@ push到master
 
 <div class="post-preview">
 
-    <a href="/2020/07/02/WPF-Property、Dependency-Property/">
+    <a href="/2020/08/24/Async-Await/">
         <h2 class="post-title">
-            WPF Property、Dependency Property
+            Async/Await
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            Dependency Property(依賴屬性)
-主要用在xaml，在其他畫面xaml使用元件的時候可以透過DP存取資料
-在CodeBehind打 Propdp再按兩下Tab，visual studio會自動產生Dependency Property的範本，再把依賴屬性的資料型態、名稱、預設值改成自己要的，就可以有一個自己的依賴屬性，依賴屬性常用在自己做的元件上，原生的元件沒有自己需要的屬......
+            Async、Await、Task
+12345678910111213141516171819202122232425static void Main(string[] args)&#123;    TestService sv = new TestService();    sv.Function();    Console.WriteLine("done");    Console.Rea......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leo Yang on
-            2020-07-02
+            2020-08-24
         </p>
         <div class="tags">
             
               <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#async" title="async">async</a>
+            
+              <a href="/tags/#await" title="await">await</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/24/C-常用方法/">
+        <h2 class="post-title">
+            C# 常用方法
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            XML
+讀取XML
+1234567891011121314151617181920212223242526try&#123;    XmlDocument xmlDoc = new XmlDocument();    xmlDoc.Load("Setting.xml");//載入xml檔    var data = xmlDoc.SelectNodes("Setting");    fore......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-24
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/21/Rider-Live-Templates/">
+        <h2 class="post-title">
+            Rider Live Templates
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Live Templates
+其實就是產生程式碼的範本，如果有一段常常要寫的程式碼要打很多次會浪費很多時間在做一樣的事情
+怎麼用
+在rider主視窗中按兩下shift，輸入live templates
+
+可以在要寫的語言中設定常用的template，按圖片中右上角的圖案可以新增template
+Shortcut 是呼叫範本的代碼，在程式中輸入了代碼再按tab就會自動產生對應的程式碼範本
+Re......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-21
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#jetbrains" title="jetbrains">jetbrains</a>
+            
+              <a href="/tags/#rider" title="rider">rider</a>
+            
+              <a href="/tags/#live templates" title="live templates">live templates</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/21/Jetbrains-Rider-同步設定/">
+        <h2 class="post-title">
+            Jetbrains-Rider 同步設定
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            同步環境設定
+在開發時常常會有習慣的快捷鍵，但因為原本的快捷鍵設定跟Rider的不一樣，這時候我們就會去設定自己習慣的設定
+如果開發環境不是只有在一台電腦上而是有好幾台電腦的時候就會很麻煩
+像我自己公司、常用的筆電、家裡的電腦我有三個開發環境，裡面都會裝Rider、Pycharm、DataGrip…，等於是我一樣的設定最多要設定9次
+jetbrains已經有幫使用者想好了
+在
+1File &......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-21
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Jetbrains" title="Jetbrains">Jetbrains</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/21/WPF-引動過程的目標傳回例外狀況/">
+        <h2 class="post-title">
+            WPF 引動過程的目標傳回例外狀況
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            引動過程的目標傳回例外狀況
+發生原因
+在XAML中把元件的屬性 Binding在ViewModel中的屬性上，如果ViewModel在執行的過程中發生例外就會跳出來這個例外
+
+StaticResource
+我們常常為了不要讓CodeBehind有程式碼，會把ViewModel的宣告拿到Xaml的Resource裡面
+如果在Resource產生ViewModel實例(instance)的時候發......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-21
+        </p>
+        <div class="tags">
             
               <a href="/tags/#WPF" title="WPF">WPF</a>
             
-              <a href="/tags/#xaml" title="xaml">xaml</a>
+              <a href="/tags/#DataBinding" title="DataBinding">DataBinding</a>
+            
+              <a href="/tags/#引動過程的目標傳回例外狀況" title="引動過程的目標傳回例外狀況">引動過程的目標傳回例外狀況</a>
             
         </div>
     
@@ -284,38 +430,62 @@ push到master
 
 <div class="post-preview">
 
-    <a href="/2020/07/02/使用HierarchicalDataTemplate讓TreeView自動長整棵樹/">
+    <a href="/2020/08/18/DI注入依賴/">
         <h2 class="post-title">
-            使用HierarchicalDataTemplate讓TreeView自動長整棵樹
+            DI注入依賴
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            使用HierarchicalDataTemplate讓TreeView自動長整棵樹
-xaml
-
-
-ViewModel會在Resource裡面產生實例(instance)
-
-
-TreeView DataContext透過static resource，透過key值mainViewModel找到xaml中ViewModel的實例(instance)，然後把ItemSource binding到V......
+            為啥要用DI
+之前有寫一篇實現DIP原則，主要就是把類別的屬性、方法設計在介面中，然後讓一個類別去繼承這個介面實作出來，讓產生的實例依賴在介面上去符合DIP，使用的時候大概是長這樣
+12345678910111213141516171819class Program&#123;    static void Main(string[] args)    &#123;        ISend......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leo Yang on
-            2020-07-02
+            2020-08-18
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#.Net Core" title=".Net Core">.Net Core</a>
+            
+              <a href="/tags/#DI" title="DI">DI</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/14/DIP/">
+        <h2 class="post-title">
+            DIP
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            反轉依賴原則(Dependency Inversion Principle)
+解釋
+High-level modules should not depend on low-level modules. Both should depend on abstractions.
+Abstractions should not depend on details. Details should de......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-14
         </p>
         <div class="tags">
             
               <a href="/tags/#C#" title="C#">C#</a>
             
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-              <a href="/tags/#HierarchicalDataTemplate" title="HierarchicalDataTemplate">HierarchicalDataTemplate</a>
-            
-              <a href="/tags/#TreeView" title="TreeView">TreeView</a>
+              <a href="/tags/#SOLID" title="SOLID">SOLID</a>
             
         </div>
     
@@ -325,38 +495,31 @@ TreeView DataContext透過static resource，透過key值mainViewModel找到xaml�
 
 <div class="post-preview">
 
-    <a href="/2020/07/02/透過Git-Hook，push時部屬程式-pre-push/">
+    <a href="/2020/08/11/yolo/">
         <h2 class="post-title">
-            透過Git Hook，push時部屬程式(pre-push)
+            yolo
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            透過GitHook Prepush機制，Push時部屬程式
-環境準備
-
-Git
-Python
-用Python主要是因為不用編譯，拿來做一些Script很方便
-
-準備githook - Prepush
-git hook 機制可以讓我們在commit、pull、push….e.t.c.時執行特定的動作，例如執行測試、寄信通知更新、檢查編譯是否通過等……hen方便
-在開發的專案下，githook目......
+            參考來源
+我是參考這篇文章 [機器學習 ML NOTE]YOLO!!!如何簡單使用YOLO訓練出自己的物件偵測!!! (Windows+Anaconda)
+遇到問題
+Tensorflow
+tensorflow目前只支援到python3.7，python3.7還只能裝版本2.0.0以下的tensorflow，因為tensorflow 2.0.0 開始移除了一個 tensorflow.contr......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leo Yang on
-            2020-07-02
+            2020-08-11
         </p>
         <div class="tags">
             
-              <a href="/tags/#Python" title="Python">Python</a>
+              <a href="/tags/#python" title="python">python</a>
             
-              <a href="/tags/#Git" title="Git">Git</a>
-            
-              <a href="/tags/#CI" title="CI">CI</a>
+              <a href="/tags/#yolo" title="yolo">yolo</a>
             
         </div>
     
@@ -366,168 +529,40 @@ git hook 機制可以讓我們在commit、pull、push….e.t.c.時執行特定�
 
 <div class="post-preview">
 
-    <a href="/2020/07/02/Dapper/">
+    <a href="/2020/08/07/Jetbrains工具快捷鍵名稱/">
         <h2 class="post-title">
-            Dapper
+            Jetbrains工具快捷鍵名稱
         </h2>
         <h3 class="post-subtitle">
             
         </h3>
         <div class="post-content-preview">
-            使用Dapper，不要自己刻ORM
-nuget搜尋、安裝Dapper
-using Dapper
-12345678910111213141516171819public IEnumerable&lt;dynamic&gt; ExecQuery(string query)&#123;	try	&#123;		ConnectionString = $"Data Source = &#123;ser......
+            快捷鍵名稱
+
+移動到方法 : Main menu\ Navigate\ Go to Declaration or Usages
+執行 : Run
+停止執行 : Stop
+Debug : Debug
+打開所有程式碼 : Expand All
+收合所有程式碼 : Collapse All
+註解/取消註解 : Comment/Uncomment Code
+Debug時中斷的下一步 : Run\ D......
         </div>
     </a>
     
         <p class="post-meta" style="margin: 10px 0;">
             Posted by Leo Yang on
-            2020-07-02
+            2020-08-07
         </p>
         <div class="tags">
             
-              <a href="/tags/#C#" title="C#">C#</a>
+              <a href="/tags/#Jetbrains" title="Jetbrains">Jetbrains</a>
             
-              <a href="/tags/#Nuget" title="Nuget">Nuget</a>
+              <a href="/tags/#Rider" title="Rider">Rider</a>
             
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/快速產生Python爬蟲程式碼/">
-        <h2 class="post-title">
-            快速產生Python爬蟲程式碼
-        </h2>
-        <h3 class="post-subtitle">
+              <a href="/tags/#Pycharm" title="Pycharm">Pycharm</a>
             
-        </h3>
-        <div class="post-content-preview">
-            透過Chrome Dev Tools執行結果轉換成Python程式碼
-Chrome Dev Tools
-準備好要爬的網頁跟表單相關資料後再開啟dev tools切換到NetWork tab再送出請求，避免訊息過多
-找到回應正確response的request，按右鍵Copy as curl(cmd)
-curl to Python Code
-把複製的code貼上去就能拿到python的程式碼了......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Python" title="Python">Python</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/Python-Selenium-解決requests沒辦法解決的問題/">
-        <h2 class="post-title">
-            Python Selenium - 解決requests沒辦法解決的問題
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            #Python Selenium - 解決requests沒辦法解決的問題
-安裝Selenium
-1pip install selenium
-安裝Driver
-以chrome為例子
-1下載 https://chromedriver.chromium.org/downloads
-簡單範例:
-1234567891011121314151617181920212223242526272829303......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Python" title="Python">Python</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/MS-SQL-Temp-Table/">
-        <h2 class="post-title">
-            MS-SQL Temp Table
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            MS-SQL  Temp Table
-#TempTable
-資料表真的會存在資料庫裡面,要完要記得Drop掉
-1234567891011121314CREATE TABLE #temp(	Pno			int,	Sno			int,	Qty			decimal(19,5),	Cost			decimal(19,5),	[Date]			date,	Profit			decimal(19,5),......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#SQL" title="SQL">SQL</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/03/18/hexo-theme-beantech/">
-        <h2 class="post-title">
-            [Hexo] Theme BeanTech
-        </h2>
-        <h3 class="post-subtitle">
-            This is hexo theme Demo.
-        </h3>
-        <div class="post-content-preview">
-            
-Ported Theme of Hux Blog, Thank Huxpro for designing such a flawless theme.
-This BeanTech theme created by YuHsuan modified from the original Porter Kaijun
-
-
-
-
-Usage
-
-I publish the whole project f......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2017-03-18
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Hexo" title="Hexo">Hexo</a>
-            
-              <a href="/tags/#Blog" title="Blog">Blog</a>
+              <a href="/tags/#DataGrip" title="DataGrip">DataGrip</a>
             
         </div>
     
@@ -545,6 +580,10 @@ I publish the whole project f......
             <a href="/">&larr; Newer Posts</a>
         </li>
     
+    
+        <li class="next">
+            <a href="/archives/3/">Older Posts &rarr;</a>
+        </li>
     
 </ul>
 
@@ -571,7 +610,33 @@ I publish the whole project f......
     <div class="tags">
         
             
-            <a href="/tags/#C#" title="C#" rel="13">C#</a>
+            <a href="/tags/#C#" title="C#" rel="27">C#</a>
+            
+        
+            
+            <a href="/tags/#WPF" title="WPF" rel="20">WPF</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#.Net Core" title=".Net Core" rel="3">.Net Core</a>
+            
+        
+            
+            <a href="/tags/#DI" title="DI" rel="2">DI</a>
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#Jetbrains" title="Jetbrains" rel="2">Jetbrains</a>
             
         
             
@@ -585,17 +650,75 @@ I publish the whole project f......
             
         
             
-            <a href="/tags/#Python" title="Python" rel="3">Python</a>
-            
         
-            
-            <a href="/tags/#WPF" title="WPF" rel="10">WPF</a>
             
         
             
         
             
-            <a href="/tags/#DataGrid" title="DataGrid" rel="2">DataGrid</a>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#SQL" title="SQL" rel="2">SQL</a>
+            
+        
+            
+            <a href="/tags/#git" title="git" rel="2">git</a>
+            
+        
+            
+            <a href="/tags/#Python" title="Python" rel="5">Python</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#DataGrid" title="DataGrid" rel="3">DataGrid</a>
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#DataBinding" title="DataBinding" rel="3">DataBinding</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
             
         
             
@@ -639,7 +762,7 @@ I publish the whole project f......
         
 
         
-            <p>Hi, i&#39;m Leo Yang</p>
+            <p>C# WPF MVVM傳教士 手在鍵盤 心中有圖 一把梭</p>
         
 
         <!-- SNS Link -->
@@ -665,6 +788,15 @@ I publish the whole project f......
             
             
             
+                <li>
+                    <a target="_blank"  href="https://www.linkedin.com/in/作賢-楊-1ba614185">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
         </ul>
     </div>
 </section>
@@ -676,23 +808,23 @@ I publish the whole project f......
     <ul>
       
         <li>
-          <a href="/2020/07/02/WPF-套用Metro樣式/">WPF 套用Metro樣式</a>
+          <a href="/2021/02/01/jenkins自動部屬WPF/">jenkins自動部屬WPF</a>
         </li>
       
         <li>
-          <a href="/2020/07/02/WPF-Dockable/">WPF Dockable</a>
+          <a href="/2021/02/01/用Sonarqube做靜態程式碼分析/">用Sonarqube做靜態程式碼分析</a>
         </li>
       
         <li>
-          <a href="/2020/07/02/WPF-DataTemplate-ControlTemplate/">WPF DataTemplate ControlTemplate</a>
+          <a href="/2021/01/15/net-framework-注入依賴/">.net framework 注入依賴</a>
         </li>
       
         <li>
-          <a href="/2020/07/02/C-自訂事件/">C# 自訂事件</a>
+          <a href="/2021/01/07/Linux背景執行/">Linux背景執行</a>
         </li>
       
         <li>
-          <a href="/2020/07/02/WPF-TextBox浮水印/">WPF TextBox浮水印</a>
+          <a href="/2020/12/31/部屬-Net-Core-Webapi-到Linux/">部屬.Net Core Webapi 到Linux</a>
         </li>
       
     </ul>
@@ -746,10 +878,19 @@ I publish the whole project f......
                 
 
                 
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/作賢-楊-1ba614185">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Leo Yang 2020 
+                    Copyright &copy; Leo Yang 2021 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> 
                     <span style="display: inline-block; margin: 0 5px;">
@@ -834,20 +975,16 @@ I publish the whole project f......
 <!-- Google Analytics -->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113183997-2"></script>
 <script>
-    // dynamic User by Hux
-    var _gaId = 'UA-XXXXXXXX-X';
-    var _gaDomain = 'https://e23882.github.io/';
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
+  gtag('config', 'UA-113183997-2');
 </script>
+
 
 
 

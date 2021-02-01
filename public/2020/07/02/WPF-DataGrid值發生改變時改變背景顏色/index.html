@@ -5,7 +5,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="google-site-verification" content="HTi_MBYQPgKEJxGDQGGS83spHWuAGSOfrVmhoFwi5ko">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content>
     <meta name="keyword" content>
@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          WPF DataGrid值發生改變時改變背景顏色 - Leo&#39;s Note
+          WPF DataGrid值發生改變時改變背景顏色 - Leo&#39;s Technical Debt
         
     </title>
 
@@ -125,7 +125,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Leo&#39;s Note</a>
+            <a class="navbar-brand" href="/">Leo&#39;s Technical Debt</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -141,6 +141,9 @@
                         <a href="/">Home</a>
                     </li>
 
+                    
+
+                        
                     
 
                         
@@ -218,9 +221,18 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h4><span id="透過style當datagrid值異動時改變背景顏色提醒使用者">透過Style，當DataGrid值異動時改變背景顏色提醒使用者</span></h4>
-<p>#####<strong>NotifyOnTargetUpdated = True 要加</strong></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Style</span> <span class="attr">TargetType</span>=<span class="string">"DataGridCell"</span> <span class="attr">x:Key</span>=<span class="string">"Cell"</span>&gt;</span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Property</span>=<span class="string">"Foreground"</span> <span class="attr">Value</span>=<span class="string">"Black"</span>/&gt;</span></span></span><br><span class="line"><span class="css">	&lt;<span class="selector-tag">Style</span><span class="selector-class">.Triggers</span>&gt;</span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">EventTrigger</span> <span class="attr">RoutedEvent</span>=<span class="string">"Binding.TargetUpdated"</span>&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">BeginStoryboard</span>&gt;</span></span></span><br><span class="line"><span class="xml">				<span class="tag">&lt;<span class="name">Storyboard</span>&gt;</span></span></span><br><span class="line"><span class="xml">					<span class="tag">&lt;<span class="name">ColorAnimation</span> <span class="attr">Storyboard.TargetProperty</span>=<span class="string">"Background.Color"</span> <span class="attr">From</span>=<span class="string">"OrangeRed"</span> </span></span></span><br><span class="line">					To="Transparent" Duration="0:0:1.5"/&gt;</span><br><span class="line"><span class="xml">				<span class="tag">&lt;/<span class="name">Storyboard</span>&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;/<span class="name">BeginStoryboard</span>&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;/<span class="name">EventTrigger</span>&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;/<span class="name">Style.Triggers</span>&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">DataGrid</span> <span class="attr">ItemsSource</span>=<span class="string">"&#123;Binding DataSource&#125;"</span> <span class="attr">Grid.Row</span>=<span class="string">"1"</span> <span class="attr">AutoGenerateColumns</span>=<span class="string">"False"</span> &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">DataGrid.Columns</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">DataGridTextColumn</span> <span class="attr">Header</span>=<span class="string">"ID"</span> <span class="attr">Binding</span>=<span class="string">"&#123;Binding ID,NotifyOnTargetUpdated=True&#125;"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">DataGridTextColumn</span> <span class="attr">Header</span>=<span class="string">"Name"</span> <span class="attr">Binding</span>=<span class="string">"&#123;Binding Name,NotifyOnTargetUpdated=True&#125;"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">DataGridTextColumn</span> <span class="attr">Header</span>=<span class="string">"Price"</span> <span class="attr">Binding</span>=<span class="string">"&#123;Binding Price,NotifyOnTargetUpdated=True&#125;"</span> <span class="attr">CellStyle</span>=<span class="string">"&#123;StaticResource Cell&#125;"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">DataGrid.Columns</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">DataGrid</span>&gt;</span></span><br></pre></td></tr></table></figure>
+                <h3><span id="透過style當datagrid值異動時改變背景顏色提醒使用者">透過Style，當DataGrid值異動時改變背景顏色提醒使用者</span></h3>
+<h4><span id="xaml">XAML</span></h4>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Style</span> <span class="attr">TargetType</span>=<span class="string">"DataGridCell"</span> <span class="attr">x:Key</span>=<span class="string">"Cell"</span>&gt;</span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;<span class="name">Setter</span> <span class="attr">Property</span>=<span class="string">"Foreground"</span> <span class="attr">Value</span>=<span class="string">"Black"</span>/&gt;</span></span></span><br><span class="line"><span class="css">	&lt;<span class="selector-tag">Style</span><span class="selector-class">.Triggers</span>&gt;</span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;<span class="name">EventTrigger</span> <span class="attr">RoutedEvent</span>=<span class="string">"Binding.TargetUpdated"</span>&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;<span class="name">BeginStoryboard</span>&gt;</span></span></span><br><span class="line"><span class="xml">				<span class="tag">&lt;<span class="name">Storyboard</span>&gt;</span></span></span><br><span class="line"><span class="xml">					<span class="tag">&lt;<span class="name">ColorAnimation</span> <span class="attr">Storyboard.TargetProperty</span>=<span class="string">"Background.Color"</span><span class="attr">From</span>=<span class="string">"OrangeRed"</span> <span class="attr">To</span>=<span class="string">"Transparent"</span> <span class="attr">Duration</span>=<span class="string">"0:0:1.5"</span>/&gt;</span></span></span><br><span class="line"><span class="xml">				<span class="tag">&lt;/<span class="name">Storyboard</span>&gt;</span></span></span><br><span class="line"><span class="xml">			<span class="tag">&lt;/<span class="name">BeginStoryboard</span>&gt;</span></span></span><br><span class="line"><span class="xml">		<span class="tag">&lt;/<span class="name">EventTrigger</span>&gt;</span></span></span><br><span class="line"><span class="xml">	<span class="tag">&lt;/<span class="name">Style.Triggers</span>&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">DataGrid</span> <span class="attr">ItemsSource</span>=<span class="string">"&#123;Binding DataSource&#125;"</span> <span class="attr">Grid.Row</span>=<span class="string">"1"</span> <span class="attr">AutoGenerateColumns</span>=<span class="string">"False"</span> &gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">DataGrid.Columns</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">DataGridTextColumn</span> <span class="attr">Header</span>=<span class="string">"ID"</span> <span class="attr">Binding</span>=<span class="string">"&#123;Binding ID,NotifyOnTargetUpdated=True&#125;"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">DataGridTextColumn</span> <span class="attr">Header</span>=<span class="string">"Name"</span> <span class="attr">Binding</span>=<span class="string">"&#123;Binding Name,NotifyOnTargetUpdated=True&#125;"</span>/&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">DataGridTextColumn</span> <span class="attr">Header</span>=<span class="string">"Price"</span> <span class="attr">Binding</span>=<span class="string">"&#123;Binding Price,NotifyOnTargetUpdated=True&#125;"</span> <span class="attr">CellStyle</span>=<span class="string">"&#123;StaticResource Cell&#125;"</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">DataGrid.Columns</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">DataGrid</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4><span id="viewmodel">ViewModel</span></h4>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DataSource</span></span><br><span class="line"><span class="keyword">private</span> List&lt;DataModel.Data&gt; _DataCollection = <span class="keyword">new</span> List&lt;DataModel.Data&gt;();</span><br><span class="line"><span class="keyword">public</span> List&lt;DataModel.Data&gt; DataCollection</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">get</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> _DataCollection;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">set</span></span><br><span class="line">	&#123;</span><br><span class="line">		_DataCollection = <span class="keyword">value</span>;</span><br><span class="line">		OnPropertyChanged();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="datamodel">DataModel</span></h4>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Data</span>:<span class="title">INotifyPropertyChanged</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> _Price;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> _Qty;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> _ID;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> Price</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">get</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> _Price;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">set</span></span><br><span class="line">		&#123;</span><br><span class="line">			_Price = <span class="keyword">value</span>;</span><br><span class="line">			OnPropertyChanged();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> Qty</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">get</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> _Qty;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">set</span></span><br><span class="line">		&#123;</span><br><span class="line">			_Qty = <span class="keyword">value</span>;</span><br><span class="line">			OnPropertyChanged();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span> ID</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">get</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">return</span> _ID;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">set</span></span><br><span class="line">		&#123;</span><br><span class="line">			_ID = <span class="keyword">value</span>;</span><br><span class="line">			OnPropertyChanged();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">event</span> PropertyChangedEventHandler PropertyChanged;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnPropertyChanged</span>(<span class="params">[CallerMemberName] <span class="keyword">string</span> propertyName = <span class="string">""</span></span>)</span></span><br><span class="line"><span class="function"></span>	&#123;</span><br><span class="line">		PropertyChanged?.Invoke(<span class="keyword">this</span>, <span class="keyword">new</span> PropertyChangedEventArgs(propertyName));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3><span id="為什麼observablecollection會更新訂閱的介面但是都沒有觸發界面更新">為什麼ObservableCollection<t>會更新訂閱的介面，但是都沒有觸發界面更新</t></span></h3>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">ObservableCollection&lt;T&gt;在集合發生異動的時候資料會自動更新訂閱的介面，但是只有在<span class="string">"集合"</span>更新時，集合新增或移除資料的時候才會更新介面</span><br><span class="line">ex:</span><br><span class="line">	<span class="comment">//Adding data and triggering UI updates</span></span><br><span class="line">	main.ObservableDataCollection.Add(<span class="keyword">new</span> DataModel.CommonData() &#123; ID = <span class="number">11</span>, Price = <span class="number">20</span>, Qty = <span class="number">30</span> &#125;);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//Remove data and trigger a UI update</span></span><br><span class="line">	main.ObservableDataCollection.RemoveAt(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//****ObservableCollection did not trigger a UI updat****//</span></span><br><span class="line">	<span class="comment">//Modified data but did not trigger a UI update</span></span><br><span class="line">	main.ObservableDataCollection[<span class="number">0</span>].Qty = <span class="number">9999</span>;</span><br><span class="line"></span><br><span class="line">所以上面例子裡的DataModel有繼承INotifyPropertyChanged Interface，讓訂閱ObservableCollection&lt;T&gt;資料集的介面，在資料集合中的<span class="string">"資料"</span>異動時通知訂閱的界面更新</span><br></pre></td></tr></table></figure>
+<h3><span id="listlttgt-observablecollectionlttgt差異">List&lt;T&gt;、ObservableCollection&lt;T&gt;差異</span></h3>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ObservableDataCollection<span class="tag">&lt;<span class="name">T</span>&gt;</span></span><br><span class="line">	資料集合在新增、移除時會發出通知，異動資料不會發出通知</span><br><span class="line"></span><br><span class="line">List<span class="tag">&lt;<span class="name">T</span>&gt;</span></span><br><span class="line">	除非T有通知的機制，不然新增、修改、刪除都不會發出通知</span><br><span class="line">	所以就算用T有繼承的機制了，List<span class="tag">&lt;<span class="name">T</span>&gt;</span>也只有在資料異動的時候會更新介面，但是資料集新增、刪除資料介面還是不會更新</span><br></pre></td></tr></table></figure>
+
                 
 
                 <hr>
@@ -233,7 +245,7 @@
                     
                     
                         <li class="next">
-                            <a href="/2020/07/02/Visual-Studio-使用NUnit做單元測試/" data-toggle="tooltip" data-placement="top" title="Visual Studio 使用NUnit做單元測試">Next Post &rarr;</a>
+                            <a href="/2020/07/02/常用Git/" data-toggle="tooltip" data-placement="top" title="常用Git">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -263,7 +275,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">透過Style，當DataGrid值異動時改變背景顏色提醒使用者</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">透過Style，當DataGrid值異動時改變背景顏色提醒使用者</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">XAML</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">ViewModel</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">DataModel</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">為什麼ObservableCollection會更新訂閱的介面，但是都沒有觸發界面更新</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">List&lt;T&gt;、ObservableCollection&lt;T&gt;差異</span></a></li></ol>
         
         </div>
       </aside>
@@ -393,10 +405,19 @@
                 
 
                 
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/作賢-楊-1ba614185">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Leo Yang 2020 
+                    Copyright &copy; Leo Yang 2021 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> 
                     <span style="display: inline-block; margin: 0 5px;">
@@ -481,20 +502,16 @@
 <!-- Google Analytics -->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113183997-2"></script>
 <script>
-    // dynamic User by Hux
-    var _gaId = 'UA-XXXXXXXX-X';
-    var _gaDomain = 'https://e23882.github.io/';
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
+  gtag('config', 'UA-113183997-2');
 </script>
+
 
 
 

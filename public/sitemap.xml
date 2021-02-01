@@ -3,17 +3,22 @@
 
     <sitemap>
         <loc>https://e23882.github.io/post-sitemap.xml</loc>
-        <lastmod>2020-07-02T11:21:02.699Z</lastmod>
+        <lastmod>2021-02-01T08:48:53.660Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>https://e23882.github.io/page-sitemap.xml</loc>
-        <lastmod>2020-07-02T11:27:57.410Z</lastmod>
+        <lastmod>2020-07-31T05:49:06.325Z</lastmod>
+    </sitemap>
+
+    <sitemap>
+        <loc>https://e23882.github.io/category-sitemap.xml</loc>
+        <lastmod>2021-02-01T07:18:18.839Z</lastmod>
     </sitemap>
 
     <sitemap>
         <loc>https://e23882.github.io/tag-sitemap.xml</loc>
-        <lastmod>2020-07-02T08:58:14.485Z</lastmod>
+        <lastmod>2020-07-10T03:43:15.383Z</lastmod>
     </sitemap>
 
 </sitemapindex>

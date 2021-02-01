@@ -5,7 +5,7 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="google-site-verification" content="HTi_MBYQPgKEJxGDQGGS83spHWuAGSOfrVmhoFwi5ko">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content>
     <meta name="keyword" content>
@@ -14,7 +14,7 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          使用HierarchicalDataTemplate讓TreeView自動長整棵樹 - Leo&#39;s Note
+          使用HierarchicalDataTemplate讓TreeView自動長整棵樹 - Leo&#39;s Technical Debt
         
     </title>
 
@@ -127,7 +127,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Leo&#39;s Note</a>
+            <a class="navbar-brand" href="/">Leo&#39;s Technical Debt</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -143,6 +143,9 @@
                         <a href="/">Home</a>
                     </li>
 
+                    
+
+                        
                     
 
                         
@@ -244,7 +247,7 @@ HierarchicalDataTemplate會自己找出子層然後生出UI</p>
 <h5><span id="datamodel">DataModel</span></h5>
 <figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">public class Node: Jepun.Services.Common.Contract.AppPrincipals</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> _RowNo;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> _Parent;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">string</span> _Name;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> RowNo</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span>&#123;...&#125;;<span class="keyword">set</span>&#123;...&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> Parent</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span>&#123;...&#125;;<span class="keyword">set</span>&#123;...&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">string</span> Name</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span>&#123;...&#125;;<span class="keyword">set</span>&#123;...&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ObservableCollection _Children = <span class="keyword">new</span> ObservableCollection();</span><br><span class="line">    <span class="keyword">public</span> ObservableCollection Children</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">get</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> _Children;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span></span><br><span class="line">        &#123;</span><br><span class="line">            _Children = <span class="keyword">value</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5><span id="結果">結果</span></h5>
-<p><img src="%E4%BD%BF%E7%94%A8HierarchicalDataTemplate%E8%AE%93TreeView%E8%87%AA%E5%8B%95%E9%95%B7%E6%95%B4%E6%A3%B5%E6%A8%B9%5Cresult.PNG" alt="NUnitResult"></p>
+<p><img src="Result.PNG" alt="Result"></p>
 
                 
 
@@ -420,10 +423,19 @@ HierarchicalDataTemplate會自己找出子層然後生出UI</p>
                 
 
                 
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/作賢-楊-1ba614185">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Leo Yang 2020 
+                    Copyright &copy; Leo Yang 2021 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> 
                     <span style="display: inline-block; margin: 0 5px;">
@@ -508,20 +520,16 @@ HierarchicalDataTemplate會自己找出子層然後生出UI</p>
 <!-- Google Analytics -->
 
 
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113183997-2"></script>
 <script>
-    // dynamic User by Hux
-    var _gaId = 'UA-XXXXXXXX-X';
-    var _gaDomain = 'https://e23882.github.io/';
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-    // Originial
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', _gaId, _gaDomain);
-    ga('send', 'pageview');
+  gtag('config', 'UA-113183997-2');
 </script>
+
 
 
 

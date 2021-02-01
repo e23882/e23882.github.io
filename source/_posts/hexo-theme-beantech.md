@@ -1,14 +1,16 @@
 ---
-title: "[Hexo] Theme BeanTech"
+title: '[Hexo] Theme BeanTech'
 catalog: true
-date: 2017-03-18 10:51:24
-subtitle: "This is hexo theme Demo."
-header-img: "Demo.png"
+subtitle: This is hexo theme Demo.
+header-img: Demo.png
 tags:
-- Hexo
-- Blog
+  - Hexo
+  - Blog
 catagories:
-- Hexo
+  - Hexo
+abbrlink: dbcfa929
+categories: uncategorized
+date: 2017-03-18 10:51:24
 ---
 > Ported Theme of [Hux Blog](https://github.com/Huxpro/huxpro.github.io), Thank [Huxpro](https://github.com/Huxpro) for designing such a flawless theme.
 > 

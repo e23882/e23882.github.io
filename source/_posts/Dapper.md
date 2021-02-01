@@ -1,12 +1,14 @@
 ---
 title: Dapper
 catalog: true
+tags:
+  - C#
+  - Nuget
+abbrlink: 1816f01a
+categories: uncategorized
 date: 2020-07-02 16:15:02
 subtitle:
 header-img:
-tags:
-- C#
-- Nuget
 ---
 
 ### 使用Dapper，不要自己刻ORM

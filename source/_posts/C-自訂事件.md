@@ -1,11 +1,13 @@
 ---
 title: C# 自訂事件
 catalog: true
+tags:
+  - C#
+abbrlink: 21fa8ebb
+categories: uncategorized
 date: 2020-07-02 18:17:17
 subtitle:
 header-img:
-tags:
-- C#
 ---
 
 ### C# 自訂事件

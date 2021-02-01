@@ -1,13 +1,15 @@
 ---
 title: WPF DataGrid中的元件Binding Command失敗
 catalog: true
+tags:
+  - C#
+  - WPF
+  - DataGrid
+abbrlink: 49efdc8a
+categories: uncategorized
 date: 2020-07-02 17:57:07
 subtitle:
 header-img:
-tags:
-- C#
-- WPF
-- DataGrid
 ---
 ### WPF DataGrid中的元件Binding Command失敗
 #### 原因

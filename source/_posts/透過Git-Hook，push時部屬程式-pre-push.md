@@ -1,13 +1,15 @@
 ---
 title: 透過Git Hook，push時部屬程式(pre-push)
 catalog: true
+tags:
+  - Git
+  - Python
+  - CI
+abbrlink: adfed306
+categories: uncategorized
 date: 2020-07-02 16:17:26
 subtitle:
 header-img:
-tags:
-- Git
-- Python
-- CI
 ---
 
 ### 透過GitHook Prepush機制，Push時部屬程式
@@ -56,7 +58,7 @@ python .git/hooks/MailNotifyRelease.py
 ```
 
 #### 準備通知程式
-#####MailNotifyReboot.py – 信件通知重啟程式
+##### MailNotifyReboot.py – 信件通知重啟程式
 ```python
 # -*- coding: utf-8 -*-
 import json
@@ -86,8 +88,8 @@ smtp.login(gmailUser, gmailPasswd)
 smtp.sendmail(message['From'], message['To'], message.as_string())
 print('Send mails OK!')
 ```
-![Mail Notify](透過Git-Hook，push時部屬程式-pre-push\Mail.png)
-#####LineNotifyReboot.py – LineNotify通知重啟程式
+![Mail Notify](Mail.png)
+##### LineNotifyReboot.py – LineNotify通知重啟程式
 ```python
 import requests
 import sys
@@ -111,7 +113,7 @@ url = "https://e23882.github.io/img/maybe.PNG"
 token= 'yourlinenotifytoken'
 #lineNotifyMessage(token, message, url)
 ```
-![Mail Notify](透過Git-Hook，push時部屬程式-pre-push\Line.png)
+![Mail Notify](Line.png)
 
 #### 準備備份、發布批次檔
 backup.bat :

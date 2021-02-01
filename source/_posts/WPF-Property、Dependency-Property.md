@@ -1,13 +1,15 @@
 ---
 title: WPF Property、Dependency Property
 catalog: true
+tags:
+  - WPF
+  - C#
+  - xaml
+abbrlink: 84f61cd3
+categories: uncategorized
 date: 2020-07-02 16:47:45
 subtitle:
 header-img:
-tags:
-- WPF
-- C#
-- xaml
 ---
 ##### Dependency Property(依賴屬性)
 主要用在xaml，在其他畫面xaml使用元件的時候可以透過DP存取資料

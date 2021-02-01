@@ -1,12 +1,14 @@
 ---
 title: WPF 漸層背景顏色
 catalog: true
+tags:
+  - C#
+  - WPF
+abbrlink: 652c0bd9
+categories: uncategorized
 date: 2020-07-02 18:14:45
 subtitle:
 header-img:
-tags:
-- C#
-- WPF
 ---
 ```Xml
 <Style TargetType="{x:Type ToggleButton}" x:Key="TogCommon">
