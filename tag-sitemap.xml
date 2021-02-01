@@ -317,13 +317,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/WPF/</loc>
-        <lastmod>2020-12-14T04:03:09.901Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/Chart/</loc>
         <lastmod>2020-12-14T04:03:09.901Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -396,6 +389,27 @@
     <url>
         <loc>https://e23882.github.io/tags/net-framework/</loc>
         <lastmod>2021-02-01T06:58:08.253Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/WPF/</loc>
+        <lastmod>2021-02-01T08:48:53.660Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/CICD/</loc>
+        <lastmod>2021-02-01T08:48:53.660Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/Jenkins/</loc>
+        <lastmod>2021-02-01T08:48:53.660Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
