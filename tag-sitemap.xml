@@ -86,13 +86,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/xaml/</loc>
-        <lastmod>2020-07-10T03:43:15.478Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/HierarchicalDataTemplate/</loc>
         <lastmod>2020-07-10T03:43:15.482Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -116,13 +109,6 @@
     <url>
         <loc>https://e23882.github.io/tags/CI/</loc>
         <lastmod>2020-07-10T03:43:15.483Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/DataGrid/</loc>
-        <lastmod>2020-07-13T03:40:35.915Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -366,13 +352,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2021-02-01T06:58:08.253Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/DI/</loc>
         <lastmod>2021-02-01T06:58:08.253Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -382,13 +361,6 @@
     <url>
         <loc>https://e23882.github.io/tags/net-framework/</loc>
         <lastmod>2021-02-01T06:58:08.253Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/WPF/</loc>
-        <lastmod>2021-02-01T08:49:21.420Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -410,6 +382,34 @@
     <url>
         <loc>https://e23882.github.io/tags/Linux/</loc>
         <lastmod>2021-02-01T10:29:24.454Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/xaml/</loc>
+        <lastmod>2021-02-17T05:50:13.534Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/C/</loc>
+        <lastmod>2021-02-17T05:59:41.776Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/DataGrid/</loc>
+        <lastmod>2021-02-17T05:59:41.776Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/WPF/</loc>
+        <lastmod>2021-02-17T06:49:43.964Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

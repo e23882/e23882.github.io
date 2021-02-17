@@ -139,14 +139,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -213,6 +213,82 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2020/08/31/WPF-MultiBinding/">
+        <h2 class="post-title">
+            WPF MultiBinding
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            MultiBinding
+有時候會要寫什麼值等於多少
+可以用兩個元件來解決，但是這樣就要多寫一個元件，不是很聰明
+12&lt;TextBlock Text="資料筆數 "&gt;&lt;TextBlock Text="&#123;Binding Count&#125;"&gt;
+
+或是在ViewModel裡面處裡掉，可是這樣這個屬性就沒有辦法跟其它屬性共用
+123456789private ......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-31
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+              <a href="/tags/#DataBinding" title="DataBinding">DataBinding</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/27/Linux安裝mysql-phpmyadmin/">
+        <h2 class="post-title">
+            Linux安裝mysql.phpmyadmin
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            安裝mysql、測試
+安裝mysql
+123sudo apt-get install mysql-serversudo apt install mysql-clientsudo apt install libmysqlclient-dev
+檢查服務是否啟動
+12sudo lsof -i :3306telnet localhost 3306
+設定mysql允許遠端訪問
+編輯mysqld.cnf......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-27
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#ubuntu" title="ubuntu">ubuntu</a>
+            
+              <a href="/tags/#linux" title="linux">linux</a>
+            
+              <a href="/tags/#mysql" title="mysql">mysql</a>
+            
+              <a href="/tags/#phpmyadmin" title="phpmyadmin">phpmyadmin</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -493,83 +569,6 @@ Abstractions should not depend on details. Details should de......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2020/08/11/yolo/">
-        <h2 class="post-title">
-            yolo
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            參考來源
-我是參考這篇文章 [機器學習 ML NOTE]YOLO!!!如何簡單使用YOLO訓練出自己的物件偵測!!! (Windows+Anaconda)
-遇到問題
-Tensorflow
-tensorflow目前只支援到python3.7，python3.7還只能裝版本2.0.0以下的tensorflow，因為tensorflow 2.0.0 開始移除了一個 tensorflow.contr......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-08-11
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#python" title="python">python</a>
-            
-              <a href="/tags/#yolo" title="yolo">yolo</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/08/07/Jetbrains工具快捷鍵名稱/">
-        <h2 class="post-title">
-            Jetbrains工具快捷鍵名稱
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            快捷鍵名稱
-
-移動到方法 : Main menu\ Navigate\ Go to Declaration or Usages
-執行 : Run
-停止執行 : Stop
-Debug : Debug
-打開所有程式碼 : Expand All
-收合所有程式碼 : Collapse All
-註解/取消註解 : Comment/Uncomment Code
-Debug時中斷的下一步 : Run\ D......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-08-07
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Jetbrains" title="Jetbrains">Jetbrains</a>
-            
-              <a href="/tags/#Rider" title="Rider">Rider</a>
-            
-              <a href="/tags/#Pycharm" title="Pycharm">Pycharm</a>
-            
-              <a href="/tags/#DataGrip" title="DataGrip">DataGrip</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -614,11 +613,7 @@ Debug時中斷的下一步 : Run\ D......
             
         
             
-        
-            
-        
-            
-            <a href="/tags/#WPF" title="WPF" rel="20">WPF</a>
+            <a href="/tags/#WPF" title="WPF" rel="22">WPF</a>
             
         
             
@@ -629,6 +624,20 @@ Debug時中斷的下一步 : Run\ D......
         
             
         
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#.Net Core" title=".Net Core" rel="3">.Net Core</a>
+            
+        
+            
+            <a href="/tags/#DI" title="DI" rel="2">DI</a>
             
         
             
@@ -636,7 +645,23 @@ Debug時中斷的下一步 : Run\ D......
             
         
             
+        
+            
+        
+            
+        
+            
             <a href="/tags/#Linux" title="Linux" rel="2">Linux</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
             
         
             
@@ -654,23 +679,7 @@ Debug時中斷的下一步 : Run\ D......
             
         
             
-        
-            
-        
-            
-        
-            
-        
-            
             <a href="/tags/#Python" title="Python" rel="5">Python</a>
-            
-        
-            
-        
-            
-        
-            
-        
             
         
             
@@ -695,16 +704,6 @@ Debug時中斷的下一步 : Run\ D......
         
             
         
-            
-        
-            
-        
-            
-            <a href="/tags/#.Net Core" title=".Net Core" rel="3">.Net Core</a>
-            
-        
-            
-            <a href="/tags/#DI" title="DI" rel="2">DI</a>
             
         
             
@@ -810,6 +809,14 @@ Debug時中斷的下一步 : Run\ D......
     <ul>
       
         <li>
+          <a href="/2021/02/17/WPF-Trigger/">WPF Trigger</a>
+        </li>
+      
+        <li>
+          <a href="/2021/02/17/WPF-Storyboard/">WPF Storyboard</a>
+        </li>
+      
+        <li>
           <a href="/2021/02/01/jenkins自動部屬WPF/">jenkins自動部屬WPF</a>
         </li>
       
@@ -819,14 +826,6 @@ Debug時中斷的下一步 : Run\ D......
       
         <li>
           <a href="/2021/01/15/net-framework-注入依賴/">.net framework 注入依賴</a>
-        </li>
-      
-        <li>
-          <a href="/2021/01/07/Linux背景執行/">Linux背景執行</a>
-        </li>
-      
-        <li>
-          <a href="/2020/12/31/部屬-Net-Core-Webapi-到Linux/">部屬.Net Core Webapi 到Linux</a>
         </li>
       
     </ul>
