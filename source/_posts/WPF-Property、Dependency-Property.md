@@ -11,8 +11,20 @@ date: 2020-07-02 16:47:45
 subtitle:
 header-img:
 ---
+
+
 ##### Dependency Property(依賴屬性)
-主要用在xaml，在其他畫面xaml使用元件的時候可以透過DP存取資料
+我們常常會在類別中設計屬性(Property)供其他程式存取，依賴屬性(DependencyProperty)主要是設計在xaml中
+在WPF中屬性和依賴屬性最大的差異在於:
+**屬性被綁訂在依賴屬性上**
+```xml
+<Button Content="{Binding ContentText}"/>
+```
+**依賴屬性綁定屬性**
+```xml
+<leo:LeoButton LeoContent="{Binding ContentText}"/>
+```
+
 在CodeBehind打 **Propdp**再按兩下Tab，visual studio會自動產生Dependency Property的範本，再把依賴屬性的資料型態、名稱、預設值改成自己要的，就可以有一個自己的依賴屬性，依賴屬性常用在自己做的元件上，原生的元件沒有自己需要的屬性，所以自己做一個
 
 - 資料型態 : int

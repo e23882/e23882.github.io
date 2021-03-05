@@ -1,0 +1,7 @@
+Sitemap: https://e23882.github.io/sitemap.xml
+Sitemap: https://e23882.github.io/post-sitemap.xml
+Sitemap: https://e23882.github.io/page-sitemap.xml
+Sitemap: https://e23882.github.io/tag-sitemap.xml
+User-agent: *
+Allow: /
+Allow: /archives/

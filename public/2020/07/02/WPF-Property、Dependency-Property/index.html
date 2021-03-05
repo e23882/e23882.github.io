@@ -222,8 +222,13 @@
                 post-container">
 
                 <h5><span id="dependency-property依賴屬性">Dependency Property(依賴屬性)</span></h5>
-<p>主要用在xaml，在其他畫面xaml使用元件的時候可以透過DP存取資料<br>
-在CodeBehind打 <strong>Propdp</strong>再按兩下Tab，visual studio會自動產生Dependency Property的範本，再把依賴屬性的資料型態、名稱、預設值改成自己要的，就可以有一個自己的依賴屬性，依賴屬性常用在自己做的元件上，原生的元件沒有自己需要的屬性，所以自己做一個</p>
+<p>我們常常會在類別中設計屬性(Property)供其他程式存取，依賴屬性(DependencyProperty)主要是設計在xaml中<br>
+在WPF中屬性和依賴屬性最大的差異在於:<br>
+<strong>屬性被綁訂在依賴屬性上</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Button</span> <span class="attr">Content</span>=<span class="string">"&#123;Binding ContentText&#125;"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>依賴屬性綁定屬性</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">leo:LeoButton</span> <span class="attr">LeoContent</span>=<span class="string">"&#123;Binding ContentText&#125;"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在CodeBehind打 <strong>Propdp</strong>再按兩下Tab，visual studio會自動產生Dependency Property的範本，再把依賴屬性的資料型態、名稱、預設值改成自己要的，就可以有一個自己的依賴屬性，依賴屬性常用在自己做的元件上，原生的元件沒有自己需要的屬性，所以自己做一個</p>
 <ul>
 <li>資料型態 : int</li>
 <li>名稱 : MyProperty</li>
