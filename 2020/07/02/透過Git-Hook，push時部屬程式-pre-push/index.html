@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="HTi_MBYQPgKEJxGDQGGS83spHWuAGSOfrVmhoFwi5ko">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content>
+    <meta name="keyword" content>
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          透過Git Hook，push時部屬程式(pre-push) - Leo&#39;s Technical Debt
+        
+    </title>
+
+    <link rel="canonical" href="https://e23882.github.io/2020/07/02/透過Git-Hook，push時部屬程式-pre-push/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('null')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/img/signature/BeanTechSign-white.png');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                            
+                              <a class="tag" href="/tags/#Git" title="Git">Git</a>
+                            
+                              <a class="tag" href="/tags/#CI" title="CI">CI</a>
+                            
+                        </div>
+                        <h1>透過Git Hook，push時部屬程式(pre-push)</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            Posted by Leo Yang on
+                            2020-07-02
+                        </span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Leo&#39;s Technical Debt</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archive/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h3><span id="透過githook-prepush機制push時部屬程式">透過GitHook Prepush機制，Push時部屬程式</span></h3>
+<h4><span id="環境準備">環境準備</span></h4>
+<ul>
+<li>Git</li>
+<li>Python<br>
+用Python主要是因為不用編譯，拿來做一些Script很方便</li>
+</ul>
+<h4><span id="準備githook-prepush">準備githook - Prepush</span></h4>
+<p>git hook 機制可以讓我們在commit、pull、push….e.t.c.時執行特定的動作，例如執行測試、寄信通知更新、檢查編譯是否通過等……hen方便</p>
+<p>在開發的專案下，githook目錄中把pre-prepush.sample副檔名移除 &gt; pre-push</p>
+<p>*盡量用改的，因為githook裡面有一些特殊的編碼，如果自己寫可能會有問題</p>
+<p>路徑 : Project\ProjectName.git\hooks\</p>
+<p>在prepush中增加下面內容，也可以視情況移除掉不需要的指令或是更改路徑、命名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"></span><br><span class="line"># 取得最後一次commit內容到文字檔</span><br><span class="line">git log -n 1 &gt; &quot;D:\NeverRemove.txt&quot;</span><br><span class="line"></span><br><span class="line"># 通知</span><br><span class="line">## Notify通知重啟服務</span><br><span class="line">python .git/hooks/LineNotifyReboot.py</span><br><span class="line">## Mail通知重啟服務</span><br><span class="line">python .git/hooks/MailNotifyReboot.py</span><br><span class="line"></span><br><span class="line"># 停用服務</span><br><span class="line">.git/hooks/StartOrStopService.exe</span><br><span class="line"></span><br><span class="line"># 備份 &amp;&amp; 發布</span><br><span class="line">.git/hooks/backup.bat</span><br><span class="line"></span><br><span class="line"># 啟用服務</span><br><span class="line">.git/hooks/StartOrStop.exe</span><br><span class="line"></span><br><span class="line"># 通知</span><br><span class="line">## Notify通知更新完成</span><br><span class="line">python .git/hooks/LineNotifyRelease.py</span><br><span class="line">## Mail通知更新完成</span><br><span class="line">python .git/hooks/MailNotifyRelease.py</span><br></pre></td></tr></table></figure>
+<h4><span id="準備通知程式">準備通知程式</span></h4>
+<h5><span id="mailnotifyrebootpy-信件通知重啟程式"> – 信件通知重啟程式</span></h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Account infomation load</span></span><br><span class="line">gmailUser = <span class="string">'yourmail@gmail.com'</span></span><br><span class="line">gmailPasswd = <span class="string">'yourpassword'</span></span><br><span class="line">to = [<span class="string">'receiver1@gmail.com'</span>, <span class="string">'receiver2@gmail.com'</span>, <span class="string">'receiverˇ@gmail.com'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create message</span></span><br><span class="line">emails = [t.split(<span class="string">','</span>) <span class="keyword">for</span> t <span class="keyword">in</span> to]</span><br><span class="line">message = MIMEText(<span class="string">'Dear all,\n\nOO系統服務將在幾分鐘內重新啟動，請盡快將正在操作的資料儲存避免資料遺失。\n如果有任何問題需要協助請隨時與我聯繫，感謝 !\n\nRegards,\n'</span>, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">message[<span class="string">'Subject'</span>] = <span class="string">'OO系統更新'</span></span><br><span class="line">message[<span class="string">'From'</span>] = gmailUser</span><br><span class="line">message[<span class="string">'To'</span>] = <span class="string">','</span>.join(to)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set smtp</span></span><br><span class="line">smtp = smtplib.SMTP(<span class="string">"mail.com.tw:25"</span>)</span><br><span class="line">smtp.ehlo()</span><br><span class="line">smtp.starttls()</span><br><span class="line">smtp.login(gmailUser, gmailPasswd)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Send msil</span></span><br><span class="line">smtp.sendmail(message[<span class="string">'From'</span>], message[<span class="string">'To'</span>], message.as_string())</span><br><span class="line">print(<span class="string">'Send mails OK!'</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="Mail.png" alt="Mail Notify"></p>
+<h5><span id="linenotifyrebootpy-linenotify通知重啟程式"> – LineNotify通知重啟程式</span></h5>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lineNotifyMessage</span><span class="params">(token, msg, url)</span>:</span></span><br><span class="line">      headers = &#123;</span><br><span class="line">          <span class="string">"Authorization"</span>: <span class="string">"Bearer "</span> + token, </span><br><span class="line">          <span class="string">"Content-Type"</span> : <span class="string">"application/x-www-form-urlencoded"</span></span><br><span class="line">      &#125;</span><br><span class="line">	</span><br><span class="line">      payload = &#123;<span class="string">'message'</span>: msg,  <span class="string">'imageThumbnail'</span>: url,<span class="string">'imageFullsize'</span>: url&#125;</span><br><span class="line">      r = requests.post(<span class="string">"https://notify-api.line.me/api/notify"</span>, headers = headers, params = payload)</span><br><span class="line">      <span class="keyword">return</span> r.status_code</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">"D:/NeverRemove.txt"</span>, <span class="string">"r"</span>,encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">message = <span class="string">"Dear all,\n\nOOO system service will be rebooted in a few minutes, please save important data to avoid data loss.\nIf you have any questions, please feel free to contact me, thank you!\n\n128 Leo\n\nRegards,\n"</span></span><br><span class="line"></span><br><span class="line">url = <span class="string">"https://e23882.github.io/img/maybe.PNG"</span></span><br><span class="line"><span class="comment"># 修改為你的權杖內容</span></span><br><span class="line">token= <span class="string">'yourlinenotifytoken'</span></span><br><span class="line"><span class="comment">#lineNotifyMessage(token, message, url)</span></span><br></pre></td></tr></table></figure>
+<p><img src="Line.png" alt="Mail Notify"></p>
+<h4><span id="準備備份-發布批次檔">準備備份、發布批次檔</span></h4>
+<p>backup.bat :</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">:: 產生備份目錄</span><br><span class="line">set Date_folder=%date:~0,4%%date:~5,2%%date:~8,2%_%time:~0,2%%time:~3,2%%time:~6,2%</span><br><span class="line">:: 產生備份目錄</span><br><span class="line">md &quot;\\Server\備份\&quot;%Date_folder%</span><br><span class="line">:: 備份 client 64/32bits</span><br><span class="line">xcopy &quot;\\Server\Deploy&quot; &quot;\\Server\備份\&quot;%Date_folder% /E /H /C /I /Y</span><br><span class="line"></span><br><span class="line">:: 備份 service</span><br><span class="line">xcopy &quot;\\Server\ApServices&quot; &quot;\\Server\備份\&quot;%Date_folder%&quot;\Service&quot; /E /H /C /I /Y</span><br><span class="line"></span><br><span class="line">:: 更新Client檔案</span><br><span class="line">xcopy &quot;D:\Backup\Project\bin\Debug&quot; &quot;\\Server\JepunShare_IMS\JepunIMSDeploy\32&quot; /E /H /C /I /Y /exclude:D:\Backup\Project\.git\hooks\Exclude.txt</span><br><span class="line">xcopy &quot;D:\Backup\Project\bin\Debug&quot; &quot;\\Server\JepunShare_IMS\JepunIMSDeploy\64&quot; /E /H /C /I /Y /exclude:D:\Backup\Project\.git\hooks\Exclude.txt</span><br><span class="line"></span><br><span class="line">:: 更新服務</span><br><span class="line">xcopy &quot;D:\Backup\Project\Service\bin\Debug&quot; &quot;\\Server\Services&quot; /E /H /C /I /Y /exclude:D:\Backup\Project\.git\hooks\Exclude.txt</span><br></pre></td></tr></table></figure>
+<p>Exclude.txt – 不複製檔案清單</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.pdb</span><br><span class="line">.xml</span><br><span class="line">App_Data</span><br><span class="line">.txt</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/e23882/GitHook/tree/master/Depoly" target="_blank" rel="noopener">完整程式碼</a></p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2020/07/02/使用HierarchicalDataTemplate讓TreeView自動長整棵樹/" data-toggle="tooltip" data-placement="top" title="使用HierarchicalDataTemplate讓TreeView自動長整棵樹">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2020/07/02/Dapper/" data-toggle="tooltip" data-placement="top" title="Dapper">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">透過GitHook Prepush機制，Push時部屬程式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">環境準備</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">準備githook - Prepush</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">準備通知程式</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text"> – 信件通知重啟程式</span></a></li><li class="toc-nav-item toc-nav-level-5"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text"> – LineNotify通知重啟程式</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">準備備份、發布批次檔</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#Python" title="Python">Python</a>
+                        
+                          <a class="tag" href="/tags/#Git" title="Git">Git</a>
+                        
+                          <a class="tag" href="/tags/#CI" title="CI">CI</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="#" target="_blank">It Helps SEO</a></li>
+                    
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "your-disqus-ID";
+    var disqus_identifier = "https://e23882.github.io/2020/07/02/透過Git-Hook，push時部屬程式-pre-push/";
+    var disqus_url = "https://e23882.github.io/2020/07/02/透過Git-Hook，push時部屬程式-pre-push/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/e23882">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://www.linkedin.com/in/作賢-楊-1ba614185">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Leo Yang 2021 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("https://e23882.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113183997-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-113183997-2');
+</script>
+
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="https://e23882.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
