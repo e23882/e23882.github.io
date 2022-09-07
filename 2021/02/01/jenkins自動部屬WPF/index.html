@@ -151,7 +151,7 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -165,7 +165,7 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -221,7 +221,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1><span id="用jenkins自動部屬wpf">用Jenkins自動部屬WPF</span></h1>
+                <h1><span id="用jenkins自動部屬wpffreestyle軟體專案">用Jenkins自動部屬WPF(FreeStyle軟體專案)</span></h1>
 <h2><span id="環境">環境</span></h2>
 <p>安裝就不寫了，google jenkins然後下載下一步下一步就裝完了</p>
 <p>安裝完之後在網址列輸入localhost:8080應該會看到jenkin的歡迎畫面，如果沒有看到的話</p>
@@ -237,7 +237,7 @@
 <p>選主畫面的新增作業按紐，輸入這個作業的名稱之後，選建置Free-Style 軟體專案<br>
 <img src="new1.PNG" alt="new-1"></p>
 <p>之後可以照著jenkins的項目去設定自己要執行的動作</p>
-<p>像我的流程是:</p>
+<p>我的流程是:</p>
 <h3><span id="1git-pull-最新的程式">1.git pull 最新的程式</span></h3>
 <p><img src="Step1.PNG" alt="step1"></p>
 <p>在設定這個功能之前要先去<br>
@@ -246,7 +246,10 @@
 <img src="setGit.PNG" alt="SetGit"></p>
 <h3><span id="2刪除目前的工作區">2.刪除目前的工作區</span></h3>
 <p><img src="Step2.PNG" alt="step2"></p>
-<h3><span id="3編譯專案">3.編譯專案</span></h3>
+<h3><span id="3還原nuget套件">3.還原nuget套件</span></h3>
+<p>在建置中執行 '執行Windwows批次指令’<br>
+nuget restore ProjectName.sln</p>
+<h3><span id="4編譯專案">4.編譯專案</span></h3>
 <p>要執行這一個工作項目會需要裝一個jenkins的plugin</p>
 <p>按左上角Jenkins logo回到主畫面後，選 管理jenkins &gt; 管理外掛程式<br>
 <img src="managePlugin.PNG" alt="manage"></p>
@@ -255,21 +258,28 @@
 <p>安裝完plugin之後要去Global Tool Configuration 設定MSBuild路徑<br>
 <img src="setMSBuild.PNG" alt="Set MSBuild"></p>
 <p>都設定完之後再去設定新的作業中執行編譯專案的工作項目<br>
-<img src="Step3.PNG" alt="step3"></p>
-<h3><span id="4執行測試">4.執行測試</span></h3>
+<img src="Step3.PNG" alt="step3"><br>
+這裡常常會有一個問題是輸出訊息顯示:msbuild找不到專案檔，這個問題我後來是把jenkins裝在C磁碟機以外的地方就解決了，推測應該是權限問題造成的</p>
+<h3><span id="5執行源碼檢測">5.執行源碼檢測</span></h3>
+<p>我們用的是SonarQube Community版本，在編譯專案的動作後面新增一個建置步驟 : 執行windows批次指令</p>
+<p>把SonarQube的Scanner放到指定路徑後設定環境變數</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SonarScanner.MSBuild.exe begin <span class="string">/k</span>:<span class="string">"ProjectNameOnSonarQube"</span> <span class="string">/d</span><span class="function">:sonar.host.url</span>=<span class="string">"http://xx.xx.x.xx:9000"</span> <span class="string">/d</span><span class="function">:sonar.login</span>=<span class="string">"xxxxx818475a7953ce2d75c37edab09d383e9917"</span></span><br><span class="line">msbuild <span class="string">/t</span><span class="function">:Rebuild</span> ProjectName.sln</span><br><span class="line">SonarScanner.MSBuild.exe end <span class="string">/d</span><span class="function">:sonar.login</span>=<span class="string">"xxxxx818475a7953ce2d75c37edab09d383e9917"</span></span><br></pre></td></tr></table></figure>
+<h3><span id="6執行測試">6.執行測試</span></h3>
 <p>執行這一步因為我是在編譯完之後透過執行Windows batch的方式去執行測試所以不用裝什麼奇怪的plugin</p>
 <p>但是要下載對應的單元測試執行程式，像我這裡是用NUnit3，所以要下載NUNIT3，透過圖片中的方式執行測試<br>
 <a href="https://nunit.org/download/" target="_blank" rel="noopener">https://nunit.org/download/</a></p>
 <p><img src="Step4.PNG" alt="step4"></p>
-<h3><span id="5輸出測試結果">5.輸出測試結果</span></h3>
+<h3><span id="7輸出測試結果">7.輸出測試結果</span></h3>
 <p>要在jenkins上看到執行測試的結果要裝一個jekins NUnit的plugin，做法就像上面安裝MSBUID一樣，不過不用設定NUnit的路徑，主要目的是要在新增作業時有Publish NUnit test result report的項目可以選擇<br>
 <img src="Step5.PNG" alt="step5"></p>
-<h3><span id="6部屬到指定位置">6.部屬到指定位置</span></h3>
+<h3><span id="8部屬到指定位置">8.部屬到指定位置</span></h3>
 <p>正常來說應該是要選圖片中的工作項目，讓jenkins執行完測試自動部屬檔案到指定位置，但是我的jenkins每次在設定這個動作需要的參數時一直crash，所以我是透過執行單元測試的方式，透過windows batch執行複製編譯完的檔案到指定目錄中<br>
 <img src="Step5.PNG" alt="step5"></p>
 <p><img src="publish.PNG" alt="Publish"></p>
 <p>因為之前有透過githook部屬程式，所以備份目前版本、停用服務、部屬、通知使用者…我幾乎都用windows batch完成了</p>
-
+<h1><span id="用jenkins自動部屬wpfpipline">用Jenkins自動部屬WPF(PIPLINE)</span></h1>
+<h2><span id="直接上script">直接上Script</span></h2>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">node &#123;</span><br><span class="line">    stage(<span class="string">'Clean up the workspace environment.'</span>) </span><br><span class="line">    &#123;</span><br><span class="line">        bat <span class="string">"""</span></span><br><span class="line"><span class="string">        dir</span></span><br><span class="line"><span class="string">        rmdir /q /s ProjectName</span></span><br><span class="line"><span class="string">        echo "done"</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">'Clone Project'</span>) </span><br><span class="line">    &#123;</span><br><span class="line">        bat <span class="string">"""</span></span><br><span class="line"><span class="string">        git clone http://ProjectName.git</span></span><br><span class="line"><span class="string">        cd ProjectName</span></span><br><span class="line"><span class="string">        git checkout uat</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">'Publish RDLC file'</span>) </span><br><span class="line">    &#123;</span><br><span class="line">        bat <span class="string">"""</span></span><br><span class="line"><span class="string">        xcopy "D:\\JenkinsWorkSpace\\workspace\\CompanyName.ProjectName immediately\\ProjectName\\WebApplication\\CompanyName.ProjectName.Report\\*.rdlc" "D:\\ProjectName.Report.RDLC" /H /C /I /Y /S</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">    &#125;</span><br><span class="line">     stage(<span class="string">'Nuget restore'</span>) </span><br><span class="line">    &#123;</span><br><span class="line">        bat <span class="string">"""</span></span><br><span class="line"><span class="string">        cd ProjectName</span></span><br><span class="line"><span class="string">        cd ConsoleApplication</span></span><br><span class="line"><span class="string">		dir</span></span><br><span class="line"><span class="string">        nuget restore CompanyName.ProjectName.R6DBSync.sln</span></span><br><span class="line"><span class="string">		cd ..</span></span><br><span class="line"><span class="string">		cd WebApplication</span></span><br><span class="line"><span class="string">		dir</span></span><br><span class="line"><span class="string">		nuget restore CompanyName.ProjectName.MVC.sln</span></span><br><span class="line"><span class="string">		nuget restore CompanyName.ProjectName.Report.Web.sln</span></span><br><span class="line"><span class="string">		cd ..</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">'Build Solution'</span>) </span><br><span class="line">    &#123;</span><br><span class="line">        bat <span class="string">"""</span></span><br><span class="line"><span class="string">        cd ProjectName</span></span><br><span class="line"><span class="string">        cd ConsoleApplication</span></span><br><span class="line"><span class="string">        dir</span></span><br><span class="line"><span class="string">        msbuild CompanyName.ProjectName.R6DBSync.sln</span></span><br><span class="line"><span class="string">		cd ..</span></span><br><span class="line"><span class="string">		cd WebApplication</span></span><br><span class="line"><span class="string">		dir</span></span><br><span class="line"><span class="string">		msbuild CompanyName.ProjectName.MVC.sln</span></span><br><span class="line"><span class="string">		msbuild CompanyName.ProjectName.Report.Web.sln</span></span><br><span class="line"><span class="string">		cd ..</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">'Publish'</span>) </span><br><span class="line">    &#123;</span><br><span class="line">        bat <span class="string">"""</span></span><br><span class="line"><span class="string">        cd ProjectName</span></span><br><span class="line"><span class="string">        cd ConsoleApplication</span></span><br><span class="line"><span class="string">        msbuild CompanyName.ProjectName.R6DBSync.sln  /p:outdir="D:\\PublishTemp\\_PublishedConsoles\\CompanyName.Console.ProjectName.R6DBSync pipeline" /p:Configuration=Release /p:Platform="Any CPU"</span></span><br><span class="line"><span class="string">        xcopy "D:\\PublishTemp\\_PublishedConsoles\\CompanyName.Console.ProjectName.R6DBSync pipeline" "D:\\Console\\CompanyName.Console.ProjectName.R6DBSync\\bin\\Debug" /E /H /C /I /Y /exclude:D:\\CICDTools\\Exclude.txt</span></span><br><span class="line"><span class="string">        del D:\\Console\\CompanyName.Console.ProjectName.R6DBSync\\bin\\Debug\\CompanyName.AA.dll</span></span><br><span class="line"><span class="string">        cd ..</span></span><br><span class="line"><span class="string">        cd WebApplication</span></span><br><span class="line"><span class="string">        msbuild /t:Rebuild CompanyName.ProjectName.MVC.sln  /p:outdir="D:\\PublishTemp" /p:Configuration=Release /p:Platform="Any CPU"</span></span><br><span class="line"><span class="string">		xcopy "D:\\PublishTemp\\_PublishedWebsites\\CompanyName.ProjectName.MVC" "D:\\WebSites\\CompanyName.ProjectName.MVC" /E /H /C /I /Y /exclude:D:\\CICDTools\\Exclude.txt</span></span><br><span class="line"><span class="string">		</span></span><br><span class="line"><span class="string">		msbuild /t:Rebuild CompanyName.ProjectName.Report.Web.sln  /p:outdir="D:\\WebSites\\CompanyName.ProjectName.Report.Web\\bin" /p:Configuration=Release /p:Platform="Any CPU"</span></span><br><span class="line"><span class="string">		</span></span><br><span class="line"><span class="string">		</span></span><br><span class="line"><span class="string">		</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">    &#125;</span><br><span class="line">    stage(<span class="string">'Restart Service'</span>) </span><br><span class="line">    &#123;</span><br><span class="line">        bat <span class="string">"""</span></span><br><span class="line"><span class="string">        C:\\Windows\\System32\\inetsrv\\appcmd.exe stop site "CompanyName.ProjectName.MVC"</span></span><br><span class="line"><span class="string">		C:\\Windows\\System32\\inetsrv\\appcmd.exe start site "CompanyName.ProjectName.MVC"</span></span><br><span class="line"><span class="string">		C:\\Windows\\System32\\inetsrv\\appcmd.exe stop site "CompanyName.ProjectName.Report.Web"</span></span><br><span class="line"><span class="string">		C:\\Windows\\System32\\inetsrv\\appcmd.exe start site "CompanyName.ProjectName.Report.Web"</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
                 
 
                 <hr>
@@ -312,7 +322,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">用Jenkins自動部屬WPF</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">環境</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">新增作業</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">1.git pull 最新的程式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">2.刪除目前的工作區</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">3.編譯專案</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.4.</span> <span class="toc-nav-text">4.執行測試</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.5.</span> <span class="toc-nav-text">5.輸出測試結果</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.6.</span> <span class="toc-nav-text">6.部屬到指定位置</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">用Jenkins自動部屬WPF(FreeStyle軟體專案)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">環境</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">新增作業</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">1.git pull 最新的程式</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">2.刪除目前的工作區</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">3.還原nuget套件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.4.</span> <span class="toc-nav-text">4.編譯專案</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.5.</span> <span class="toc-nav-text">5.執行源碼檢測</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.6.</span> <span class="toc-nav-text">6.執行測試</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.7.</span> <span class="toc-nav-text">7.輸出測試結果</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.8.</span> <span class="toc-nav-text">8.部屬到指定位置</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">用Jenkins自動部屬WPF(PIPLINE)</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">直接上Script</span></a></li></ol></li></ol>
         
         </div>
       </aside>
@@ -454,7 +464,7 @@
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Leo Yang 2021 
+                    Copyright &copy; Leo Yang 2022 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> 
                     <span style="display: inline-block; margin: 0 5px;">
