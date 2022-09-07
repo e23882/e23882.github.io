@@ -14,11 +14,11 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
         
-          C# Selenium不指定Chromedriver位置 - Leo&#39;s Technical Debt
+          WPF AutoComplete textbox - Leo&#39;s Technical Debt
         
     </title>
 
-    <link rel="canonical" href="https://e23882.github.io/2022/09/07/C-Selenium不指定Chromedriver位置/">
+    <link rel="canonical" href="https://e23882.github.io/2022/09/07/WPF-AutoComplete-textbox/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('null')
+            background-image: url('undefined')
             /*post*/
         
     }
@@ -92,8 +92,12 @@
                             
                               <a class="tag" href="/tags/#C#" title="C#">C#</a>
                             
+                              <a class="tag" href="/tags/#WPF" title="WPF">WPF</a>
+                            
+                              <a class="tag" href="/tags/#Chart" title="Chart">Chart</a>
+                            
                         </div>
-                        <h1>C# Selenium不指定Chromedriver位置</h1>
+                        <h1>WPF AutoComplete textbox</h1>
                         <h2 class="subheading"></h2>
                         <span class="meta">
                             Posted by Leo Yang on
@@ -217,12 +221,30 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3><span id="一般在c中使用selenium">一般在C#中使用Selenium</span></h3>
-<p>一般我們要在C#中使用Selenium會從nuget上安裝Selenium.WebDriver這個套件<br>
-code會長這樣，在ChromeDriver裡指定ChromeDriver的路徑，如果Chrome更新的時候就要重新下載ChromeDriver到指定目錄下，很不方便</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> chromeOptions = <span class="keyword">new</span> ChromeOptions();</span><br><span class="line">chromeOptions.AddArguments(<span class="string">"headless"</span>);</span><br><span class="line"><span class="keyword">var</span> driver = <span class="keyword">new</span> ChromeDriver(chromeOptions);</span><br><span class="line"><span class="keyword">var</span> loginUrl = <span class="string">"https://emp.com/EIM/User/WallMain.aspx"</span>;</span><br><span class="line">driver.Navigate().GoToUrl(loginUrl);</span><br></pre></td></tr></table></figure>
-<h3><span id="更方便的方法">更方便的方法</span></h3>
-<p>其實只要再安裝 Selenium.WebDriver.ChromeDriver 就可以自動帶入對應版本的chromedriver</p>
+                <h2><span id="autocompletetextbox">AutoCompleteTextBox</span></h2>
+<h3><span id="使用時機">使用時機</span></h3>
+<p>因為工作需要讀取一些有特定格式的文字資料，所以開發了一個介面去Parsing資料<br>
+但是因為資料量很大所以再程式裡有做一個搜尋的功能，可以去篩選需要的欄位跟資料出來<br>
+<img src="AutoComplete.png" alt="Use"></p>
+<p>結果大概長這樣，搭配一些DynamicLinq用起來很方便，可以動態的去篩選資料集中的資料<br>
+<img src="AutoComplete2.png" alt="Result"></p>
+<h3><span id="安裝套件">安裝套件</span></h3>
+<p>AutoCompleteTextBox<br>
+<a href="https://github.com/quicoli/WPF-AutoComplete-TextBox" target="_blank" rel="noopener">github</a><br>
+<img src="AutoNuget.png" alt="AutoCompleteTextBox"></p>
+<h3><span id="如何使用">如何使用</span></h3>
+<h4><span id="c">C#</span></h4>
+<p>在專案中加入一個 AutoCompleteProvider 類別，並繼承ISuggestionProvider</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">AutoCompleteProvider</span>: <span class="title">ISuggestionProvider</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">readonly</span> List&lt;<span class="keyword">string</span>&gt; AutoCompleteData = <span class="keyword">new</span> List&lt;<span class="keyword">string</span>&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AutoCompleteProvider</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"BatchNumber"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"FirmNumber"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"ReceUnit"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"SeqNumber"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"TransType"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"TranStatus"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"AccountNumber"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"TranDate"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"DebitAmount"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"UnblockAmount"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"AccountCheck"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"AmountCheck"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"UnblockAcountCheck"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"CurrencyCode"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"ClientCode"</span>);</span><br><span class="line"></span><br><span class="line">        AutoCompleteData.Add(<span class="string">"ClientIdno"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"AECode"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"StockNo"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"StockName"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"OriginalBlockAmount"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"OriginalBlockDate"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">"OriginalBlockSerial"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">@"in ("")"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">@"and"</span>);</span><br><span class="line">        AutoCompleteData.Add(<span class="string">@"or"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> IEnumerable <span class="title">GetSuggestions</span>(<span class="params"><span class="keyword">string</span> filter</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">var</span> allWord = filter.Split(<span class="string">' '</span>);</span><br><span class="line">        <span class="keyword">string</span> target = allWord.Last();</span><br><span class="line">        <span class="keyword">return</span> AutoCompleteData.Where(x=&gt;x.Contains(target)).ToList();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="xaml">Xaml</span></h4>
+<p>1.xaml加入命名空間</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">window</span> <span class="attr">x:Class</span>=<span class="string">"MainWindow"</span></span></span><br><span class="line"><span class="tag"><span class="attr">.</span></span></span><br><span class="line"><span class="tag"><span class="attr">.</span></span></span><br><span class="line"><span class="tag"><span class="attr">.</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns:editors</span>=<span class="string">"http://wpfcontrols.com/"</span></span></span><br><span class="line"><span class="tag"><span class="attr">.</span></span></span><br><span class="line"><span class="tag"><span class="attr">.</span></span></span><br><span class="line"><span class="tag"></span></span><br><span class="line"><span class="tag">&gt;</span></span><br></pre></td></tr></table></figure>
+<p>2.引用靜態資源</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"><span class="tag">&lt;<span class="name">Window.Resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">local:AutoCompleteProvider</span> <span class="attr">x:Key</span>=<span class="string">"AutoCompleteProvider"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">Window.Resources</span>&gt;</span></span><br><span class="line">.</span><br><span class="line">.</span><br><span class="line"></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<p>3.加入元件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">editors:AutoCompleteTextBox</span></span></span><br><span class="line"><span class="tag">    <span class="attr">Width</span>=<span class="string">"797"</span> <span class="attr">Margin</span>=<span class="string">"15,0,0,0"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">Text</span>=<span class="string">"&#123;Binding LinqQuery&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">Provider</span>=<span class="string">"&#123;StaticResource ResourceKey=AutoCompleteProvider&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">SelectedItem</span>=<span class="string">"&#123;Binding SelectedNumber, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged&#125;"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">Watermark</span>=<span class="string">"Enter a filter query"</span>&gt;</span>         </span><br><span class="line">    <span class="tag">&lt;<span class="name">editors:AutoCompleteTextBox.LoadingContent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TextBlock</span> <span class="attr">Margin</span>=<span class="string">"5"</span> <span class="attr">FontSize</span>=<span class="string">"14"</span> <span class="attr">Text</span>=<span class="string">"Loading..."</span> /&gt;</span>            </span><br><span class="line">    <span class="tag">&lt;/<span class="name">editors:AutoCompleteTextBox.LoadingContent</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">editors:AutoCompleteTextBox</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>做完輸入文字就會跑出你有設定好要自動完成的文字hen方便，如果不行的話作者github上也有提供sample code可以參考<br>
+<img src="AutoComplete2.png" alt="Result"></p>
 
                 
 
@@ -230,13 +252,9 @@ code會長這樣，在ChromeDriver裡指定ChromeDriver的路徑，如果Chrome�
                 <!-- Pager -->
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2022/09/07/WPF-AutoComplete-textbox/" data-toggle="tooltip" data-placement="top" title="WPF AutoComplete textbox">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2021/02/26/visual-studio-2019-測試涵蓋率工具-Fine-Code-Coverage/" data-toggle="tooltip" data-placement="top" title="visual studio 2019 測試涵蓋率工具 - Fine Code Coverage">Next Post &rarr;</a>
+                            <a href="/2022/09/07/C-Selenium不指定Chromedriver位置/" data-toggle="tooltip" data-placement="top" title="C# Selenium不指定Chromedriver位置">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -266,7 +284,7 @@ code會長這樣，在ChromeDriver裡指定ChromeDriver的路徑，如果Chrome�
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">一般在C#中使用Selenium</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">更方便的方法</span></a></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">AutoCompleteTextBox</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">使用時機</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">安裝套件</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">如何使用</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">C#</span></a></li><li class="toc-nav-item toc-nav-level-4"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">Xaml</span></a></li></ol></li></ol></li></ol>
         
         </div>
       </aside>
@@ -287,6 +305,10 @@ code會長這樣，在ChromeDriver裡指定ChromeDriver的路徑，如果Chrome�
                     <div class="tags">
                        
                           <a class="tag" href="/tags/#C#" title="C#">C#</a>
+                        
+                          <a class="tag" href="/tags/#WPF" title="WPF">WPF</a>
+                        
+                          <a class="tag" href="/tags/#Chart" title="Chart">Chart</a>
                         
                     </div>
                 </section>
@@ -315,8 +337,8 @@ code會長這樣，在ChromeDriver裡指定ChromeDriver的路徑，如果Chrome�
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "your-disqus-ID";
-    var disqus_identifier = "https://e23882.github.io/2022/09/07/C-Selenium不指定Chromedriver位置/";
-    var disqus_url = "https://e23882.github.io/2022/09/07/C-Selenium不指定Chromedriver位置/";
+    var disqus_identifier = "https://e23882.github.io/2022/09/07/WPF-AutoComplete-textbox/";
+    var disqus_url = "https://e23882.github.io/2022/09/07/WPF-AutoComplete-textbox/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
