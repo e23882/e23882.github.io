@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -213,6 +213,147 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2020/08/24/C-常用方法/">
+        <h2 class="post-title">
+            C# 常用方法
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            XML
+讀取XML
+1234567891011121314151617181920212223242526try&#123;    XmlDocument xmlDoc = new XmlDocument();    xmlDoc.Load("Setting.xml");//載入xml檔    var data = xmlDoc.SelectNodes("Setting");    fore......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-24
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/21/Rider-Live-Templates/">
+        <h2 class="post-title">
+            Rider Live Templates
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Live Templates
+其實就是產生程式碼的範本，如果有一段常常要寫的程式碼要打很多次會浪費很多時間在做一樣的事情
+怎麼用
+在rider主視窗中按兩下shift，輸入live templates
+
+可以在要寫的語言中設定常用的template，按圖片中右上角的圖案可以新增template
+Shortcut 是呼叫範本的代碼，在程式中輸入了代碼再按tab就會自動產生對應的程式碼範本
+Re......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-21
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#jetbrains" title="jetbrains">jetbrains</a>
+            
+              <a href="/tags/#rider" title="rider">rider</a>
+            
+              <a href="/tags/#live templates" title="live templates">live templates</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/21/Jetbrains-Rider-同步設定/">
+        <h2 class="post-title">
+            Jetbrains-Rider 同步設定
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            同步環境設定
+在開發時常常會有習慣的快捷鍵，但因為原本的快捷鍵設定跟Rider的不一樣，這時候我們就會去設定自己習慣的設定
+如果開發環境不是只有在一台電腦上而是有好幾台電腦的時候就會很麻煩
+像我自己公司、常用的筆電、家裡的電腦我有三個開發環境，裡面都會裝Rider、Pycharm、DataGrip…，等於是我一樣的設定最多要設定9次
+jetbrains已經有幫使用者想好了
+在
+1File &......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-21
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Jetbrains" title="Jetbrains">Jetbrains</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/21/WPF-引動過程的目標傳回例外狀況/">
+        <h2 class="post-title">
+            WPF 引動過程的目標傳回例外狀況
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            引動過程的目標傳回例外狀況
+發生原因
+在XAML中把元件的屬性 Binding在ViewModel中的屬性上，如果ViewModel在執行的過程中發生例外就會跳出來這個例外
+
+StaticResource
+我們常常為了不要讓CodeBehind有程式碼，會把ViewModel的宣告拿到Xaml的Resource裡面
+如果在Resource產生ViewModel實例(instance)的時候發......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-21
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+              <a href="/tags/#DataBinding" title="DataBinding">DataBinding</a>
+            
+              <a href="/tags/#引動過程的目標傳回例外狀況" title="引動過程的目標傳回例外狀況">引動過程的目標傳回例外狀況</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -432,157 +573,6 @@ substring
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2020/07/06/NUnit/">
-        <h2 class="post-title">
-            NUnit
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            NUnit
-
-NUnit是什麼
-NUnit是一種測試框架，常見的還有MSTest、xUnit，但因為我需要免費的工具(AXOCover)去看測試涵蓋率，所以選了一個AXOCover有支援的測試框架
-Visual Studio 使用NUnit執行單元測試
-安裝visual studio NUnit2 test adapter extension
-一定要裝，不然不能執行NUnit測試框架(Vis......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-06
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#NUnit" title="NUnit">NUnit</a>
-            
-              <a href="/tags/#UnitTest" title="UnitTest">UnitTest</a>
-            
-              <a href="/tags/#單元測試" title="單元測試">單元測試</a>
-            
-              <a href="/tags/#AXOCover" title="AXOCover">AXOCover</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/03/WPF-DataGrid/">
-        <h2 class="post-title">
-            WPF DataGrid
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            簡單DataGrid範例
-畫面
-
-程式(MVVM)
-1. DataModel.cs
-123456789namespace DataGridDemo&#123;    //定義ViewModel中資料集合每筆資料有哪些欄位    class DataModel    &#123;        public string Name &#123; get; set; &#125;        ......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-03
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-              <a href="/tags/#DataGrid" title="DataGrid">DataGrid</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-Binding-Command/">
-        <h2 class="post-title">
-            WPF Binding Command
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            為什麼要用Command不用事件
-
-改用Command取代掉事件可以避免記憶體洩漏
-可以降低畫面跟程式的耦合性,可以更好釐清問題發生的地方
-開發邏輯的人可以直接測試Command引發的動作
-
-定義一個Command
-123456789101112131415161718192021//繼承ICommand interface並實做方法public class RelayCommand : I......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-元件Resource/">
-        <h2 class="post-title">
-            WPF Resource用法
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Resource類型
-Resource Property
-Style
-12345678910&lt;Window&gt;	&lt;!-- 定義checkbox樣式 CheckBoxStyle--&gt;	&lt;Window.Resources&gt;		&lt;Style TargetType="&#123;x:Type CheckBox&#125;" x:Key="CheckBoxSty......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-              <a href="/tags/#Resource" title="Resource">Resource</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -623,11 +613,15 @@ Style
     <div class="tags">
         
             
-            <a href="/tags/#C#" title="C#" rel="27">C#</a>
+            <a href="/tags/#C#" title="C#" rel="30">C#</a>
             
         
             
-            <a href="/tags/#WPF" title="WPF" rel="23">WPF</a>
+            <a href="/tags/#WPF" title="WPF" rel="24">WPF</a>
+            
+        
+            
+        
             
         
             
@@ -651,29 +645,29 @@ Style
             
         
             
-        
-            
-        
-            
             <a href="/tags/#Jetbrains" title="Jetbrains" rel="2">Jetbrains</a>
             
         
             
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
             <a href="/tags/#Linux" title="Linux" rel="2">Linux</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#SQL" title="SQL" rel="2">SQL</a>
+            
+        
+            
+        
+            
+        
+            
+        
             
         
             
@@ -691,10 +685,6 @@ Style
             
         
             
-            <a href="/tags/#SQL" title="SQL" rel="2">SQL</a>
-            
-        
-            
             <a href="/tags/#Python" title="Python" rel="5">Python</a>
             
         
@@ -709,9 +699,11 @@ Style
             
         
             
+            <a href="/tags/#DataBinding" title="DataBinding" rel="4">DataBinding</a>
+            
         
             
-            <a href="/tags/#DataBinding" title="DataBinding" rel="4">DataBinding</a>
+            <a href="/tags/#Chart" title="Chart" rel="2">Chart</a>
             
         
             
@@ -831,23 +823,23 @@ Style
     <ul>
       
         <li>
+          <a href="/2022/09/12/現金權益補償/">(no title)</a>
+        </li>
+      
+        <li>
+          <a href="/2022/09/07/C-Dynamic-Linq/">C# Dynamic Linq</a>
+        </li>
+      
+        <li>
+          <a href="/2022/09/07/WPF-AutoComplete-textbox/">WPF AutoComplete textbox</a>
+        </li>
+      
+        <li>
+          <a href="/2022/09/07/C-Selenium不指定Chromedriver位置/">C# Selenium不指定Chromedriver位置</a>
+        </li>
+      
+        <li>
           <a href="/2021/02/26/visual-studio-2019-測試涵蓋率工具-Fine-Code-Coverage/">visual studio 2019 測試涵蓋率工具 - Fine Code Coverage</a>
-        </li>
-      
-        <li>
-          <a href="/2021/02/19/WPF-綁定自訂元件屬性/">WPF 綁定自訂元件屬性</a>
-        </li>
-      
-        <li>
-          <a href="/2021/02/17/WPF-Trigger/">WPF Trigger</a>
-        </li>
-      
-        <li>
-          <a href="/2021/02/17/WPF-Storyboard/">WPF Storyboard</a>
-        </li>
-      
-        <li>
-          <a href="/2021/02/01/jenkins自動部屬WPF/">jenkins自動部屬WPF</a>
         </li>
       
     </ul>
@@ -913,7 +905,7 @@ Style
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Leo Yang 2021 
+                    Copyright &copy; Leo Yang 2022 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> 
                     <span style="display: inline-block; margin: 0 5px;">

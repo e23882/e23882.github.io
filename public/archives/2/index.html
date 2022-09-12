@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -213,6 +213,150 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2021/01/15/net-framework-注入依賴/">
+        <h2 class="post-title">
+            .net framework 注入依賴
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            在 . Net framework 實現注入依賴
+函數庫
+在開發.net core專案的時候，如果要使用注入依賴的話可以透過nuget 安裝 Microsoft.Extensions.DependencyInjection
+但是.net framework卻沒有官方的注入依賴容器的函數庫可以用，我們可以用第三方的函數庫－ninject
+
+DI Container
+指定介面、方法
+透過DI容器......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2021-01-15
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#DI" title="DI">DI</a>
+            
+              <a href="/tags/#.net framework" title=".net framework">.net framework</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2021/01/07/Linux背景執行/">
+        <h2 class="post-title">
+            Linux背景執行
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Linux背景執行程式
+如果SSH到Linux，這樣畫面會卡住沒辦法做別的事
+1python xxx.py
+只要指令後面加一個 ‘&amp;’，他就不會卡在那邊
+1python xxx.py &amp;
+可以用’jobs’查詢目前在執行的動作有那些
+1jobs
+使用fg切換目前的環境
+1fg %1
+使用kill停止環境
+1kill jobsID
+...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2021-01-07
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Linux" title="Linux">Linux</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/12/31/部屬-Net-Core-Webapi-到Linux/">
+        <h2 class="post-title">
+            部屬.Net Core Webapi 到Linux
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            下載. Net Core SDK、.Net Core Runtime
+其實只要下載.Net Core Runtime就可以了，SDK是讓你可以在linux上編譯.Net Core的程式
+1234# .Net Core 3.1 SDKwget https://download.visualstudio.microsoft.com/download/pr/349f13f0-400e-476c-b......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-12-31
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#.Net Core" title=".Net Core">.Net Core</a>
+            
+              <a href="/tags/#Linux" title="Linux">Linux</a>
+            
+              <a href="/tags/#Raspberry PI" title="Raspberry PI">Raspberry PI</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/12/10/SQL-Server-Replication-發布資料庫失敗/">
+        <h2 class="post-title">
+            SQL Server Replication 發布資料庫失敗
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            SQL Server Replication 發布資料庫失敗
+環境
+Windows Server 2016 Standard
+版本
+Microsoft SQL Server 2019 (RTM) - 15.0.2000.5 (X64)   Sep 24 2019 13:48:23   Copyright © 2019 Microsoft Corporation  Developer Edit......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-12-10
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#SQL" title="SQL">SQL</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -432,147 +576,6 @@ using library
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2020/08/24/C-常用方法/">
-        <h2 class="post-title">
-            C# 常用方法
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            XML
-讀取XML
-1234567891011121314151617181920212223242526try&#123;    XmlDocument xmlDoc = new XmlDocument();    xmlDoc.Load("Setting.xml");//載入xml檔    var data = xmlDoc.SelectNodes("Setting");    fore......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-08-24
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/08/21/Rider-Live-Templates/">
-        <h2 class="post-title">
-            Rider Live Templates
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Live Templates
-其實就是產生程式碼的範本，如果有一段常常要寫的程式碼要打很多次會浪費很多時間在做一樣的事情
-怎麼用
-在rider主視窗中按兩下shift，輸入live templates
-
-可以在要寫的語言中設定常用的template，按圖片中右上角的圖案可以新增template
-Shortcut 是呼叫範本的代碼，在程式中輸入了代碼再按tab就會自動產生對應的程式碼範本
-Re......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-08-21
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#jetbrains" title="jetbrains">jetbrains</a>
-            
-              <a href="/tags/#rider" title="rider">rider</a>
-            
-              <a href="/tags/#live templates" title="live templates">live templates</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/08/21/Jetbrains-Rider-同步設定/">
-        <h2 class="post-title">
-            Jetbrains-Rider 同步設定
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            同步環境設定
-在開發時常常會有習慣的快捷鍵，但因為原本的快捷鍵設定跟Rider的不一樣，這時候我們就會去設定自己習慣的設定
-如果開發環境不是只有在一台電腦上而是有好幾台電腦的時候就會很麻煩
-像我自己公司、常用的筆電、家裡的電腦我有三個開發環境，裡面都會裝Rider、Pycharm、DataGrip…，等於是我一樣的設定最多要設定9次
-jetbrains已經有幫使用者想好了
-在
-1File &......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-08-21
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Jetbrains" title="Jetbrains">Jetbrains</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/08/21/WPF-引動過程的目標傳回例外狀況/">
-        <h2 class="post-title">
-            WPF 引動過程的目標傳回例外狀況
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            引動過程的目標傳回例外狀況
-發生原因
-在XAML中把元件的屬性 Binding在ViewModel中的屬性上，如果ViewModel在執行的過程中發生例外就會跳出來這個例外
-
-StaticResource
-我們常常為了不要讓CodeBehind有程式碼，會把ViewModel的宣告拿到Xaml的Resource裡面
-如果在Resource產生ViewModel實例(instance)的時候發......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-08-21
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-              <a href="/tags/#DataBinding" title="DataBinding">DataBinding</a>
-            
-              <a href="/tags/#引動過程的目標傳回例外狀況" title="引動過程的目標傳回例外狀況">引動過程的目標傳回例外狀況</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -613,11 +616,15 @@ StaticResource
     <div class="tags">
         
             
-            <a href="/tags/#C#" title="C#" rel="27">C#</a>
+            <a href="/tags/#C#" title="C#" rel="30">C#</a>
             
         
             
-            <a href="/tags/#WPF" title="WPF" rel="23">WPF</a>
+            <a href="/tags/#WPF" title="WPF" rel="24">WPF</a>
+            
+        
+            
+        
             
         
             
@@ -641,29 +648,29 @@ StaticResource
             
         
             
-        
-            
-        
-            
             <a href="/tags/#Jetbrains" title="Jetbrains" rel="2">Jetbrains</a>
             
         
             
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
             <a href="/tags/#Linux" title="Linux" rel="2">Linux</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#SQL" title="SQL" rel="2">SQL</a>
+            
+        
+            
+        
+            
+        
+            
+        
             
         
             
@@ -681,10 +688,6 @@ StaticResource
             
         
             
-            <a href="/tags/#SQL" title="SQL" rel="2">SQL</a>
-            
-        
-            
             <a href="/tags/#Python" title="Python" rel="5">Python</a>
             
         
@@ -699,9 +702,11 @@ StaticResource
             
         
             
+            <a href="/tags/#DataBinding" title="DataBinding" rel="4">DataBinding</a>
+            
         
             
-            <a href="/tags/#DataBinding" title="DataBinding" rel="4">DataBinding</a>
+            <a href="/tags/#Chart" title="Chart" rel="2">Chart</a>
             
         
             
@@ -821,23 +826,23 @@ StaticResource
     <ul>
       
         <li>
+          <a href="/2022/09/12/現金權益補償/">(no title)</a>
+        </li>
+      
+        <li>
+          <a href="/2022/09/07/C-Dynamic-Linq/">C# Dynamic Linq</a>
+        </li>
+      
+        <li>
+          <a href="/2022/09/07/WPF-AutoComplete-textbox/">WPF AutoComplete textbox</a>
+        </li>
+      
+        <li>
+          <a href="/2022/09/07/C-Selenium不指定Chromedriver位置/">C# Selenium不指定Chromedriver位置</a>
+        </li>
+      
+        <li>
           <a href="/2021/02/26/visual-studio-2019-測試涵蓋率工具-Fine-Code-Coverage/">visual studio 2019 測試涵蓋率工具 - Fine Code Coverage</a>
-        </li>
-      
-        <li>
-          <a href="/2021/02/19/WPF-綁定自訂元件屬性/">WPF 綁定自訂元件屬性</a>
-        </li>
-      
-        <li>
-          <a href="/2021/02/17/WPF-Trigger/">WPF Trigger</a>
-        </li>
-      
-        <li>
-          <a href="/2021/02/17/WPF-Storyboard/">WPF Storyboard</a>
-        </li>
-      
-        <li>
-          <a href="/2021/02/01/jenkins自動部屬WPF/">jenkins自動部屬WPF</a>
         </li>
       
     </ul>
@@ -903,7 +908,7 @@ StaticResource
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Leo Yang 2021 
+                    Copyright &copy; Leo Yang 2022 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> 
                     <span style="display: inline-block; margin: 0 5px;">
