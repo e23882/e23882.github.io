@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -213,6 +213,81 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2021/02/01/jenkins自動部屬WPF/">
+        <h2 class="post-title">
+            jenkins自動部屬WPF
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            用Jenkins自動部屬WPF(FreeStyle軟體專案)
+環境
+安裝就不寫了，google jenkins然後下載下一步下一步就裝完了
+安裝完之後在網址列輸入localhost:8080應該會看到jenkin的歡迎畫面，如果沒有看到的話
+
+可以在windows command 輸入
+1services.msc
+檢查服務有沒有執行了，如果沒有執行的話按右鍵啟動Jenkins服務
+
+登入之後......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2021-02-01
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+              <a href="/tags/#CICD" title="CICD">CICD</a>
+            
+              <a href="/tags/#Jenkins" title="Jenkins">Jenkins</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2021/02/01/用Sonarqube做靜態程式碼分析/">
+        <h2 class="post-title">
+            用Sonarqube做靜態程式碼分析
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            用Sonarqube做靜態程式碼分析
+環境
+Sonarqube需要在有java的環境下才能執行，所以要先安裝java
+java18
+
+安裝Sonarqube Community
+
+啟動Sonarqube
+Sonarqube Community 下載完解壓縮，在.sonarqube-8.4.2.36762\bin\windows-x86-64目錄下依序用管理員權限去註冊需要的服務(1.2)，然......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2021-02-01
+        </p>
+        <div class="tags">
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -503,79 +578,6 @@ IIS
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2020/08/27/Python-Request/">
-        <h2 class="post-title">
-            Python-Request
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            #Requests
-using library
-安裝
-1pip install requests
-引用
-1import requests
-基本用法
-12requests.get('url')requests.post('url', data=&#123;'key':'value'&#125;)
-常遇到問題－Encoding
-看到奇怪的字
-1234# \xe7result.encoding =......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-08-27
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Python" title="Python">Python</a>
-            
-              <a href="/tags/#Request" title="Request">Request</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/08/24/Async-Await/">
-        <h2 class="post-title">
-            Async/Await
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Async、Await、Task
-12345678910111213141516171819202122232425static void Main(string[] args)&#123;    TestService sv = new TestService();    sv.Function();    Console.WriteLine("done");    Console.Rea......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-08-24
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#async" title="async">async</a>
-            
-              <a href="/tags/#await" title="await">await</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -638,6 +640,8 @@ using library
             
         
             
+            <a href="/tags/#Jetbrains" title="Jetbrains" rel="2">Jetbrains</a>
+            
         
             
             <a href="/tags/#.Net Core" title=".Net Core" rel="3">.Net Core</a>
@@ -648,11 +652,39 @@ using library
             
         
             
-            <a href="/tags/#Jetbrains" title="Jetbrains" rel="2">Jetbrains</a>
+            <a href="/tags/#Linux" title="Linux" rel="2">Linux</a>
             
         
             
-            <a href="/tags/#Linux" title="Linux" rel="2">Linux</a>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#git" title="git" rel="2">git</a>
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#Python" title="Python" rel="5">Python</a>
+            
+        
+            
+        
+            
+            <a href="/tags/#UnitTest" title="UnitTest" rel="2">UnitTest</a>
             
         
             
@@ -674,38 +706,6 @@ using library
             
         
             
-        
-            
-            <a href="/tags/#UnitTest" title="UnitTest" rel="2">UnitTest</a>
-            
-        
-            
-        
-            
-        
-            
-            <a href="/tags/#git" title="git" rel="2">git</a>
-            
-        
-            
-            <a href="/tags/#Python" title="Python" rel="5">Python</a>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-            <a href="/tags/#DataBinding" title="DataBinding" rel="4">DataBinding</a>
-            
-        
-            
             <a href="/tags/#Chart" title="Chart" rel="2">Chart</a>
             
         
@@ -720,7 +720,7 @@ using library
             
         
             
-        
+            <a href="/tags/#DataBinding" title="DataBinding" rel="4">DataBinding</a>
             
         
             
@@ -751,6 +751,14 @@ using library
         
             
         
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#Know How" title="Know How" rel="2">Know How</a>
             
         
             
@@ -826,7 +834,15 @@ using library
     <ul>
       
         <li>
-          <a href="/2022/09/12/現金權益補償/">(no title)</a>
+          <a href="/2023/02/17/CentOS相關/">CentOS相關</a>
+        </li>
+      
+        <li>
+          <a href="/2022/09/12/當沖券差/">當沖券差</a>
+        </li>
+      
+        <li>
+          <a href="/2022/09/12/現金權益補償/">現金權益補償</a>
         </li>
       
         <li>
@@ -835,14 +851,6 @@ using library
       
         <li>
           <a href="/2022/09/07/WPF-AutoComplete-textbox/">WPF AutoComplete textbox</a>
-        </li>
-      
-        <li>
-          <a href="/2022/09/07/C-Selenium不指定Chromedriver位置/">C# Selenium不指定Chromedriver位置</a>
-        </li>
-      
-        <li>
-          <a href="/2021/02/26/visual-studio-2019-測試涵蓋率工具-Fine-Code-Coverage/">visual studio 2019 測試涵蓋率工具 - Fine Code Coverage</a>
         </li>
       
     </ul>
@@ -908,7 +916,7 @@ using library
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Leo Yang 2022 
+                    Copyright &copy; Leo Yang 2023 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> 
                     <span style="display: inline-block; margin: 0 5px;">

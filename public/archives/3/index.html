@@ -146,14 +146,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -213,6 +213,79 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2020/08/27/Python-Request/">
+        <h2 class="post-title">
+            Python-Request
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            #Requests
+using library
+安裝
+1pip install requests
+引用
+1import requests
+基本用法
+12requests.get('url')requests.post('url', data=&#123;'key':'value'&#125;)
+常遇到問題－Encoding
+看到奇怪的字
+1234# \xe7result.encoding =......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-27
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Python" title="Python">Python</a>
+            
+              <a href="/tags/#Request" title="Request">Request</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/24/Async-Await/">
+        <h2 class="post-title">
+            Async/Await
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Async、Await、Task
+12345678910111213141516171819202122232425static void Main(string[] args)&#123;    TestService sv = new TestService();    sv.Function();    Console.WriteLine("done");    Console.Rea......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-24
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#async" title="async">async</a>
+            
+              <a href="/tags/#await" title="await">await</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -497,82 +570,6 @@ Debug時中斷的下一步 : Run\ D......
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2020/08/07/Python常用語法/">
-        <h2 class="post-title">
-            Python常用語法
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            語法
-例外處理
-1234try:	# do some thingexcept Exception as e:	print('error' + e.args[0])
-程式進入點
-12if __name__ == '__main__':    # do something
-字串處理
-substring
-1234Name = 'Leo1234567890'result = Name[1:2]pri......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-08-07
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#Python" title="Python">Python</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/08/StyleCop/">
-        <h2 class="post-title">
-            StyleCop
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            透過StyleCop檢查Coding StyleStyleCop
-1. 安裝VisualStudioExtension
-
-2. 檢查專案
-2.1 CodingStyle
-可以檢查那些檔案沒有符合團隊的CodingStyle，不用每次都要人工檢查
-
-執行結果:
-
-
-2.2 檢查程式碼度量
-可以量化程式的可維護性、複雜度、繼承深度、類別結合程度，看程式哪邊的耦合性太強，跟AXOCover測試結果......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-08
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#StyleCop" title="StyleCop">StyleCop</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -635,6 +632,8 @@ substring
             
         
             
+            <a href="/tags/#Jetbrains" title="Jetbrains" rel="2">Jetbrains</a>
+            
         
             
             <a href="/tags/#.Net Core" title=".Net Core" rel="3">.Net Core</a>
@@ -645,11 +644,39 @@ substring
             
         
             
-            <a href="/tags/#Jetbrains" title="Jetbrains" rel="2">Jetbrains</a>
+            <a href="/tags/#Linux" title="Linux" rel="2">Linux</a>
             
         
             
-            <a href="/tags/#Linux" title="Linux" rel="2">Linux</a>
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#git" title="git" rel="2">git</a>
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#Python" title="Python" rel="5">Python</a>
+            
+        
+            
+        
+            
+            <a href="/tags/#UnitTest" title="UnitTest" rel="2">UnitTest</a>
             
         
             
@@ -671,38 +698,6 @@ substring
             
         
             
-        
-            
-            <a href="/tags/#UnitTest" title="UnitTest" rel="2">UnitTest</a>
-            
-        
-            
-        
-            
-        
-            
-            <a href="/tags/#git" title="git" rel="2">git</a>
-            
-        
-            
-            <a href="/tags/#Python" title="Python" rel="5">Python</a>
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-        
-            
-            <a href="/tags/#DataBinding" title="DataBinding" rel="4">DataBinding</a>
-            
-        
-            
             <a href="/tags/#Chart" title="Chart" rel="2">Chart</a>
             
         
@@ -717,7 +712,7 @@ substring
             
         
             
-        
+            <a href="/tags/#DataBinding" title="DataBinding" rel="4">DataBinding</a>
             
         
             
@@ -748,6 +743,14 @@ substring
         
             
         
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#Know How" title="Know How" rel="2">Know How</a>
             
         
             
@@ -823,7 +826,15 @@ substring
     <ul>
       
         <li>
-          <a href="/2022/09/12/現金權益補償/">(no title)</a>
+          <a href="/2023/02/17/CentOS相關/">CentOS相關</a>
+        </li>
+      
+        <li>
+          <a href="/2022/09/12/當沖券差/">當沖券差</a>
+        </li>
+      
+        <li>
+          <a href="/2022/09/12/現金權益補償/">現金權益補償</a>
         </li>
       
         <li>
@@ -832,14 +843,6 @@ substring
       
         <li>
           <a href="/2022/09/07/WPF-AutoComplete-textbox/">WPF AutoComplete textbox</a>
-        </li>
-      
-        <li>
-          <a href="/2022/09/07/C-Selenium不指定Chromedriver位置/">C# Selenium不指定Chromedriver位置</a>
-        </li>
-      
-        <li>
-          <a href="/2021/02/26/visual-studio-2019-測試涵蓋率工具-Fine-Code-Coverage/">visual studio 2019 測試涵蓋率工具 - Fine Code Coverage</a>
         </li>
       
     </ul>
@@ -905,7 +908,7 @@ substring
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; Leo Yang 2022 
+                    Copyright &copy; Leo Yang 2023 
                     <br>
                     Theme by <a href="http://huangxuan.me">Hux</a> 
                     <span style="display: inline-block; margin: 0 5px;">
