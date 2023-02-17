@@ -147,14 +147,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -220,18 +220,14 @@
                 <h1><span id="centos常用指令">CentOS常用指令</span></h1>
 <h2><span id="安裝">安裝</span></h2>
 <p>yum install 要裝的東西</p>
-<ul>
-<li>網路相關工具</li>
-</ul>
+<p>網路相關工具 (檢查打開的port)</p>
  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> net-tools</span><br></pre></td></tr></table></figure>
-<ul>
-<li>SSH Server</li>
-</ul>
+<p>SSH Server (SSH 服務)</p>
  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> openssh openssh-<span class="keyword">server</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>SSH Client</li>
-</ul>
+<p>SSH Client (SSH Client)</p>
  <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> openssh-clients</span><br></pre></td></tr></table></figure>
+<p>firewall-cmd (設定防火牆)</p>
+ <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum <span class="keyword">install</span> firewalld</span><br></pre></td></tr></table></figure>
 <hr>
 <h2><span id="安裝可能會遇到的問題">安裝可能會遇到的問題</span></h2>
 <h3><span id="failed-to-download-metadata-for-repo">failed to download metadata for repo…</span></h3>
@@ -268,9 +264,16 @@
 <h2><span id="clear-screen">clear screen</span></h2>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ctrl+L</span><br></pre></td></tr></table></figure>
 <h2><span id="列出目前有開的所有port">列出目前有開的所有port</span></h2>
-<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(需要安裝套件<span class="built_in">net</span>-tools)yum install <span class="built_in">net</span>-tools</span><br><span class="line">netstat -tlnp</span><br></pre></td></tr></table></figure>
-<h2><span id="設定防火牆打開某個port">設定防火牆打開某個port</span></h2>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(需要安裝套件<span class="built_in">net</span>-tools : yum install <span class="built_in">net</span>-tools)</span><br><span class="line">netstat -tlnp</span><br></pre></td></tr></table></figure>
+<h2><span id="防火牆設定">防火牆設定</span></h2>
+<p>打開某個port(–permanent 永久設定開啟，否則防火牆重啟或是重新設定時會失效)</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --permanent <span class="attribute">--zone</span>=public <span class="attribute">--add-port</span>=22/tcp</span><br></pre></td></tr></table></figure>
+<p>檢查防火牆目前打開port狀態</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=<span class="keyword">public</span> --<span class="built_in">list</span>-all</span><br></pre></td></tr></table></figure>
+<p>重新讀取防火牆設定</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-<span class="keyword">cmd</span><span class="bash"> --reload</span></span><br></pre></td></tr></table></figure>
+<p>檢查打開的port設定是否有被加入防火牆設定</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --zone=<span class="keyword">public</span> --<span class="built_in">list</span>-all</span><br></pre></td></tr></table></figure>
 <h2><span id="ssh連線到某台機器">SSH連線到某台機器</span></h2>
 <figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh 帳號<span class="symbol">@ip</span></span><br><span class="line">ssh root<span class="symbol">@123</span><span class="number">.456</span><span class="number">.789</span></span><br></pre></td></tr></table></figure>
 <h2><span id="ping-某台機器確定是否可以連線">ping 某台機器確定是否可以連線</span></h2>
@@ -280,6 +283,16 @@
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">find</span> <span class="regexp">/etc/</span>suders.d</span><br></pre></td></tr></table></figure>
 <p>如果不存在的話安裝sudo</p>
 <figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum <span class="keyword">install</span> sudo</span><br></pre></td></tr></table></figure>
+<h2><span id="不回應ping">不回應Ping</span></h2>
+<p>sudo vi /proc/sys/net/ipv4/icmp_echo_ignore_all<br>
+1 不回應ICMP請求<br>
+0 回應ICMP請求</p>
+<hr>
+<h2><span id="docker取的container-ip">docker取的container ip</span></h2>
+<p>查container id</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps --format "table &#123;&#123;.ID&#125;&#125;<span class="tag">\<span class="name">t</span><span class="string">&#123;&#123;.Status&#125;</span></span>&#125;<span class="tag">\<span class="name">t</span><span class="string">&#123;&#123;.Names&#125;</span></span>&#125;"</span><br></pre></td></tr></table></figure>
+<p>查指定container ip</p>
+<figure class="highlight twig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">docker inspect -f '</span><span class="template-variable">&#123;&#123;<span class="name">range</span>.NetworkSettings.Networks&#125;&#125;</span><span class="template-variable">&#123;&#123;.IPAddress&#125;&#125;</span><span class="template-variable">&#123;&#123;end&#125;&#125;</span><span class="xml">' container_id</span></span><br></pre></td></tr></table></figure>
                 
 
                 <hr>
@@ -318,7 +331,7 @@
         <div id="toc" class="toc-article">
         <strong class="toc-title">Contents</strong>
         
-          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">CentOS常用指令</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">安裝</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">安裝可能會遇到的問題</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">failed to download metadata for repo…</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">Errors during downloading metadata for repository ‘appstream’…:</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">Failed to download metadata for repo ‘appstream’: Cannot download repomd.xml: Curl error (77): Problem with the SSL CA cert (path? access rights?) for  …</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.4.</span> <span class="toc-nav-text">System has not been booted with systemd as init system (PID 1). Can’t operate.Failed to connect to bus: Host is down</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">檢查目前已經裝的東西</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">啟動服務</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">開機啟動服務</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">查目前IP</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">clear screen</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">列出目前有開的所有port</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.9.</span> <span class="toc-nav-text">設定防火牆打開某個port</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.10.</span> <span class="toc-nav-text">SSH連線到某台機器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.11.</span> <span class="toc-nav-text">ping 某台機器確定是否可以連線</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.12.</span> <span class="toc-nav-text">sudo command not found</span></a></li></ol></li></ol>
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">CentOS常用指令</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">安裝</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">安裝可能會遇到的問題</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.1.</span> <span class="toc-nav-text">failed to download metadata for repo…</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.2.</span> <span class="toc-nav-text">Errors during downloading metadata for repository ‘appstream’…:</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.3.</span> <span class="toc-nav-text">Failed to download metadata for repo ‘appstream’: Cannot download repomd.xml: Curl error (77): Problem with the SSL CA cert (path? access rights?) for  …</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.4.</span> <span class="toc-nav-text">System has not been booted with systemd as init system (PID 1). Can’t operate.Failed to connect to bus: Host is down</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">檢查目前已經裝的東西</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.4.</span> <span class="toc-nav-text">啟動服務</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.5.</span> <span class="toc-nav-text">開機啟動服務</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.6.</span> <span class="toc-nav-text">查目前IP</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.7.</span> <span class="toc-nav-text">clear screen</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.8.</span> <span class="toc-nav-text">列出目前有開的所有port</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.9.</span> <span class="toc-nav-text">防火牆設定</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.10.</span> <span class="toc-nav-text">SSH連線到某台機器</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.11.</span> <span class="toc-nav-text">ping 某台機器確定是否可以連線</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.12.</span> <span class="toc-nav-text">sudo command not found</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.13.</span> <span class="toc-nav-text">不回應Ping</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.14.</span> <span class="toc-nav-text">docker取的container ip</span></a></li></ol></li></ol>
         
         </div>
       </aside>
