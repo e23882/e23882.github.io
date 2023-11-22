@@ -139,14 +139,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -213,6 +213,191 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2020/07/02/WPF-元件Resource/">
+        <h2 class="post-title">
+            WPF Resource用法
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            Resource類型
+Resource Property
+Style
+12345678910&lt;Window&gt;	&lt;!-- 定義checkbox樣式 CheckBoxStyle--&gt;	&lt;Window.Resources&gt;		&lt;Style TargetType="&#123;x:Type CheckBox&#125;" x:Key="CheckBoxSty......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+              <a href="/tags/#Resource" title="Resource">Resource</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/07/02/元件事件、委派、interactivity-Command-觸發順序/">
+        <h2 class="post-title">
+            元件事件、委派、interactivity(Command)觸發順序
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            情境
+主視窗某動作new了一個物件(ex : 視窗)的實例(instance)，在實例產生時把事件委派回主視窗
+但被產生的實例本身也有寫被委派的事件,在xaml還有用Interactivity 將事件binding 到特定Command上
+被委派的事件(DelegatedMainWindowEvent)
+12SubWindow sb = new SubWindow();sb.close +=......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/07/02/WPF-OnPropertyChanged不寫死參數PropertyName/">
+        <h2 class="post-title">
+            WPF OnPropertyChanged不寫死參數PropertyName
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            [.net framework 4.5 ↑]使用CallerMemberName Attribute
+一般寫法
+繼承INotifyPropertyChanged Interface
+實做介面
+1public void OnPropertyChanged(string parameter)&#123;&#125;
+CallerMemberName Attribute
+這樣OnPropertyC......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/07/02/AppCenter/">
+        <h2 class="post-title">
+            AppCenter
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            nuget安裝套件
+123Microsoft.AppCenterMicrosoft.AppCenter.AnalyticsMicrosoft.AppCenter.Crashes
+
+AppCenter中建立應用程式
+建立完會拿到一組Key 長得像這樣 007e393d-9250-4bfa-aaaa-cccc0000oooo
+AppCenter
+
+App.xaml加入AppCenter程式碼
+1......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+              <a href="/tags/#AppCenter" title="AppCenter">AppCenter</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/07/02/WPF-Chart/">
+        <h2 class="post-title">
+            WPF Chart
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            介紹兩個我常用的圖表元件
+Live Chart
+LiveChart介紹、SourceCode
+安裝套件
+nuget安裝LiveCharts.Wpf
+xaml引用資源、使用圖表
+1xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+範例
+12345678910&lt;Grid&gt;    &lt;lvc:PieCh......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+              <a href="/tags/#Chart" title="Chart">Chart</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -401,171 +586,6 @@ xaml加入引用資源
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-DataTemplate-ControlTemplate/">
-        <h2 class="post-title">
-            WPF DataTemplate ControlTemplate
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            DataTemplate
-用資料(集合)產生元件
-123456789101112&lt;!-- 定義使用資料集合中的什麼欄位，每個欄位要長怎樣 --&gt;&lt;Window.Resources&gt;        &lt;DataTemplate x:Key="template"&gt;            &lt;StackPanel&gt;                &lt;......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-              <a href="/tags/#DataTemplate" title="DataTemplate">DataTemplate</a>
-            
-              <a href="/tags/#ControlTemplate" title="ControlTemplate">ControlTemplate</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/C-自訂事件/">
-        <h2 class="post-title">
-            C# 自訂事件
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            C# 自訂事件
-宣告
-1234//宣告委派public delegate void TestEvent(object sender, EventArgs e);//宣告事件、委派類型public event TestEvent OnEyesWatch();
-使用方法
-12345678//調用事件public void TestFunction()&#123;	OnEyesWatch?.Inv......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-TextBox浮水印/">
-        <h2 class="post-title">
-            WPF TextBox浮水印
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Code
-123456789101112131415161718192021222324&lt;TextBox&gt;	&lt;TextBox.Style&gt;		&lt;Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib"&gt;			&lt;Style.Resources&gt;			......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-漸層背景顏色/">
-        <h2 class="post-title">
-            WPF 漸層背景顏色
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            123456789101112131415161718192021222324252627282930313233343536373839404142434445&lt;Style TargetType="&#123;x:Type ToggleButton&#125;" x:Key="TogCommon"&gt;	&lt;Setter Property="Template"&gt;		&lt......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-DataGrid中的元件Binding-Command失敗/">
-        <h2 class="post-title">
-            WPF DataGrid中的元件Binding Command失敗
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            WPF DataGrid中的元件Binding Command失敗
-原因
-DataGrid因為ItemSource已經Binding ViewModel中的指定的集合屬性(DataSource)
-它的xaml結構大概長這樣:
-123456789&lt;DataGrid ItemsSource="&#123;Binding DataSource&#125;"&gt;    &lt;DataGr......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-              <a href="/tags/#DataGrid" title="DataGrid">DataGrid</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -606,15 +626,17 @@ DataGrid因為ItemSource已經Binding ViewModel中的指定的集合屬性(DataS
     <div class="tags">
         
             
-            <a href="/tags/#C#" title="C#" rel="30">C#</a>
+            <a href="/tags/#C#" title="C#" rel="32">C#</a>
+            
+        
+            
+        
+            
+        
             
         
             
             <a href="/tags/#WPF" title="WPF" rel="24">WPF</a>
-            
-        
-            
-        
             
         
             
@@ -656,6 +678,30 @@ DataGrid因為ItemSource已經Binding ViewModel中的指定的集合屬性(DataS
             
         
             
+            <a href="/tags/#git" title="git" rel="2">git</a>
+            
+        
+            
+            <a href="/tags/#SQL" title="SQL" rel="2">SQL</a>
+            
+        
+            
+            <a href="/tags/#Python" title="Python" rel="5">Python</a>
+            
+        
+            
+        
+            
+            <a href="/tags/#Linux" title="Linux" rel="2">Linux</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
         
             
         
@@ -668,33 +714,7 @@ DataGrid因為ItemSource已經Binding ViewModel中的指定的集合屬性(DataS
             
         
             
-            <a href="/tags/#Linux" title="Linux" rel="2">Linux</a>
-            
-        
-            
-            <a href="/tags/#Python" title="Python" rel="5">Python</a>
-            
-        
-            
-        
-            
-            <a href="/tags/#SQL" title="SQL" rel="2">SQL</a>
-            
-        
-            
-            <a href="/tags/#git" title="git" rel="2">git</a>
-            
-        
-            
-        
-            
             <a href="/tags/#Chart" title="Chart" rel="2">Chart</a>
-            
-        
-            
-        
-            
-        
             
         
             
@@ -719,6 +739,20 @@ DataGrid因為ItemSource已經Binding ViewModel中的指定的集合屬性(DataS
         
             
         
+            
+            <a href="/tags/#WebAPI" title="WebAPI" rel="3">WebAPI</a>
+            
+        
+            
+            <a href="/tags/#.net MVC" title=".net MVC" rel="2">.net MVC</a>
+            
+        
+            
+            <a href="/tags/#datatable" title="datatable" rel="3">datatable</a>
+            
+        
+            
+            <a href="/tags/#boostrap" title="boostrap" rel="3">boostrap</a>
             
         
             
@@ -822,23 +856,23 @@ DataGrid因為ItemSource已經Binding ViewModel中的指定的集合屬性(DataS
     <ul>
       
         <li>
-          <a href="/2023/02/17/CentOS相關/">CentOS相關</a>
+          <a href="/2023/11/22/datatable動態曾加欄位/">datatable動態曾加欄位</a>
         </li>
       
         <li>
-          <a href="/2022/09/12/當沖券差/">當沖券差</a>
+          <a href="/2023/11/22/前端使用config中設定值/">前端使用config中設定值</a>
         </li>
       
         <li>
-          <a href="/2022/09/12/現金權益補償/">現金權益補償</a>
+          <a href="/2023/11/22/金額欄位顯示千分位/">金額欄位顯示千分位</a>
         </li>
       
         <li>
-          <a href="/2022/09/07/C-Dynamic-Linq/">C# Dynamic Linq</a>
+          <a href="/2023/11/22/api上傳下載檔案/">api上傳下載檔案</a>
         </li>
       
         <li>
-          <a href="/2022/09/07/WPF-AutoComplete-textbox/">WPF AutoComplete textbox</a>
+          <a href="/2023/11/01/net-framework-注入依賴/">(no title)</a>
         </li>
       
     </ul>

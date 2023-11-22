@@ -139,14 +139,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -213,6 +213,179 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2020/07/02/透過Git-Hook，push時部屬程式-pre-push/">
+        <h2 class="post-title">
+            透過Git Hook，push時部屬程式(pre-push)
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            透過GitHook Prepush機制，Push時部屬程式
+環境準備
+
+Git
+Python
+用Python主要是因為不用編譯，拿來做一些Script很方便
+
+準備githook - Prepush
+git hook 機制可以讓我們在commit、pull、push….e.t.c.時執行特定的動作，例如執行測試、寄信通知更新、檢查編譯是否通過等……hen方便
+在開發的專案下，githook目......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Python" title="Python">Python</a>
+            
+              <a href="/tags/#Git" title="Git">Git</a>
+            
+              <a href="/tags/#CI" title="CI">CI</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/07/02/Dapper/">
+        <h2 class="post-title">
+            Dapper
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            使用Dapper，不要自己刻ORM
+nuget搜尋、安裝Dapper
+using Dapper
+12345678910111213141516171819public IEnumerable&lt;dynamic&gt; ExecQuery(string query)&#123;	try	&#123;		ConnectionString = $"Data Source = &#123;ser......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#Nuget" title="Nuget">Nuget</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/07/02/快速產生Python爬蟲程式碼/">
+        <h2 class="post-title">
+            快速產生Python爬蟲程式碼
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            透過Chrome Dev Tools執行結果轉換成Python程式碼
+Chrome Dev Tools
+準備好要爬的網頁跟表單相關資料後再開啟dev tools切換到NetWork tab再送出請求，避免訊息過多
+找到回應正確response的request，按右鍵Copy as curl(cmd)
+curl to Python Code
+把複製的code貼上去就能拿到python的程式碼了......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Python" title="Python">Python</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/07/02/Python-Selenium-解決requests沒辦法解決的問題/">
+        <h2 class="post-title">
+            Python Selenium - 解決requests沒辦法解決的問題
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            #Python Selenium - 解決requests沒辦法解決的問題
+安裝Selenium
+1pip install selenium
+安裝Driver
+以chrome為例子
+1下載 https://chromedriver.chromium.org/downloads
+簡單範例:
+1234567891011121314151617181920212223242526272829303......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Python" title="Python">Python</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/07/02/MS-SQL-Temp-Table/">
+        <h2 class="post-title">
+            MS-SQL Temp Table
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            MS-SQL  Temp Table
+#TempTable
+資料表真的會存在資料庫裡面,要完要記得Drop掉
+1234567891011121314CREATE TABLE #temp(	Pno			int,	Sno			int,	Qty			decimal(19,5),	Cost			decimal(19,5),	[Date]			date,	Profit			decimal(19,5),......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-07-02
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#SQL" title="SQL">SQL</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -289,15 +462,17 @@ I publish the whole project f......
     <div class="tags">
         
             
-            <a href="/tags/#C#" title="C#" rel="30">C#</a>
+            <a href="/tags/#C#" title="C#" rel="32">C#</a>
+            
+        
+            
+        
+            
+        
             
         
             
             <a href="/tags/#WPF" title="WPF" rel="24">WPF</a>
-            
-        
-            
-        
             
         
             
@@ -339,6 +514,30 @@ I publish the whole project f......
             
         
             
+            <a href="/tags/#git" title="git" rel="2">git</a>
+            
+        
+            
+            <a href="/tags/#SQL" title="SQL" rel="2">SQL</a>
+            
+        
+            
+            <a href="/tags/#Python" title="Python" rel="5">Python</a>
+            
+        
+            
+        
+            
+            <a href="/tags/#Linux" title="Linux" rel="2">Linux</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
         
             
         
@@ -351,33 +550,7 @@ I publish the whole project f......
             
         
             
-            <a href="/tags/#Linux" title="Linux" rel="2">Linux</a>
-            
-        
-            
-            <a href="/tags/#Python" title="Python" rel="5">Python</a>
-            
-        
-            
-        
-            
-            <a href="/tags/#SQL" title="SQL" rel="2">SQL</a>
-            
-        
-            
-            <a href="/tags/#git" title="git" rel="2">git</a>
-            
-        
-            
-        
-            
             <a href="/tags/#Chart" title="Chart" rel="2">Chart</a>
-            
-        
-            
-        
-            
-        
             
         
             
@@ -402,6 +575,20 @@ I publish the whole project f......
         
             
         
+            
+            <a href="/tags/#WebAPI" title="WebAPI" rel="3">WebAPI</a>
+            
+        
+            
+            <a href="/tags/#.net MVC" title=".net MVC" rel="2">.net MVC</a>
+            
+        
+            
+            <a href="/tags/#datatable" title="datatable" rel="3">datatable</a>
+            
+        
+            
+            <a href="/tags/#boostrap" title="boostrap" rel="3">boostrap</a>
             
         
             
@@ -505,23 +692,23 @@ I publish the whole project f......
     <ul>
       
         <li>
-          <a href="/2023/02/17/CentOS相關/">CentOS相關</a>
+          <a href="/2023/11/22/datatable動態曾加欄位/">datatable動態曾加欄位</a>
         </li>
       
         <li>
-          <a href="/2022/09/12/當沖券差/">當沖券差</a>
+          <a href="/2023/11/22/前端使用config中設定值/">前端使用config中設定值</a>
         </li>
       
         <li>
-          <a href="/2022/09/12/現金權益補償/">現金權益補償</a>
+          <a href="/2023/11/22/金額欄位顯示千分位/">金額欄位顯示千分位</a>
         </li>
       
         <li>
-          <a href="/2022/09/07/C-Dynamic-Linq/">C# Dynamic Linq</a>
+          <a href="/2023/11/22/api上傳下載檔案/">api上傳下載檔案</a>
         </li>
       
         <li>
-          <a href="/2022/09/07/WPF-AutoComplete-textbox/">WPF AutoComplete textbox</a>
+          <a href="/2023/11/01/net-framework-注入依賴/">(no title)</a>
         </li>
       
     </ul>

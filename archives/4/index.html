@@ -139,14 +139,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -213,6 +213,186 @@
             
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2020/08/21/WPF-引動過程的目標傳回例外狀況/">
+        <h2 class="post-title">
+            WPF 引動過程的目標傳回例外狀況
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            引動過程的目標傳回例外狀況
+發生原因
+在XAML中把元件的屬性 Binding在ViewModel中的屬性上，如果ViewModel在執行的過程中發生例外就會跳出來這個例外
+
+StaticResource
+我們常常為了不要讓CodeBehind有程式碼，會把ViewModel的宣告拿到Xaml的Resource裡面
+如果在Resource產生ViewModel實例(instance)的時候發......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-21
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#WPF" title="WPF">WPF</a>
+            
+              <a href="/tags/#DataBinding" title="DataBinding">DataBinding</a>
+            
+              <a href="/tags/#引動過程的目標傳回例外狀況" title="引動過程的目標傳回例外狀況">引動過程的目標傳回例外狀況</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/18/DI注入依賴/">
+        <h2 class="post-title">
+            DI注入依賴
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            為啥要用DI
+之前有寫一篇實現DIP原則，主要就是把類別的屬性、方法設計在介面中，然後讓一個類別去繼承這個介面實作出來，讓產生的實例依賴在介面上去符合DIP，使用的時候大概是長這樣
+12345678910111213141516171819class Program&#123;    static void Main(string[] args)    &#123;        ISend......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-18
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#.Net Core" title=".Net Core">.Net Core</a>
+            
+              <a href="/tags/#DI" title="DI">DI</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/14/DIP/">
+        <h2 class="post-title">
+            DIP
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            反轉依賴原則(Dependency Inversion Principle)
+解釋
+High-level modules should not depend on low-level modules. Both should depend on abstractions.
+Abstractions should not depend on details. Details should de......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-14
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#C#" title="C#">C#</a>
+            
+              <a href="/tags/#SOLID" title="SOLID">SOLID</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/11/yolo/">
+        <h2 class="post-title">
+            yolo
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            參考來源
+我是參考這篇文章 [機器學習 ML NOTE]YOLO!!!如何簡單使用YOLO訓練出自己的物件偵測!!! (Windows+Anaconda)
+遇到問題
+Tensorflow
+tensorflow目前只支援到python3.7，python3.7還只能裝版本2.0.0以下的tensorflow，因為tensorflow 2.0.0 開始移除了一個 tensorflow.contr......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-11
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#python" title="python">python</a>
+            
+              <a href="/tags/#yolo" title="yolo">yolo</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2020/08/07/Jetbrains工具快捷鍵名稱/">
+        <h2 class="post-title">
+            Jetbrains工具快捷鍵名稱
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            快捷鍵名稱
+
+移動到方法 : Main menu\ Navigate\ Go to Declaration or Usages
+執行 : Run
+停止執行 : Stop
+Debug : Debug
+打開所有程式碼 : Expand All
+收合所有程式碼 : Collapse All
+註解/取消註解 : Comment/Uncomment Code
+Debug時中斷的下一步 : Run\ D......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by Leo Yang on
+            2020-08-07
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#Jetbrains" title="Jetbrains">Jetbrains</a>
+            
+              <a href="/tags/#Rider" title="Rider">Rider</a>
+            
+              <a href="/tags/#Pycharm" title="Pycharm">Pycharm</a>
+            
+              <a href="/tags/#DataGrip" title="DataGrip">DataGrip</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -406,191 +586,6 @@ Visual Studio 使用NUnit執行單元測試
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-元件Resource/">
-        <h2 class="post-title">
-            WPF Resource用法
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            Resource類型
-Resource Property
-Style
-12345678910&lt;Window&gt;	&lt;!-- 定義checkbox樣式 CheckBoxStyle--&gt;	&lt;Window.Resources&gt;		&lt;Style TargetType="&#123;x:Type CheckBox&#125;" x:Key="CheckBoxSty......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-              <a href="/tags/#Resource" title="Resource">Resource</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/元件事件、委派、interactivity-Command-觸發順序/">
-        <h2 class="post-title">
-            元件事件、委派、interactivity(Command)觸發順序
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            情境
-主視窗某動作new了一個物件(ex : 視窗)的實例(instance)，在實例產生時把事件委派回主視窗
-但被產生的實例本身也有寫被委派的事件,在xaml還有用Interactivity 將事件binding 到特定Command上
-被委派的事件(DelegatedMainWindowEvent)
-12SubWindow sb = new SubWindow();sb.close +=......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-OnPropertyChanged不寫死參數PropertyName/">
-        <h2 class="post-title">
-            WPF OnPropertyChanged不寫死參數PropertyName
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            [.net framework 4.5 ↑]使用CallerMemberName Attribute
-一般寫法
-繼承INotifyPropertyChanged Interface
-實做介面
-1public void OnPropertyChanged(string parameter)&#123;&#125;
-CallerMemberName Attribute
-這樣OnPropertyC......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/AppCenter/">
-        <h2 class="post-title">
-            AppCenter
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            nuget安裝套件
-123Microsoft.AppCenterMicrosoft.AppCenter.AnalyticsMicrosoft.AppCenter.Crashes
-
-AppCenter中建立應用程式
-建立完會拿到一組Key 長得像這樣 007e393d-9250-4bfa-aaaa-cccc0000oooo
-AppCenter
-
-App.xaml加入AppCenter程式碼
-1......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-              <a href="/tags/#AppCenter" title="AppCenter">AppCenter</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2020/07/02/WPF-Chart/">
-        <h2 class="post-title">
-            WPF Chart
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            介紹兩個我常用的圖表元件
-Live Chart
-LiveChart介紹、SourceCode
-安裝套件
-nuget安裝LiveCharts.Wpf
-xaml引用資源、使用圖表
-1xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
-範例
-12345678910&lt;Grid&gt;    &lt;lvc:PieCh......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by Leo Yang on
-            2020-07-02
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#C#" title="C#">C#</a>
-            
-              <a href="/tags/#WPF" title="WPF">WPF</a>
-            
-              <a href="/tags/#Chart" title="Chart">Chart</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -631,15 +626,17 @@ xaml引用資源、使用圖表
     <div class="tags">
         
             
-            <a href="/tags/#C#" title="C#" rel="30">C#</a>
+            <a href="/tags/#C#" title="C#" rel="32">C#</a>
+            
+        
+            
+        
+            
+        
             
         
             
             <a href="/tags/#WPF" title="WPF" rel="24">WPF</a>
-            
-        
-            
-        
             
         
             
@@ -681,6 +678,30 @@ xaml引用資源、使用圖表
             
         
             
+            <a href="/tags/#git" title="git" rel="2">git</a>
+            
+        
+            
+            <a href="/tags/#SQL" title="SQL" rel="2">SQL</a>
+            
+        
+            
+            <a href="/tags/#Python" title="Python" rel="5">Python</a>
+            
+        
+            
+        
+            
+            <a href="/tags/#Linux" title="Linux" rel="2">Linux</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
         
             
         
@@ -693,33 +714,7 @@ xaml引用資源、使用圖表
             
         
             
-            <a href="/tags/#Linux" title="Linux" rel="2">Linux</a>
-            
-        
-            
-            <a href="/tags/#Python" title="Python" rel="5">Python</a>
-            
-        
-            
-        
-            
-            <a href="/tags/#SQL" title="SQL" rel="2">SQL</a>
-            
-        
-            
-            <a href="/tags/#git" title="git" rel="2">git</a>
-            
-        
-            
-        
-            
             <a href="/tags/#Chart" title="Chart" rel="2">Chart</a>
-            
-        
-            
-        
-            
-        
             
         
             
@@ -744,6 +739,20 @@ xaml引用資源、使用圖表
         
             
         
+            
+            <a href="/tags/#WebAPI" title="WebAPI" rel="3">WebAPI</a>
+            
+        
+            
+            <a href="/tags/#.net MVC" title=".net MVC" rel="2">.net MVC</a>
+            
+        
+            
+            <a href="/tags/#datatable" title="datatable" rel="3">datatable</a>
+            
+        
+            
+            <a href="/tags/#boostrap" title="boostrap" rel="3">boostrap</a>
             
         
             
@@ -847,23 +856,23 @@ xaml引用資源、使用圖表
     <ul>
       
         <li>
-          <a href="/2023/02/17/CentOS相關/">CentOS相關</a>
+          <a href="/2023/11/22/datatable動態曾加欄位/">datatable動態曾加欄位</a>
         </li>
       
         <li>
-          <a href="/2022/09/12/當沖券差/">當沖券差</a>
+          <a href="/2023/11/22/前端使用config中設定值/">前端使用config中設定值</a>
         </li>
       
         <li>
-          <a href="/2022/09/12/現金權益補償/">現金權益補償</a>
+          <a href="/2023/11/22/金額欄位顯示千分位/">金額欄位顯示千分位</a>
         </li>
       
         <li>
-          <a href="/2022/09/07/C-Dynamic-Linq/">C# Dynamic Linq</a>
+          <a href="/2023/11/22/api上傳下載檔案/">api上傳下載檔案</a>
         </li>
       
         <li>
-          <a href="/2022/09/07/WPF-AutoComplete-textbox/">WPF AutoComplete textbox</a>
+          <a href="/2023/11/01/net-framework-注入依賴/">(no title)</a>
         </li>
       
     </ul>

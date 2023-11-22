@@ -147,14 +147,14 @@
 
                         
                         <li>
-                            <a href="/archive/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archive/">Archives</a>
                         </li>
                         
                     
@@ -231,8 +231,9 @@
 <hr>
 <h2><span id="安裝可能會遇到的問題">安裝可能會遇到的問題</span></h2>
 <h3><span id="failed-to-download-metadata-for-repo">failed to download metadata for repo…</span></h3>
-<p>因為CentOS8已經沒有維護了，要換一個下載套件的位置</p>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i 's/mirrorlist/<span class="comment">#mirrorlist/g' /etc/yum.repos.d/CentOS-*</span></span><br><span class="line">sed -i 's|<span class="string">#baseurl=http://mirror.centos.org</span>|<span class="string">baseurl=http://vault.centos.org</span>|<span class="string">g' /etc/yum.repos.d/CentOS-*</span></span><br></pre></td></tr></table></figure>
+<p>因為CentOS7已經沒有維護了，要換一個下載套件的位置</p>
+<p><s>sed -i ‘s/mirrorlist/#mirrorlist/g’ /etc/yum.repos.d/CentOS-*</s><br>
+<s>sed -i ‘s|#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g’ /etc/yum.repos.d/CentOS-*</s></p>
 <h3><span id="errors-during-downloading-metadata-for-repository-appstream">Errors during downloading metadata for repository ‘appstream’…:</span></h3>
 <p>更新SSL憑證</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl http://www.example.<span class="keyword">com</span>/<span class="keyword">ca</span>/cacert.pem -<span class="keyword">o</span> /etc/pki/tls/certs/<span class="keyword">ca</span>-bundle.crt</span><br><span class="line">curl -v http<span class="variable">s:</span>//example.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
@@ -293,11 +294,17 @@
 <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps --format "table &#123;&#123;.ID&#125;&#125;<span class="tag">\<span class="name">t</span><span class="string">&#123;&#123;.Status&#125;</span></span>&#125;<span class="tag">\<span class="name">t</span><span class="string">&#123;&#123;.Names&#125;</span></span>&#125;"</span><br></pre></td></tr></table></figure>
 <p>查指定container ip</p>
 <figure class="highlight twig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">docker inspect -f '</span><span class="template-variable">&#123;&#123;<span class="name">range</span>.NetworkSettings.Networks&#125;&#125;</span><span class="template-variable">&#123;&#123;.IPAddress&#125;&#125;</span><span class="template-variable">&#123;&#123;end&#125;&#125;</span><span class="xml">' container_id</span></span><br></pre></td></tr></table></figure>
+<p>&lt;!–￼23–&gt;</p>
+
                 
 
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2023/11/01/net-framework-注入依賴/" data-toggle="tooltip" data-placement="top" title="">&larr; Previous Post</a>
+                        </li>
                     
                     
                         <li class="next">

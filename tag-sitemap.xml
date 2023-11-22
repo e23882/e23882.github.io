@@ -212,6 +212,13 @@
     </url>
 
     <url>
+        <loc>https://e23882.github.io/tags/Resource/</loc>
+        <lastmod>2021-03-25T05:44:57.102Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://e23882.github.io/tags/MahApps/</loc>
         <lastmod>2021-03-25T05:44:57.102Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -220,13 +227,6 @@
 
     <url>
         <loc>https://e23882.github.io/tags/Metro-Style/</loc>
-        <lastmod>2021-03-25T05:44:57.102Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/Resource/</loc>
         <lastmod>2021-03-25T05:44:57.102Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -331,21 +331,7 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/git/</loc>
-        <lastmod>2021-03-25T05:44:57.147Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/IIS/</loc>
-        <lastmod>2021-03-25T05:44:57.171Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://e23882.github.io/tags/WebAPI/</loc>
         <lastmod>2021-03-25T05:44:57.171Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -429,13 +415,6 @@
     </url>
 
     <url>
-        <loc>https://e23882.github.io/tags/C/</loc>
-        <lastmod>2022-09-07T08:18:49.605Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://e23882.github.io/tags/Know-How/</loc>
         <lastmod>2022-09-12T06:17:42.475Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -444,7 +423,49 @@
 
     <url>
         <loc>https://e23882.github.io/tags/Linux-CentOS/</loc>
-        <lastmod>2023-02-17T09:17:21.134Z</lastmod>
+        <lastmod>2023-02-20T05:29:46.104Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/git/</loc>
+        <lastmod>2023-02-22T01:10:35.111Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/C/</loc>
+        <lastmod>2023-11-22T07:31:06.280Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/WebAPI/</loc>
+        <lastmod>2023-11-22T07:31:06.280Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/net-MVC/</loc>
+        <lastmod>2023-11-22T07:31:06.280Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/datatable/</loc>
+        <lastmod>2023-11-22T07:39:02.501Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://e23882.github.io/tags/boostrap/</loc>
+        <lastmod>2023-11-22T07:39:02.501Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
