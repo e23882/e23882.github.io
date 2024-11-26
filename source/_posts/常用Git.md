@@ -61,7 +61,15 @@ git pull original master
 ```git
 git push -u original master
 ```
+git amend後以最新的版本蓋掉舊的commit
+```git
+git push -f 
+```
 ***
+
+### stash
+將目前異動的檔案存入暫存
+
 ### Log － 查看紀錄
 
 看所有本地git紀錄
@@ -145,6 +153,8 @@ git reset --hard HEAD~n
 ```git
 git log --no-merges --pretty=format:\"%an_%ae|%s|%ad\" --name-only --since='2020/3/1' --until '2020/3/30' -- *.cs *.sql *.xaml > logs.txt
 ```
+# git flow
+![alt text](git.png)
 
 ### 建立專案第一次初始化git、commit、push
 ```git
