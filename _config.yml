@@ -181,4 +181,4 @@ sitemap:
 deploy:
   type: git
   repository: https://github.com/e23882/e23882.github.io.git
-  branch: master
+  branch: gh-pages
