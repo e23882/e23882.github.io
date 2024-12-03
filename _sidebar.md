@@ -1,5 +1,4 @@
-* [首頁](/)
-* [C#](/#)
+* [C#]
 	* [Async-Await](/posts/Async-Await)
 	* [C# Dynamic Linq](/posts/C-Dynamic-Linq)
 	* [Command、dotnet](/posts/Command、dotnet)
@@ -13,7 +12,7 @@
 	* [visual-studio-2019-測試涵蓋率工具-Fine-Code-Coverage](/posts/visual-studio-2019-測試涵蓋率工具-Fine-Code-Coverage)
 	* [部屬-Net-Core-Webapi-到Linux](/posts/部屬-Net-Core-Webapi-到Linux)
 	* [發布-Net-Core-Webapi到IIS](/posts/發布-Net-Core-Webapi到IIS)
-* [WPF](/#)
+* [WPF]
 	* [AppCenter](/posts/AppCenter)
 	* [jenkins自動部屬WPF](/posts/jenkins自動部屬WPF)
 	* [WPF-AutoComplete-textbox](/posts/WPF-AutoComplete-textbox)
@@ -38,21 +37,21 @@
 	* [WPF-綁定自訂元件屬性](/posts/WPF-綁定自訂元件屬性)
 	* [使用HierarchicalDataTemplate讓TreeView自動長整棵樹](/posts/使用HierarchicalDataTemplate讓TreeView自動長整棵樹)
 	* [元件事件、委派、interactivity-Command-觸發順序](/posts/元件事件、委派、interactivity-Command-觸發順序)
-* [Python](/#)
+* [Python]
 	* [Python-Request](/posts/Python-Request)
 	* [Python-Selenium-解決requests沒辦法解決的問題](/posts/Python-Selenium-解決requests沒辦法解決的問題)
 	* [Python常用語法](/posts/Python常用語法)
 	* [yolo](/posts/yolo)
 	* [快速產生Python爬蟲程式碼](/posts/快速產生Python爬蟲程式碼)
-* [DB](/#)
+* [DB]
 	* [Linux安裝mysql-phpmyadmin](/posts/Linux安裝mysql-phpmyadmin)
 	* [MS-SQL-Temp-Table](/posts/MS-SQL-Temp-Table)
 	* [SQL-Server-Replication-發布資料庫失敗](/posts/SQL-Server-Replication-發布資料庫失敗)
-* [Domain](/#)
+* [Domain]
 	* [DomainKnowhow](/posts/DomainKnowhow)
 	* [現金權益補償](/posts/現金權益補償)
 	* [當沖券差](/posts/當沖券差)
-* [Other](/#)
+* [Other]
 	* [CentOS相關](/posts/CentOS相關)
 	* [DIP](/posts/DIP)
 	* [DI注入依賴](/posts/DI注入依賴)
@@ -65,7 +64,3 @@
 	* [常用Git](/posts/常用Git)
 	* [用Sonarqube做靜態程式碼分析](/posts/用Sonarqube做靜態程式碼分析)
 	* [透過Git-Hook，push時部屬程式-pre-push](/posts/透過Git-Hook，push時部屬程式-pre-push)
-	
-	
-  
-  
