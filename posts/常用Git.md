@@ -86,7 +86,7 @@ git stash apply
 ```
 
 ### 8.git flow
-![gitflow](常用git/git.png)
+![gitflow](常用git/git.PNG)
 
 ### 9.Log － 查看紀錄
 #### 9.1 看所有本地git紀錄
