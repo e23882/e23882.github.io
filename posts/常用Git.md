@@ -262,3 +262,14 @@ git rebase --continue
 5.把解完衝突的程式推到PR
 git push -f 
 ```
+### 想要取消被github merge的PR
+git comment : 
+Chore/CancelMergedPRXXX
+找出最後合併PR的Hash
+```git
+git revert -m 1 1f79e09273e06d1934e7312cd680834ea0520a0d
+```
+這時候vi會跳出來
+可以修改第一行commit message
+
+commit. push .PR合併完就取消的這個合併了
