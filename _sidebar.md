@@ -12,6 +12,7 @@
 	* [visual-studio-2019-測試涵蓋率工具-Fine-Code-Coverage](/posts/visual-studio-2019-測試涵蓋率工具-Fine-Code-Coverage)
 	* [部屬-Net-Core-Webapi-到Linux](/posts/部屬-Net-Core-Webapi-到Linux)
 	* [發布-Net-Core-Webapi到IIS](/posts/發布-Net-Core-Webapi到IIS)
+	* [async方法中lock機制](/posts/Lock)
 * WPF
 	* [AppCenter](/posts/AppCenter)
 	* [jenkins自動部屬WPF](/posts/jenkins自動部屬WPF)
