@@ -71,6 +71,7 @@ git push -f
 #### 7.1將目前異動的檔案存入暫存
 ```git
 git stash
+git stash save "儲存的名稱"
 ```
 #### 7.2列出暫存的東西
 ```git
@@ -83,6 +84,11 @@ git stash clear
 #### 7.4套用git stash中的項目
 ```git
 git stash apply
+git stash apply stash@{0}
+```
+#### 7.5移除git stash中的項目
+```git
+git stash drop stash@{0}
 ```
 
 ### 8.git flow
