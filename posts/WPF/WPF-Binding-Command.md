@@ -6,7 +6,7 @@ tags:
   - WPF
 abbrlink: d1703590
 categories: uncategorized
-date: 2020-07-02 20:45:58
+date: 2025-02-11 12:30:00
 subtitle:
 header-img:
 ---
@@ -40,24 +40,21 @@ public class RelayCommand : ICommand
 ```
 
 #### 引用資源
-專案加入參考(我visual studio 2017 community有找到,rider沒有找到)
-```
-System.Windows.Interactivity.dll
-```
+nuget安裝 Microsoft.Xaml.Behaviors.Wpf
+
 #### xaml加入Interactivity NameSpace
 ```xml
-xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+xmlns:behaviors="clr-namespace:Microsoft.Xaml.Behaviors;assembly=Microsoft.Xaml.Behaviors"
+xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
 ```
 #### 元件Binding ViewModel中的Command屬性
 ```xml
-<Button>
+<Button Content="Test">
     <i:Interaction.Triggers>
-        <i:EventTrigger EventName="MouseEnter">
-            <i:InvokeCommandAction Command="{Binding ButtonClickCommand}"/>
-            <!-- or  -->
-            <i:InvokeCommandAction Command="{Binding ButtonClickCommand}" CommandParameter="{Binding SomeProperty}"/>
-        </i:EventTrigger>
-    </i:Interaction.Triggers>
+            <behaviors:EventTrigger EventName="Click">
+                <behaviors:InvokeCommandAction Command="{Binding Pick15Command}" />
+            </behaviors:EventTrigger>
+        </i:Interaction.Triggers>
 </Button>
 ```
 ```csharp
@@ -79,37 +76,10 @@ public class ViewModel
 ```
 
 #### 4.Command傳遞EventArgs
-
-##### 4.1 安裝MVVMLight
-nuget安裝MVVMLight
-##### 4.2 xaml引用資源
+透過Command Parameter，RelativeSource可以將Parameter指向自己的元件，就不用再建立一個屬性
 ```xml
-xmlns:cmd="http://www.galasoft.ch/mvvmlight"
-```
-##### 4.3 Binding Command
-```xml
-<Button>
-    <i:Interaction.Triggers>
-        <i:EventTrigger EventName="MouseEnter">
-            <!-- <i:InvokeCommandAction Command="{Binding UcChooseDataOnClosed}"/> -->
-            <cmd:EventToCommand PassEventArgsToCommand="true" Command="{Binding OnKeyDown}"/>
-        </i:EventTrigger>
-    </i:Interaction.Triggers>
-</Button>
-```
-##### 4.4 ViewModel
-```csharp
-using GalaSoft.MvvmLight.CommandWpf;
-
-public RelayCommand<object> OnKeyDown { get; set; }
-
-public void InitCommand()
-{
-    OnKeyDown = new RelayCommand<object>(CommandAction);
-}
-
-public void CommandAction(object Parameter)
-{
-    //可以透過Parameter取得EvengArgs do something
-}
+<ToggleButton
+    Command="{Binding AutoReadCommand}"
+    CommandParameter="{Binding IsChecked, RelativeSource={RelativeSource Self}}"
+    Content="讀Log"/>
 ```
