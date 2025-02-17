@@ -92,7 +92,7 @@ git stash drop stash@{0}
 ```
 
 ### 8.git flow
-![gitflow](常用git/git.PNG)
+![gitflow](常用git/flow.PNG)
 
 ### 9.Log － 查看紀錄
 #### 9.1 看所有本地git紀錄
