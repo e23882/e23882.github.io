@@ -1,5 +1,5 @@
 # Just note
-## quick for me
+## quick start for me
 ### Set up environment
 1. install nodejs
 2. npm install docsify
