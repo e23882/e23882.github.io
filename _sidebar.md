@@ -42,6 +42,7 @@
 	* [元件事件、委派、interactivity-Command-觸發順序](/posts/WPF/元件事件、委派、interactivity-Command-觸發順序)
 	* [WPF-AvalonDock預設開啟特定區域](/posts/WPF/WPF-AvalonDock預設開啟LayoutRoot.XXSide)
 	* [WPF_Interactivity不能用了_20250220](/posts/WPF/WPF_Interactivity不能用了_20250220)
+	* [OxyPlot](/posts/WPF/OxyPlot)
 * Python
 	* [Python-Request](/posts/Python/Python-Request)
 	* [Python-Selenium-解決requests沒辦法解決的問題](/posts/Python/Python-Selenium-解決requests沒辦法解決的問題)
