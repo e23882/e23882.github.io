@@ -73,3 +73,5 @@
 	* [常用Git](/posts/Other/常用Git)
 	* [用Sonarqube做靜態程式碼分析](/posts/Other/用Sonarqube做靜態程式碼分析)
 	* [透過Git-Hook，push時部屬程式-pre-push](/posts/Other/透過Git-Hook，push時部屬程式-pre-push)
+	* [Redis](/posts/Other/Redis)
+	
