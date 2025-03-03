@@ -58,6 +58,7 @@
 	* [現金權益補償](/posts/Domain/現金權益補償)
 	* [當沖券差](/posts/Domain/當沖券差)
 * Other
+	* [QuickStart](/posts/Other/QuickStart)
 	* [CentOS相關](/posts/Other/CentOS相關)
 	* [DIP](/posts/Other/DIP)
 	* [DI注入依賴](/posts/Other/DI注入依賴)

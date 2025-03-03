@@ -21,13 +21,7 @@
 		loadSidebar: true,
 		subMaxLevel:2,
 		search: 'auto',
-		coverpage:true,
-		timeUpdater: 
-		{
-			text: ">last update time: {docsify-updated}",
-			formatUpdated: "{YYYY}/{MM}/{DD}",
-			whereToPlace: "bottom",  // "top" or "bottom", default to "bottom"
-		},
+		basePath: '/',
 		share: 
 		{
 			reddit:
@@ -45,7 +39,12 @@
 				url: "https://e23882.github.io",
 				title: 'Leo&#39;s Technical Debt',
 			}
-		}
+		}, 
+		timeUpdater: {
+            text: '<div align="right">更新时间 @ {docsify-updated}</div>',
+            formatUpdated: '{YYYY}年{MM}月{DD}日 {HH}时{mm}分{ss}秒',
+            whereToPlace: 'bottom'
+        },
     }
   </script>
   <!-- Docsify v4 -->
