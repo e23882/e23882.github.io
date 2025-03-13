@@ -44,6 +44,8 @@
 	* [WPF_Interactivity不能用了_20250220](/posts/WPF/WPF_Interactivity不能用了_20250220)
 	* [OxyPlot](/posts/WPF/OxyPlot)
 	* [Textblock增加DoubleClickEvent](/posts/WPF/Textblock增加DoubleClickEvent)
+	* [DatatamplateSelector](/posts/WPF/DatatamplateSelector)
+	
 	
 * Python
 	* [Python-Request](/posts/Python/Python-Request)
