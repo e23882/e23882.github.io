@@ -46,6 +46,7 @@
 	* [Textblock增加DoubleClickEvent](/posts/WPF/Textblock增加DoubleClickEvent)
 	* [DatatamplateSelector](/posts/WPF/DatatamplateSelector)
 	* [ToggleSwitchStyle](/posts/WPF/ToggleSwitch)
+	* [DataTemplate被選取時樣式](/posts/WPF/DataTemplate被選取時樣式)
 	
 	
 * Python
