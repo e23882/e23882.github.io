@@ -45,6 +45,7 @@
 	* [OxyPlot](/posts/WPF/OxyPlot)
 	* [Textblock增加DoubleClickEvent](/posts/WPF/Textblock增加DoubleClickEvent)
 	* [DatatamplateSelector](/posts/WPF/DatatamplateSelector)
+	* [ToggleSwitchStyle](/posts/WPF/ToggleSwitch)
 	
 	
 * Python
