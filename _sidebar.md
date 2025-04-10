@@ -30,7 +30,8 @@
 	* [WPF-MultiBinding](/posts/WPF/WPF-MultiBinding)
 	* [WPF-OnPropertyChanged不寫死參數PropertyName](/posts/WPF/WPF-OnPropertyChanged不寫死參數PropertyName)
 	* [WPF-Property、Dependency-Property](/posts/WPF/WPF-Property、Dependency-Property)
-	* [WPF-Storyboard](/posts/WPF/WPF-Storyboard)
+	* [WPF-Storyboard(1)](/posts/WPF/WPF-Storyboard)
+	* [WPF-Storyboard(2)](/posts/WPF/WPF-StoryboardDynamic)
 	* [WPF-TextBox浮水印](/posts/WPF/WPF-TextBox浮水印)
 	* [WPF-Trigger](/posts/WPF/WPF-Trigger)
 	* [WPF-元件Resource](/posts/WPF/WPF-元件Resource)
@@ -47,6 +48,8 @@
 	* [DatatamplateSelector](/posts/WPF/DatatamplateSelector)
 	* [ToggleSwitchStyle](/posts/WPF/ToggleSwitch)
 	* [DataTemplate被選取時樣式](/posts/WPF/DataTemplate被選取時樣式)
+	
+	
 	
 	
 * Python
