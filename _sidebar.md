@@ -48,9 +48,8 @@
 	* [DatatamplateSelector](/posts/WPF/DatatamplateSelector)
 	* [ToggleSwitchStyle](/posts/WPF/ToggleSwitch)
 	* [DataTemplate被選取時樣式](/posts/WPF/DataTemplate被選取時樣式)
-	
-	
-	
+	* [WPF-Framework升Net8後顯示異常](/posts/WPF/WPF-Framework升Net8顯示異常)
+
 	
 * Python
 	* [Python-Request](/posts/Python/Python-Request)
