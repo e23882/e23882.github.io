@@ -49,7 +49,11 @@
 	* [ToggleSwitchStyle](/posts/WPF/ToggleSwitch)
 	* [DataTemplate被選取時樣式](/posts/WPF/DataTemplate被選取時樣式)
 	* [WPF-Framework升Net8後顯示異常](/posts/WPF/WPF-Framework升Net8顯示異常)
-
+	* [WPF常用樣式](/posts/WPF/WPF常用樣式)
+	* [格式化XAML](/posts/WPF/格式化XAML)
+	* [Textbox游標位置綁定在屬性上](/posts/WPF/Textbox游標位置綁定在屬性上)
+	* [WPF子視窗](/posts/WPF/WPF子視窗)
+	
 	
 * Python
 	* [Python-Request](/posts/Python/Python-Request)
