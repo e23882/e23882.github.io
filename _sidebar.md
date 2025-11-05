@@ -14,6 +14,8 @@
 	* [發布-Net-Core-Webapi到IIS](/posts/CSharp/發布-Net-Core-Webapi到IIS)
 	* [async方法中lock機制](/posts/CSharp/Lock)
 	* [C# 地雷](/posts/CSharp/地雷)
+	* [C# 紀錄特定區域執行時資訊](/posts/CSharp/紀錄特定區域執行時資訊.md)
+	
 	
 * WPF
 	* [AppCenter](/posts/WPF/AppCenter)
