@@ -27,6 +27,8 @@
 	* [WPF-DataGrid](/posts/WPF/WPF-DataGrid)
 	* [WPF-DataGrid中的元件Binding-Command失敗](/posts/WPF/WPF-DataGrid中的元件Binding-Command失敗)
 	* [WPF-DataGrid值發生改變時改變背景顏色](/posts/WPF/WPF-DataGrid值發生改變時改變背景顏色)
+	* [WPF-Textbox值發生改變時改變背景顏色](/posts/WPF/WPF-Textbox值發生改變時改變背景顏色)
+	* [WPF-TextBlock值發生改變時改變背景顏色](/posts/WPF/WPF-TextBlock值發生改變時改變背景顏色)
 	* [WPF-DataTemplate-ControlTemplate](/posts/WPF/WPF-DataTemplate-ControlTemplate)
 	* [WPF-Dockable](/posts/WPF/WPF-Dockable)
 	* [WPF-MultiBinding](/posts/WPF/WPF-MultiBinding)
