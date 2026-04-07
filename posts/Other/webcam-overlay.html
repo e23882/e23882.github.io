@@ -170,6 +170,73 @@
         }
 
         .reset-btn:hover { background: #4a4a4a; }
+
+        /* ── 全螢幕容器 ── */
+        #fsContainer {
+            display: inline-flex;
+            position: relative;
+        }
+
+        #fsContainer:fullscreen,
+        #fsContainer:-webkit-full-screen {
+            width: 100vw;
+            height: 100vh;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ── 全螢幕按鈕（畫布右上角） ── */
+        .fs-btn {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 30px;
+            height: 30px;
+            background: rgba(0,0,0,0.55);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 5px;
+            color: #fff;
+            font-size: 15px;
+            line-height: 1;
+            cursor: pointer;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.15s;
+        }
+
+        .fs-btn:hover { background: rgba(255,255,255,0.2); }
+
+        /* ── 面板拖把（各 panel 獨立） ── */
+        .panel-handle {
+            width: 100%;
+            height: 22px;
+            background: #242424;
+            border-radius: 4px;
+            cursor: grab;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+
+        .panel-handle:hover    { background: #303030; }
+        .panel-handle.grabbing { cursor: grabbing; }
+
+        .panel-handle::after {
+            content: '';
+            width: 36px;
+            height: 3px;
+            background: rgba(255,255,255,0.22);
+            border-radius: 2px;
+            box-shadow: 0 -5px 0 rgba(255,255,255,0.22),
+                        0  5px 0 rgba(255,255,255,0.22);
+        }
     </style>
 </head>
 <body>
@@ -177,6 +244,7 @@
 <div class="layout">
 
     <!-- 畫布 -->
+    <div id="fsContainer">
     <div class="canvas-wrapper" id="canvasWrapper">
         <video id="webcam" autoplay playsinline></video>
         <img id="overlay" src="" alt="" style="display:none; opacity:0.5;">
@@ -192,13 +260,17 @@
         <div class="rhandle" data-key="ov" data-corner="ne"></div>
         <div class="rhandle" data-key="ov" data-corner="sw"></div>
         <div class="rhandle" data-key="ov" data-corner="se"></div>
-    </div>
+
+        <button class="fs-btn" id="fsBtn" title="全螢幕">⛶</button>
+    </div><!-- /canvasWrapper -->
+    </div><!-- /fsContainer -->
 
     <!-- 控制面板 -->
-    <div class="panels">
+    <div class="panels" id="panels">
 
         <!-- Webcam 設定 -->
-        <div class="panel">
+        <div class="panel" id="panelWc">
+            <div class="panel-handle"></div>
             <div class="panel-title">Webcam</div>
 
             <div class="control-row">
@@ -246,7 +318,8 @@
         </div>
 
         <!-- 圖片設定 -->
-        <div class="panel">
+        <div class="panel" id="panelOv">
+            <div class="panel-handle"></div>
             <div class="panel-title">疊加圖片</div>
 
             <div class="file-row">
@@ -303,6 +376,7 @@
 <script>
     const canvasWrapper = document.getElementById('canvasWrapper');
     const CANVAS_W = 640, CANVAS_H = 480;
+    let canvasScale = 1; // 全螢幕時的縮放比例，用於座標換算
 
     // ── 狀態 ──────────────────────────────────────────
     const state = {
@@ -348,10 +422,11 @@
         }
 
         const hs = 6; // handle 半邊 6px (12px / 2)
-        const l = eRect.left - wRect.left;
-        const t = eRect.top  - wRect.top;
-        const r = l + eRect.width;
-        const b = t + eRect.height;
+        // 除以 canvasScale：getBoundingClientRect 回傳螢幕像素，要轉回畫布內座標
+        const l = (eRect.left - wRect.left) / canvasScale;
+        const t = (eRect.top  - wRect.top)  / canvasScale;
+        const r = l + eRect.width  / canvasScale;
+        const b = t + eRect.height / canvasScale;
 
         const pos = { nw: [l, t], ne: [r, t], sw: [l, b], se: [r, b] };
 
@@ -436,7 +511,10 @@
 
     function canvasPos(e) {
         const r = canvasWrapper.getBoundingClientRect();
-        return { x: e.clientX - r.left, y: e.clientY - r.top };
+        return {
+            x: (e.clientX - r.left) / canvasScale,
+            y: (e.clientY - r.top)  / canvasScale,
+        };
     }
 
     // 拖拉移動：直接在元素上按下
@@ -527,6 +605,94 @@
             console.error(err);
         }
     }
+
+    // ── 全螢幕 ────────────────────────────────────────
+    const fsBtn       = document.getElementById('fsBtn');
+    const fsContainer = document.getElementById('fsContainer');
+
+    fsBtn.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            (fsContainer.requestFullscreen || fsContainer.webkitRequestFullscreen).call(fsContainer);
+        } else {
+            (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+        }
+    });
+
+    function onFsChange() {
+        const isFs = !!(document.fullscreenElement || document.webkitFullscreenElement);
+        fsBtn.textContent = isFs ? '✕' : '⛶';
+
+        if (isFs) {
+            // 用 rAF 確保全螢幕佈局完成後再讀尺寸
+            requestAnimationFrame(() => {
+                const sx = window.innerWidth  / CANVAS_W;
+                const sy = window.innerHeight / CANVAS_H;
+                canvasScale = Math.min(sx, sy);
+                canvasWrapper.style.transform = `scale(${canvasScale})`;
+                canvasWrapper.style.transformOrigin = 'center center';
+                ['wc', 'ov'].forEach(k => updateHandles(k));
+            });
+        } else {
+            canvasScale = 1;
+            canvasWrapper.style.transform = '';
+            ['wc', 'ov'].forEach(k => updateHandles(k));
+        }
+    }
+
+    document.addEventListener('fullscreenchange',       onFsChange);
+    document.addEventListener('webkitfullscreenchange', onFsChange);
+
+    // ── 面板拖曳（各 panel 獨立） ────────────────────
+    let floatZ = 500; // 每次拖起時遞增，讓最後拖動的永遠在最上層
+
+    function makeDraggable(panelEl, handleEl) {
+        let pd = null;
+
+        handleEl.addEventListener('pointerdown', e => {
+            e.preventDefault();
+            const rect = panelEl.getBoundingClientRect();
+
+            // 首次拖動：脫離文件流改為 fixed
+            if (panelEl.style.position !== 'fixed') {
+                panelEl.style.position = 'fixed';
+                panelEl.style.left     = rect.left + 'px';
+                panelEl.style.top      = rect.top  + 'px';
+                panelEl.style.margin   = '0';
+            }
+
+            panelEl.style.zIndex = ++floatZ;
+
+            pd = {
+                startMouseX: e.clientX,
+                startMouseY: e.clientY,
+                startLeft:   parseFloat(panelEl.style.left),
+                startTop:    parseFloat(panelEl.style.top),
+            };
+
+            handleEl.classList.add('grabbing');
+            handleEl.setPointerCapture(e.pointerId);
+        });
+
+        handleEl.addEventListener('pointermove', e => {
+            if (!pd) return;
+            panelEl.style.left = (pd.startLeft + e.clientX - pd.startMouseX) + 'px';
+            panelEl.style.top  = (pd.startTop  + e.clientY - pd.startMouseY) + 'px';
+        });
+
+        handleEl.addEventListener('pointerup', () => {
+            pd = null;
+            handleEl.classList.remove('grabbing');
+        });
+    }
+
+    makeDraggable(
+        document.getElementById('panelWc'),
+        document.querySelector('#panelWc .panel-handle')
+    );
+    makeDraggable(
+        document.getElementById('panelOv'),
+        document.querySelector('#panelOv .panel-handle')
+    );
 
     // ── 初始化 ────────────────────────────────────────
     applyTransform('wc');
