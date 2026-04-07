@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>Webcam Overlay Tool</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: sans-serif;
+            background: #1a1a1a;
+            color: #eee;
+            padding: 16px;
+        }
+
+        h3 {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .layout {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        /* ── 畫布區 ── */
+        .canvas-wrapper {
+            position: relative;
+            width: 640px;
+            height: 480px;
+            background: #000;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        #webcam, #overlay {
+            position: absolute;
+            /* 預設置中 */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: none; /* 允許超出，位移時不裁切 */
+        }
+
+        #webcam {
+            width: 640px;
+            height: 480px;
+            object-fit: cover;
+        }
+
+        #overlay {
+            max-width: 640px;
+            max-height: 480px;
+            object-fit: contain;
+            opacity: 0.5;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        /* ── 控制面板 ── */
+        .panels {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            min-width: 280px;
+        }
+
+        .panel {
+            background: #2a2a2a;
+            border: 1px solid #3a3a3a;
+            border-radius: 8px;
+            padding: 12px 14px;
+        }
+
+        .panel-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .control-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .control-row label {
+            width: 60px;
+            font-size: 12px;
+            color: #ccc;
+            flex-shrink: 0;
+        }
+
+        .control-row input[type="range"] {
+            flex: 1;
+            accent-color: #4a9eff;
+        }
+
+        .control-row .val {
+            width: 40px;
+            font-size: 12px;
+            color: #4a9eff;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .flip-row {
+            display: flex;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .flip-btn {
+            flex: 1;
+            padding: 5px 0;
+            font-size: 12px;
+            background: #3a3a3a;
+            border: 1px solid #555;
+            border-radius: 4px;
+            color: #ccc;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .flip-btn.active {
+            background: #1a4a80;
+            border-color: #4a9eff;
+            color: #fff;
+        }
+
+        .file-row {
+            margin-bottom: 10px;
+        }
+
+        .file-row input[type="file"] {
+            font-size: 12px;
+            color: #ccc;
+            width: 100%;
+        }
+
+        .reset-btn {
+            margin-top: 6px;
+            padding: 4px 10px;
+            font-size: 11px;
+            background: #3a3a3a;
+            border: 1px solid #555;
+            border-radius: 4px;
+            color: #aaa;
+            cursor: pointer;
+        }
+
+        .reset-btn:hover { background: #4a4a4a; }
+    </style>
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- 畫布 -->
+    <div class="canvas-wrapper">
+        <video id="webcam" autoplay playsinline></video>
+        <img id="overlay" src="" alt="" style="display:none;">
+    </div>
+
+    <!-- 控制面板 -->
+    <div class="panels">
+
+        <!-- Webcam 設定 -->
+        <div class="panel">
+            <div class="panel-title">Webcam</div>
+
+            <div class="control-row">
+                <label>左右位移</label>
+                <input type="range" id="wcX" min="-320" max="320" value="0">
+                <span class="val" id="wcXVal">0</span>
+            </div>
+            <div class="control-row">
+                <label>上下位移</label>
+                <input type="range" id="wcY" min="-240" max="240" value="0">
+                <span class="val" id="wcYVal">0</span>
+            </div>
+            <div class="control-row">
+                <label>透明度</label>
+                <input type="range" id="wcOpacity" min="0" max="1" step="0.01" value="1">
+                <span class="val" id="wcOpacityVal">1</span>
+            </div>
+
+            <div class="flip-row">
+                <button class="flip-btn" id="wcFlipH" onclick="toggleFlip('wc','H')">↔ 水平翻轉</button>
+                <button class="flip-btn" id="wcFlipV" onclick="toggleFlip('wc','V')">↕ 垂直翻轉</button>
+            </div>
+            <div class="control-row" style="margin-top:8px;">
+                <label>旋轉角度</label>
+                <input type="range" id="wcRotate" min="-180" max="180" step="0.5" value="0">
+                <span class="val" id="wcRotateVal">0°</span>
+            </div>
+
+            <button class="reset-btn" onclick="resetTarget('wc')">重設</button>
+        </div>
+
+        <!-- 圖片設定 -->
+        <div class="panel">
+            <div class="panel-title">疊加圖片</div>
+
+            <div class="file-row">
+                <input type="file" id="imageInput" accept="image/*">
+            </div>
+
+            <div class="control-row">
+                <label>左右位移</label>
+                <input type="range" id="ovX" min="-320" max="320" value="0">
+                <span class="val" id="ovXVal">0</span>
+            </div>
+            <div class="control-row">
+                <label>上下位移</label>
+                <input type="range" id="ovY" min="-240" max="240" value="0">
+                <span class="val" id="ovYVal">0</span>
+            </div>
+            <div class="control-row">
+                <label>透明度</label>
+                <input type="range" id="ovOpacity" min="0" max="1" step="0.01" value="0.5">
+                <span class="val" id="ovOpacityVal">0.5</span>
+            </div>
+
+            <div class="flip-row">
+                <button class="flip-btn" id="ovFlipH" onclick="toggleFlip('ov','H')">↔ 水平翻轉</button>
+                <button class="flip-btn" id="ovFlipV" onclick="toggleFlip('ov','V')">↕ 垂直翻轉</button>
+            </div>
+            <div class="control-row" style="margin-top:8px;">
+                <label>旋轉角度</label>
+                <input type="range" id="ovRotate" min="-180" max="180" step="0.5" value="0">
+                <span class="val" id="ovRotateVal">0°</span>
+            </div>
+
+            <button class="reset-btn" onclick="resetTarget('ov')">重設</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // ── 狀態 ──────────────────────────────────────────
+    const state = {
+        wc: { x: 0, y: 0, opacity: 1,   flipH: false, flipV: false, rotate: 0 },
+        ov: { x: 0, y: 0, opacity: 0.5, flipH: false, flipV: false, rotate: 0 },
+    };
+
+    const targets = {
+        wc: document.getElementById('webcam'),
+        ov: document.getElementById('overlay'),
+    };
+
+    // ── 套用 transform ────────────────────────────────
+    function applyTransform(key) {
+        const s = state[key];
+        const el = targets[key];
+        const scaleX = s.flipH ? -1 : 1;
+        const scaleY = s.flipV ? -1 : 1;
+        el.style.transform =
+            `translate(calc(-50% + ${s.x}px), calc(-50% + ${s.y}px)) rotate(${s.rotate}deg) scale(${scaleX}, ${scaleY})`;
+        el.style.opacity = s.opacity;
+    }
+
+    // ── 滑桿綁定 ──────────────────────────────────────
+    function bindSlider(id, key, prop, valId, format) {
+        const slider = document.getElementById(id);
+        const display = document.getElementById(valId);
+        slider.addEventListener('input', () => {
+            const v = parseFloat(slider.value);
+            state[key][prop] = v;
+            display.textContent = format ? format(v) : v;
+            applyTransform(key);
+        });
+    }
+
+    bindSlider('wcX',       'wc', 'x',       'wcXVal');
+    bindSlider('wcY',       'wc', 'y',       'wcYVal');
+    bindSlider('wcOpacity', 'wc', 'opacity', 'wcOpacityVal', v => v.toFixed(2));
+    bindSlider('wcRotate',  'wc', 'rotate',  'wcRotateVal',  v => `${v}°`);
+    bindSlider('ovX',       'ov', 'x',       'ovXVal');
+    bindSlider('ovY',       'ov', 'y',       'ovYVal');
+    bindSlider('ovOpacity', 'ov', 'opacity', 'ovOpacityVal', v => v.toFixed(2));
+    bindSlider('ovRotate',  'ov', 'rotate',  'ovRotateVal',  v => `${v}°`);
+
+    // ── 翻轉切換 ──────────────────────────────────────
+    function toggleFlip(key, axis) {
+        const prop = axis === 'H' ? 'flipH' : 'flipV';
+        state[key][prop] = !state[key][prop];
+        document.getElementById(`${key}Flip${axis}`).classList.toggle('active', state[key][prop]);
+        applyTransform(key);
+    }
+
+    // ── 重設 ──────────────────────────────────────────
+    function resetTarget(key) {
+        const defaults = key === 'wc'
+            ? { x: 0, y: 0, opacity: 1,   flipH: false, flipV: false, rotate: 0 }
+            : { x: 0, y: 0, opacity: 0.5, flipH: false, flipV: false, rotate: 0 };
+
+        state[key] = { ...defaults };
+
+        const p = key; // prefix 與 key 相同
+        document.getElementById(`${p}X`).value       = defaults.x;
+        document.getElementById(`${p}Y`).value       = defaults.y;
+        document.getElementById(`${p}Opacity`).value = defaults.opacity;
+        document.getElementById(`${p}Rotate`).value  = defaults.rotate;
+        document.getElementById(`${p}XVal`).textContent       = defaults.x;
+        document.getElementById(`${p}YVal`).textContent       = defaults.y;
+        document.getElementById(`${p}OpacityVal`).textContent = defaults.opacity.toFixed(2);
+        document.getElementById(`${p}RotateVal`).textContent  = `${defaults.rotate}°`;
+
+        document.getElementById(`${p}FlipH`).classList.remove('active');
+        document.getElementById(`${p}FlipV`).classList.remove('active');
+
+        applyTransform(key);
+    }
+
+    // ── 圖片上傳 ──────────────────────────────────────
+    document.getElementById('imageInput').addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const ov = targets.ov;
+        ov.src = URL.createObjectURL(file);
+        ov.style.display = '';
+        applyTransform('ov');
+    });
+
+    // ── 啟動 Webcam ───────────────────────────────────
+    async function startWebcam() {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            targets.wc.srcObject = stream;
+        } catch (err) {
+            alert('請允許攝影機權限');
+            console.error(err);
+        }
+    }
+
+    // ── 初始化 ────────────────────────────────────────
+    applyTransform('wc');
+    startWebcam();
+</script>
+</body>
+</html>
