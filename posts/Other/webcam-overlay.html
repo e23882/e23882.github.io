@@ -13,14 +13,6 @@
             padding: 16px;
         }
 
-        h3 {
-            font-size: 13px;
-            color: #aaa;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
         .layout {
             display: flex;
             gap: 16px;
@@ -36,16 +28,21 @@
             background: #000;
             overflow: hidden;
             flex-shrink: 0;
+            perspective: 800px;
+            perspective-origin: center center;
         }
 
         #webcam, #overlay {
             position: absolute;
-            /* 預設置中 */
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: none; /* 允許超出，位移時不裁切 */
+            user-select: none;
+            -webkit-user-drag: none;
+            cursor: grab;
         }
+
+        #webcam.dragging,
+        #overlay.dragging { cursor: grabbing; }
 
         #webcam {
             width: 640px;
@@ -54,13 +51,31 @@
         }
 
         #overlay {
-            max-width: 640px;
-            max-height: 480px;
+            max-width: none;
+            max-height: none;
             object-fit: contain;
-            opacity: 0.5;
             z-index: 10;
-            pointer-events: none;
         }
+
+        /* ── resize handles ── */
+        .rhandle {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            border: 2px solid;
+            background: #fff;
+            z-index: 30;
+            display: none;
+        }
+
+        .rhandle[data-key="wc"] { border-color: #4a9eff; }
+        .rhandle[data-key="ov"] { border-color: #ff9a4a; }
+
+        .rhandle[data-corner="nw"] { cursor: nw-resize; }
+        .rhandle[data-corner="ne"] { cursor: ne-resize; }
+        .rhandle[data-corner="sw"] { cursor: sw-resize; }
+        .rhandle[data-corner="se"] { cursor: se-resize; }
 
         /* ── 控制面板 ── */
         .panels {
@@ -104,7 +119,7 @@
         }
 
         .control-row .val {
-            width: 40px;
+            width: 52px;
             font-size: 12px;
             color: #4a9eff;
             text-align: right;
@@ -135,9 +150,7 @@
             color: #fff;
         }
 
-        .file-row {
-            margin-bottom: 10px;
-        }
+        .file-row { margin-bottom: 10px; }
 
         .file-row input[type="file"] {
             font-size: 12px;
@@ -164,9 +177,21 @@
 <div class="layout">
 
     <!-- 畫布 -->
-    <div class="canvas-wrapper">
+    <div class="canvas-wrapper" id="canvasWrapper">
         <video id="webcam" autoplay playsinline></video>
-        <img id="overlay" src="" alt="" style="display:none;">
+        <img id="overlay" src="" alt="" style="display:none; opacity:0.5;">
+
+        <!-- Webcam resize handles (藍) -->
+        <div class="rhandle" data-key="wc" data-corner="nw"></div>
+        <div class="rhandle" data-key="wc" data-corner="ne"></div>
+        <div class="rhandle" data-key="wc" data-corner="sw"></div>
+        <div class="rhandle" data-key="wc" data-corner="se"></div>
+
+        <!-- Overlay resize handles (橘) -->
+        <div class="rhandle" data-key="ov" data-corner="nw"></div>
+        <div class="rhandle" data-key="ov" data-corner="ne"></div>
+        <div class="rhandle" data-key="ov" data-corner="sw"></div>
+        <div class="rhandle" data-key="ov" data-corner="se"></div>
     </div>
 
     <!-- 控制面板 -->
@@ -187,9 +212,14 @@
                 <span class="val" id="wcYVal">0</span>
             </div>
             <div class="control-row">
+                <label>縮放</label>
+                <input type="range" id="wcScale" min="0.1" max="4" step="0.01" value="1">
+                <span class="val" id="wcScaleVal">1.00x</span>
+            </div>
+            <div class="control-row">
                 <label>透明度</label>
                 <input type="range" id="wcOpacity" min="0" max="1" step="0.01" value="1">
-                <span class="val" id="wcOpacityVal">1</span>
+                <span class="val" id="wcOpacityVal">1.00</span>
             </div>
 
             <div class="flip-row">
@@ -197,7 +227,17 @@
                 <button class="flip-btn" id="wcFlipV" onclick="toggleFlip('wc','V')">↕ 垂直翻轉</button>
             </div>
             <div class="control-row" style="margin-top:8px;">
-                <label>旋轉角度</label>
+                <label>X軸旋轉</label>
+                <input type="range" id="wcRotX" min="-90" max="90" step="0.5" value="0">
+                <span class="val" id="wcRotXVal">0°</span>
+            </div>
+            <div class="control-row">
+                <label>Y軸旋轉</label>
+                <input type="range" id="wcRotY" min="-90" max="90" step="0.5" value="0">
+                <span class="val" id="wcRotYVal">0°</span>
+            </div>
+            <div class="control-row">
+                <label>Z軸旋轉</label>
                 <input type="range" id="wcRotate" min="-180" max="180" step="0.5" value="0">
                 <span class="val" id="wcRotateVal">0°</span>
             </div>
@@ -224,9 +264,14 @@
                 <span class="val" id="ovYVal">0</span>
             </div>
             <div class="control-row">
+                <label>縮放</label>
+                <input type="range" id="ovScale" min="0.1" max="4" step="0.01" value="1">
+                <span class="val" id="ovScaleVal">1.00x</span>
+            </div>
+            <div class="control-row">
                 <label>透明度</label>
                 <input type="range" id="ovOpacity" min="0" max="1" step="0.01" value="0.5">
-                <span class="val" id="ovOpacityVal">0.5</span>
+                <span class="val" id="ovOpacityVal">0.50</span>
             </div>
 
             <div class="flip-row">
@@ -234,7 +279,17 @@
                 <button class="flip-btn" id="ovFlipV" onclick="toggleFlip('ov','V')">↕ 垂直翻轉</button>
             </div>
             <div class="control-row" style="margin-top:8px;">
-                <label>旋轉角度</label>
+                <label>X軸旋轉</label>
+                <input type="range" id="ovRotX" min="-90" max="90" step="0.5" value="0">
+                <span class="val" id="ovRotXVal">0°</span>
+            </div>
+            <div class="control-row">
+                <label>Y軸旋轉</label>
+                <input type="range" id="ovRotY" min="-90" max="90" step="0.5" value="0">
+                <span class="val" id="ovRotYVal">0°</span>
+            </div>
+            <div class="control-row">
+                <label>Z軸旋轉</label>
                 <input type="range" id="ovRotate" min="-180" max="180" step="0.5" value="0">
                 <span class="val" id="ovRotateVal">0°</span>
             </div>
@@ -246,10 +301,13 @@
 </div>
 
 <script>
+    const canvasWrapper = document.getElementById('canvasWrapper');
+    const CANVAS_W = 640, CANVAS_H = 480;
+
     // ── 狀態 ──────────────────────────────────────────
     const state = {
-        wc: { x: 0, y: 0, opacity: 1,   flipH: false, flipV: false, rotate: 0 },
-        ov: { x: 0, y: 0, opacity: 0.5, flipH: false, flipV: false, rotate: 0 },
+        wc: { x: 0, y: 0, scale: 1, opacity: 1,   flipH: false, flipV: false, rotate: 0, rotX: 0, rotY: 0 },
+        ov: { x: 0, y: 0, scale: 1, opacity: 0.5, flipH: false, flipV: false, rotate: 0, rotX: 0, rotY: 0 },
     };
 
     const targets = {
@@ -261,33 +319,94 @@
     function applyTransform(key) {
         const s = state[key];
         const el = targets[key];
-        const scaleX = s.flipH ? -1 : 1;
-        const scaleY = s.flipV ? -1 : 1;
+        const scaleX = (s.flipH ? -1 : 1) * s.scale;
+        const scaleY = (s.flipV ? -1 : 1) * s.scale;
         el.style.transform =
-            `translate(calc(-50% + ${s.x}px), calc(-50% + ${s.y}px)) rotate(${s.rotate}deg) scale(${scaleX}, ${scaleY})`;
+            `translate(calc(-50% + ${s.x}px), calc(-50% + ${s.y}px)) rotateX(${s.rotX}deg) rotateY(${s.rotY}deg) rotate(${s.rotate}deg) scale(${scaleX}, ${scaleY})`;
         el.style.opacity = s.opacity;
+        updateHandles(key);
     }
 
-    // ── 滑桿綁定 ──────────────────────────────────────
-    function bindSlider(id, key, prop, valId, format) {
-        const slider = document.getElementById(id);
-        const display = document.getElementById(valId);
-        slider.addEventListener('input', () => {
-            const v = parseFloat(slider.value);
+    // ── resize handles 定位 ───────────────────────────
+    // getBoundingClientRect 在 style 變更後強制同步 reflow，位置正確
+    function updateHandles(key) {
+        const el = targets[key];
+        const handles = document.querySelectorAll(`.rhandle[data-key="${key}"]`);
+
+        if (el.style.display === 'none') {
+            handles.forEach(h => h.style.display = 'none');
+            return;
+        }
+
+        const wRect = canvasWrapper.getBoundingClientRect();
+        const eRect = el.getBoundingClientRect();
+
+        // 若 rect 尚未有尺寸（圖片未載入）先略過
+        if (eRect.width === 0 && eRect.height === 0) {
+            handles.forEach(h => h.style.display = 'none');
+            return;
+        }
+
+        const hs = 6; // handle 半邊 6px (12px / 2)
+        const l = eRect.left - wRect.left;
+        const t = eRect.top  - wRect.top;
+        const r = l + eRect.width;
+        const b = t + eRect.height;
+
+        const pos = { nw: [l, t], ne: [r, t], sw: [l, b], se: [r, b] };
+
+        handles.forEach(h => {
+            const [hx, hy] = pos[h.dataset.corner];
+            h.style.left    = (hx - hs) + 'px';
+            h.style.top     = (hy - hs) + 'px';
+            h.style.display = 'block';
+        });
+    }
+
+    // ── 滑桿 / 顯示值同步 ────────────────────────────
+    // 將 state 值同步回滑桿與顯示文字
+    function syncControl(key, prop, value) {
+        const capProp = prop.charAt(0).toUpperCase() + prop.slice(1);
+        const sliderId  = `${key}${capProp}`;
+        const displayId = `${sliderId}Val`;
+        const slider  = document.getElementById(sliderId);
+        const display = document.getElementById(displayId);
+        if (slider)  slider.value = value;
+        if (display) display.textContent = formatVal(prop, value);
+    }
+
+    function formatVal(prop, v) {
+        if (prop === 'scale')                         return v.toFixed(2) + 'x';
+        if (prop === 'opacity')                       return v.toFixed(2);
+        if (prop === 'rotate' || prop === 'rotX' || prop === 'rotY')
+                                                      return (Math.round(v * 10) / 10) + '°';
+        return Math.round(v);
+    }
+
+    // 滑桿 → state
+    function bindSlider(id, key, prop, valId) {
+        document.getElementById(id).addEventListener('input', e => {
+            const v = parseFloat(e.target.value);
             state[key][prop] = v;
-            display.textContent = format ? format(v) : v;
+            document.getElementById(valId).textContent = formatVal(prop, v);
             applyTransform(key);
         });
     }
 
     bindSlider('wcX',       'wc', 'x',       'wcXVal');
     bindSlider('wcY',       'wc', 'y',       'wcYVal');
-    bindSlider('wcOpacity', 'wc', 'opacity', 'wcOpacityVal', v => v.toFixed(2));
-    bindSlider('wcRotate',  'wc', 'rotate',  'wcRotateVal',  v => `${v}°`);
+    bindSlider('wcScale',   'wc', 'scale',   'wcScaleVal');
+    bindSlider('wcOpacity', 'wc', 'opacity', 'wcOpacityVal');
+    bindSlider('wcRotX',    'wc', 'rotX',    'wcRotXVal');
+    bindSlider('wcRotY',    'wc', 'rotY',    'wcRotYVal');
+    bindSlider('wcRotate',  'wc', 'rotate',  'wcRotateVal');
     bindSlider('ovX',       'ov', 'x',       'ovXVal');
     bindSlider('ovY',       'ov', 'y',       'ovYVal');
-    bindSlider('ovOpacity', 'ov', 'opacity', 'ovOpacityVal', v => v.toFixed(2));
-    bindSlider('ovRotate',  'ov', 'rotate',  'ovRotateVal',  v => `${v}°`);
+    bindSlider('ovScale',   'ov', 'scale',   'ovScaleVal');
+    bindSlider('ovOpacity', 'ov', 'opacity', 'ovOpacityVal');
+    bindSlider('ovRotX',    'ov', 'rotX',    'ovRotXVal');
+    bindSlider('ovRotY',    'ov', 'rotY',    'ovRotYVal');
+    bindSlider('ovRotate',  'ov', 'rotate',  'ovRotateVal');
 
     // ── 翻轉切換 ──────────────────────────────────────
     function toggleFlip(key, axis) {
@@ -300,35 +419,102 @@
     // ── 重設 ──────────────────────────────────────────
     function resetTarget(key) {
         const defaults = key === 'wc'
-            ? { x: 0, y: 0, opacity: 1,   flipH: false, flipV: false, rotate: 0 }
-            : { x: 0, y: 0, opacity: 0.5, flipH: false, flipV: false, rotate: 0 };
+            ? { x: 0, y: 0, scale: 1, opacity: 1,   flipH: false, flipV: false, rotate: 0, rotX: 0, rotY: 0 }
+            : { x: 0, y: 0, scale: 1, opacity: 0.5, flipH: false, flipV: false, rotate: 0, rotX: 0, rotY: 0 };
 
         state[key] = { ...defaults };
 
-        const p = key; // prefix 與 key 相同
-        document.getElementById(`${p}X`).value       = defaults.x;
-        document.getElementById(`${p}Y`).value       = defaults.y;
-        document.getElementById(`${p}Opacity`).value = defaults.opacity;
-        document.getElementById(`${p}Rotate`).value  = defaults.rotate;
-        document.getElementById(`${p}XVal`).textContent       = defaults.x;
-        document.getElementById(`${p}YVal`).textContent       = defaults.y;
-        document.getElementById(`${p}OpacityVal`).textContent = defaults.opacity.toFixed(2);
-        document.getElementById(`${p}RotateVal`).textContent  = `${defaults.rotate}°`;
-
-        document.getElementById(`${p}FlipH`).classList.remove('active');
-        document.getElementById(`${p}FlipV`).classList.remove('active');
+        ['x', 'y', 'scale', 'opacity', 'rotX', 'rotY', 'rotate'].forEach(p => syncControl(key, p, defaults[p]));
+        document.getElementById(`${key}FlipH`).classList.remove('active');
+        document.getElementById(`${key}FlipV`).classList.remove('active');
 
         applyTransform(key);
     }
 
+    // ── 拖拉互動 ──────────────────────────────────────
+    let drag = null;
+
+    function canvasPos(e) {
+        const r = canvasWrapper.getBoundingClientRect();
+        return { x: e.clientX - r.left, y: e.clientY - r.top };
+    }
+
+    // 拖拉移動：直接在元素上按下
+    function initDragMove(key, e) {
+        e.preventDefault();
+        const p = canvasPos(e);
+        drag = {
+            type:        'move',
+            key,
+            startMouseX: p.x,
+            startMouseY: p.y,
+            startX:      state[key].x,
+            startY:      state[key].y,
+        };
+        targets[key].classList.add('dragging');
+        targets[key].setPointerCapture(e.pointerId);
+    }
+
+    targets.wc.addEventListener('pointerdown', e => initDragMove('wc', e));
+    targets.ov.addEventListener('pointerdown', e => initDragMove('ov', e));
+
+    // 拖拉縮放：按住 corner handle，以元素中心為基準計算距離比例
+    document.querySelectorAll('.rhandle').forEach(h => {
+        h.addEventListener('pointerdown', e => {
+            e.preventDefault();
+            e.stopPropagation();
+            const key = h.dataset.key;
+            const p   = canvasPos(e);
+            const cx  = CANVAS_W / 2 + state[key].x;
+            const cy  = CANVAS_H / 2 + state[key].y;
+            const d0  = Math.hypot(p.x - cx, p.y - cy);
+            drag = {
+                type:       'resize',
+                key,
+                cx, cy,
+                startDist:  d0 || 1,
+                startScale: state[key].scale,
+            };
+            h.setPointerCapture(e.pointerId);
+        });
+    });
+
+    window.addEventListener('pointermove', e => {
+        if (!drag) return;
+        const p = canvasPos(e);
+
+        if (drag.type === 'move') {
+            const newX = drag.startX + (p.x - drag.startMouseX);
+            const newY = drag.startY + (p.y - drag.startMouseY);
+            state[drag.key].x = newX;
+            state[drag.key].y = newY;
+            syncControl(drag.key, 'x', newX);
+            syncControl(drag.key, 'y', newY);
+            applyTransform(drag.key);
+
+        } else if (drag.type === 'resize') {
+            const dist = Math.hypot(p.x - drag.cx, p.y - drag.cy);
+            const newScale = Math.max(0.1, Math.min(4, drag.startScale * (dist / drag.startDist)));
+            state[drag.key].scale = newScale;
+            syncControl(drag.key, 'scale', newScale);
+            applyTransform(drag.key);
+        }
+    });
+
+    window.addEventListener('pointerup', e => {
+        if (!drag) return;
+        if (drag.type === 'move') targets[drag.key].classList.remove('dragging');
+        drag = null;
+    });
+
     // ── 圖片上傳 ──────────────────────────────────────
-    document.getElementById('imageInput').addEventListener('change', (e) => {
+    document.getElementById('imageInput').addEventListener('change', e => {
         const file = e.target.files[0];
         if (!file) return;
         const ov = targets.ov;
         ov.src = URL.createObjectURL(file);
         ov.style.display = '';
-        applyTransform('ov');
+        ov.onload = () => applyTransform('ov');
     });
 
     // ── 啟動 Webcam ───────────────────────────────────
