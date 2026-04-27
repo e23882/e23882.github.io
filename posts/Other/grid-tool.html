@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>圖片方格填充工具</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #12141a;
+  color: #d8d8e8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: #1a1d27;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 2px solid #2a2f45;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+header h1 {
+  font-size: 1.2rem;
+  color: #7eb8f7;
+  font-weight: 600;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  height: calc(100vh - 52px);
+}
+
+/* ── Controls panel ── */
+.controls {
+  width: 270px;
+  flex-shrink: 0;
+  background: #1a1d27;
+  border-right: 1px solid #2a2f45;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #7eb8f7;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #2a2f45;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.field label {
+  font-size: 0.78rem;
+  color: #8888a8;
+}
+
+.field input[type="number"] {
+  background: #11131c;
+  border: 1px solid #2a2f45;
+  border-radius: 6px;
+  color: #d8d8e8;
+  padding: 0.38rem 0.6rem;
+  font-size: 0.88rem;
+  width: 100%;
+  transition: border-color 0.18s;
+}
+
+.field input[type="number"]:focus {
+  outline: none;
+  border-color: #7eb8f7;
+}
+
+.row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+/* Color + opacity group */
+.color-group {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-end;
+}
+
+.color-group input[type="color"] {
+  width: 44px;
+  height: 36px;
+  padding: 2px 3px;
+  border: 1px solid #2a2f45;
+  border-radius: 6px;
+  background: #11131c;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.opacity-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.opacity-wrap span {
+  font-size: 0.75rem;
+  color: #8888a8;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #7eb8f7;
+  cursor: pointer;
+}
+
+select {
+  background: #11131c;
+  border: 1px solid #2a2f45;
+  border-radius: 6px;
+  color: #d8d8e8;
+  padding: 0.38rem 0.6rem;
+  font-size: 0.85rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+select:focus { outline: none; border-color: #7eb8f7; }
+
+/* toggle switch */
+.toggle-row {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.toggle-row input[type="checkbox"] { display: none; }
+
+.toggle-switch {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  background: #2a2f45;
+  border-radius: 10px;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  width: 14px; height: 14px;
+  background: #fff;
+  border-radius: 50%;
+  top: 3px; left: 3px;
+  transition: left 0.18s;
+}
+
+.toggle-row input[type="checkbox"]:checked + .toggle-switch {
+  background: #7eb8f7;
+}
+
+.toggle-row input[type="checkbox"]:checked + .toggle-switch::after {
+  left: 19px;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.83rem;
+  color: #c0c0d8;
+  cursor: pointer;
+  user-select: none;
+}
+
+.binarize-opts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.5rem 0 0 0;
+}
+
+/* Upload */
+.upload-area {
+  border: 2px dashed #2a2f45;
+  border-radius: 8px;
+  padding: 1.2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.18s;
+  background: #11131c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.upload-area:hover,
+.upload-area.drag-over {
+  border-color: #7eb8f7;
+  background: #171c2c;
+}
+
+.upload-area input { display: none; }
+.upload-icon { font-size: 1.8rem; }
+.upload-text { font-size: 0.78rem; color: #6868a0; }
+.upload-name { font-size: 0.78rem; color: #7eb8f7; word-break: break-all; }
+
+hr.sep {
+  border: none;
+  border-top: 1px solid #2a2f45;
+}
+
+.btn-download {
+  background: #3a6fd4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-size: 0.88rem;
+  width: 100%;
+  transition: background 0.18s;
+  font-weight: 600;
+}
+
+.btn-download:hover:not(:disabled) { background: #2a5bbf; }
+.btn-download:disabled { background: #2a2f45; color: #555; cursor: not-allowed; }
+
+/* ── Canvas area ── */
+.canvas-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.canvas-toolbar {
+  background: #1a1d27;
+  border-bottom: 1px solid #2a2f45;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.78rem;
+  color: #6868a0;
+  flex-shrink: 0;
+}
+
+.badge {
+  background: #11131c;
+  border: 1px solid #2a2f45;
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+  color: #9090b8;
+  font-size: 0.74rem;
+}
+
+.canvas-scroll {
+  flex: 1;
+  overflow: auto;
+  padding: 1.5rem;
+  background: #0d0f16;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #333350;
+  gap: 0.75rem;
+}
+
+.placeholder-icon { font-size: 3rem; }
+.placeholder-text { font-size: 0.95rem; }
+
+canvas {
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.6);
+  image-rendering: pixelated;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <span style="font-size:1.3rem">🔲</span>
+  <h1>圖片方格填充工具</h1>
+</header>
+
+<div class="main">
+
+  <!-- ── Controls ── -->
+  <div class="controls">
+
+    <!-- Upload -->
+    <div class="section">
+      <div class="section-title">圖片上傳</div>
+      <label class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" accept="image/*">
+        <div class="upload-icon">🖼️</div>
+        <div class="upload-text" id="uploadText">點擊或拖曳圖片到此</div>
+      </label>
+    </div>
+
+    <hr class="sep">
+
+    <!-- Binarize -->
+    <div class="section">
+      <div class="section-title">二值化</div>
+      <div class="field toggle-row">
+        <label class="toggle-label">
+          <input type="checkbox" id="binarizeOn">
+          <span class="toggle-switch"></span>
+          啟用二值化
+        </label>
+      </div>
+      <div class="binarize-opts" id="binarizeOpts" style="display:none">
+        <div class="field">
+          <label>臨界值 (0–255): <strong id="thresholdVal">128</strong></label>
+          <input type="range" id="threshold" value="128" min="0" max="255">
+        </div>
+        <div class="field">
+          <label>灰階公式</label>
+          <select id="grayMethod">
+            <option value="luma">亮度加權 0.299R+0.587G+0.114B</option>
+            <option value="avg">平均值 (R+G+B)/3</option>
+            <option value="max">最大值 max(R,G,B)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <hr class="sep">
+
+    <!-- Square size -->
+    <div class="section">
+      <div class="section-title">正方形大小</div>
+      <div class="field">
+        <label>邊長 (px)</label>
+        <input type="number" id="size" value="60" min="1" max="2000">
+      </div>
+    </div>
+
+    <hr class="sep">
+
+    <!-- Grid count -->
+    <div class="section">
+      <div class="section-title">網格數量</div>
+      <div class="row2">
+        <div class="field">
+          <label>X 軸 (欄數)</label>
+          <input type="number" id="xCount" value="5" min="1" max="500">
+        </div>
+        <div class="field">
+          <label>Y 軸 (列數)</label>
+          <input type="number" id="yCount" value="5" min="1" max="500">
+        </div>
+      </div>
+    </div>
+
+    <hr class="sep">
+
+    <!-- Border -->
+    <div class="section">
+      <div class="section-title">邊框</div>
+      <div class="field">
+        <label>邊框寬度 (px)</label>
+        <input type="number" id="borderWidth" value="2" min="0" max="100">
+      </div>
+      <div class="field">
+        <label>邊框顏色 &amp; 透明度</label>
+        <div class="color-group">
+          <input type="color" id="borderColor" value="#ff3333">
+          <div class="opacity-wrap">
+            <span>透明度: <strong id="borderOpacityVal">100</strong>%</span>
+            <input type="range" id="borderOpacity" value="100" min="0" max="100">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="sep">
+
+    <!-- Fill -->
+    <div class="section">
+      <div class="section-title">填充色</div>
+      <div class="field">
+        <label>填充顏色 &amp; 透明度</label>
+        <div class="color-group">
+          <input type="color" id="fillColor" value="#ff3333">
+          <div class="opacity-wrap">
+            <span>透明度: <strong id="fillOpacityVal">20</strong>%</span>
+            <input type="range" id="fillOpacity" value="20" min="0" max="100">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="sep">
+
+    <!-- Start position -->
+    <div class="section">
+      <div class="section-title">起點位置</div>
+      <div class="row2">
+        <div class="field">
+          <label>起點 X (px)</label>
+          <input type="number" id="startX" value="0">
+        </div>
+        <div class="field">
+          <label>起點 Y (px)</label>
+          <input type="number" id="startY" value="0">
+        </div>
+      </div>
+    </div>
+
+    <hr class="sep">
+
+    <button class="btn-download" id="downloadBtn" disabled>⬇ 下載結果圖片</button>
+
+  </div>
+
+  <!-- ── Canvas area ── -->
+  <div class="canvas-area">
+    <div class="canvas-toolbar">
+      <span>預覽</span>
+      <span class="badge" id="sizeInfo">尚未載入圖片</span>
+      <span class="badge" id="gridBadge" style="display:none"></span>
+    </div>
+    <div class="canvas-scroll" id="canvasScroll">
+      <div class="placeholder" id="placeholder">
+        <div class="placeholder-icon">🖼️</div>
+        <div class="placeholder-text">請先上傳一張圖片</div>
+      </div>
+      <canvas id="canvas" style="display:none;"></canvas>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const canvas    = document.getElementById('canvas');
+const ctx       = canvas.getContext('2d');
+const placeholder  = document.getElementById('placeholder');
+const downloadBtn  = document.getElementById('downloadBtn');
+const sizeInfo     = document.getElementById('sizeInfo');
+const gridBadge    = document.getElementById('gridBadge');
+const uploadText   = document.getElementById('uploadText');
+const uploadArea   = document.getElementById('uploadArea');
+
+let imgEl = null;
+
+// ─── helpers ───────────────────────────────────────────────
+function hexToRgb(hex) {
+  const r = parseInt(hex.slice(1,3), 16);
+  const g = parseInt(hex.slice(3,5), 16);
+  const b = parseInt(hex.slice(5,7), 16);
+  return [r, g, b];
+}
+
+function val(id)      { return document.getElementById(id).value; }
+function numVal(id, fallback=0) { return parseFloat(val(id)) || fallback; }
+
+// ─── main render ───────────────────────────────────────────
+function render() {
+  if (!imgEl) return;
+
+  const size        = Math.max(1, numVal('size', 60));
+  const xCount      = Math.max(1, Math.round(numVal('xCount', 5)));
+  const yCount      = Math.max(1, Math.round(numVal('yCount', 5)));
+  const bw          = Math.max(0, numVal('borderWidth', 2));
+  const bColor      = val('borderColor');
+  const bOpacity    = numVal('borderOpacity', 100) / 100;
+  const fColor      = val('fillColor');
+  const fOpacity    = numVal('fillOpacity', 20) / 100;
+  const startX      = numVal('startX', 0);
+  const startY      = numVal('startY', 0);
+
+  canvas.width  = imgEl.naturalWidth;
+  canvas.height = imgEl.naturalHeight;
+  ctx.drawImage(imgEl, 0, 0);
+
+  // binarize (applied before drawing the grid)
+  if (document.getElementById('binarizeOn').checked) {
+    const threshold = numVal('threshold', 128);
+    const method    = val('grayMethod');
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const d         = imageData.data;
+    for (let i = 0; i < d.length; i += 4) {
+      let gray;
+      if (method === 'luma') {
+        gray = 0.299 * d[i] + 0.587 * d[i+1] + 0.114 * d[i+2];
+      } else if (method === 'avg') {
+        gray = (d[i] + d[i+1] + d[i+2]) / 3;
+      } else {
+        gray = Math.max(d[i], d[i+1], d[i+2]);
+      }
+      const v = gray >= threshold ? 255 : 0;
+      d[i] = d[i+1] = d[i+2] = v;
+    }
+    ctx.putImageData(imageData, 0, 0);
+  }
+
+  const [br, bg, bb] = hexToRgb(bColor);
+  const [fr, fg, fb] = hexToRgb(fColor);
+
+  for (let row = 0; row < yCount; row++) {
+    for (let col = 0; col < xCount; col++) {
+      const x = startX + col * size;
+      const y = startY + row * size;
+
+      // fill
+      if (fOpacity > 0) {
+        ctx.fillStyle = `rgba(${fr},${fg},${fb},${fOpacity})`;
+        ctx.fillRect(x, y, size, size);
+      }
+
+      // border (drawn inside the square boundary)
+      if (bw > 0 && bOpacity > 0) {
+        ctx.strokeStyle = `rgba(${br},${bg},${bb},${bOpacity})`;
+        ctx.lineWidth   = bw;
+        ctx.strokeRect(
+          x + bw / 2,
+          y + bw / 2,
+          size - bw,
+          size - bw
+        );
+      }
+    }
+  }
+
+  gridBadge.textContent = `${xCount} × ${yCount} = ${xCount * yCount} 格`;
+  gridBadge.style.display = '';
+}
+
+// ─── load image ────────────────────────────────────────────
+function loadFile(file) {
+  if (!file || !file.type.startsWith('image/')) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      imgEl = img;
+      canvas.style.display = 'block';
+      placeholder.style.display = 'none';
+      downloadBtn.disabled = false;
+      sizeInfo.textContent = `${img.naturalWidth} × ${img.naturalHeight} px`;
+      uploadText.textContent = file.name;
+      render();
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+document.getElementById('fileInput').addEventListener('change', e => loadFile(e.target.files[0]));
+
+// drag & drop
+uploadArea.addEventListener('dragover', e => { e.preventDefault(); uploadArea.classList.add('drag-over'); });
+uploadArea.addEventListener('dragleave', () => uploadArea.classList.remove('drag-over'));
+uploadArea.addEventListener('drop', e => {
+  e.preventDefault();
+  uploadArea.classList.remove('drag-over');
+  loadFile(e.dataTransfer.files[0]);
+});
+
+// ─── live inputs ───────────────────────────────────────────
+const inputIds = ['size','xCount','yCount','borderWidth','borderColor','borderOpacity',
+                  'fillColor','fillOpacity','startX','startY','threshold','grayMethod'];
+
+inputIds.forEach(id => {
+  document.getElementById(id).addEventListener('input', render);
+});
+
+// opacity labels
+document.getElementById('borderOpacity').addEventListener('input', function() {
+  document.getElementById('borderOpacityVal').textContent = this.value;
+});
+document.getElementById('fillOpacity').addEventListener('input', function() {
+  document.getElementById('fillOpacityVal').textContent = this.value;
+});
+
+// threshold label
+document.getElementById('threshold').addEventListener('input', function() {
+  document.getElementById('thresholdVal').textContent = this.value;
+});
+
+// binarize toggle — show/hide options
+document.getElementById('binarizeOn').addEventListener('change', function() {
+  document.getElementById('binarizeOpts').style.display = this.checked ? 'flex' : 'none';
+  render();
+});
+
+// ─── download ──────────────────────────────────────────────
+downloadBtn.addEventListener('click', () => {
+  if (!imgEl) return;
+  const a = document.createElement('a');
+  a.download = 'grid-overlay.png';
+  a.href = canvas.toDataURL('image/png');
+  a.click();
+});
+</script>
+</body>
+</html>
