@@ -29,6 +29,28 @@ header h1 {
   font-size: 1.2rem;
   color: #7eb8f7;
   font-weight: 600;
+  flex: 1;
+}
+
+.btn-new-tab {
+  background: transparent;
+  border: 1px solid #2a2f45;
+  border-radius: 6px;
+  color: #8888a8;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.78rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  white-space: nowrap;
+  transition: border-color 0.18s, color 0.18s;
+  text-decoration: none;
+}
+
+.btn-new-tab:hover {
+  border-color: #7eb8f7;
+  color: #7eb8f7;
 }
 
 .main {
@@ -251,6 +273,29 @@ hr.sep {
 .btn-download:hover:not(:disabled) { background: #2a5bbf; }
 .btn-download:disabled { background: #2a2f45; color: #555; cursor: not-allowed; }
 
+.btn-auto {
+  background: #162a1a;
+  color: #5de87a;
+  border: 1px solid #2a5a35;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-size: 0.88rem;
+  width: 100%;
+  transition: background 0.18s, border-color 0.18s;
+  font-weight: 600;
+}
+
+.btn-auto:hover:not(:disabled) { background: #1e3d23; border-color: #3d8a4a; }
+.btn-auto:disabled { background: #2a2f45; color: #555; border-color: #2a2f45; cursor: not-allowed; }
+
+.auto-hint {
+  font-size: 0.72rem;
+  color: #555570;
+  text-align: center;
+  line-height: 1.4;
+}
+
 /* ── Canvas area ── */
 .canvas-area {
   flex: 1;
@@ -279,6 +324,31 @@ hr.sep {
   color: #9090b8;
   font-size: 0.74rem;
 }
+
+.zoom-controls {
+  display: none;
+  align-items: center;
+  gap: 0.3rem;
+  margin-left: auto;
+}
+
+.zoom-btn {
+  background: #11131c;
+  border: 1px solid #2a2f45;
+  border-radius: 4px;
+  color: #9090b8;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  line-height: 1;
+  transition: border-color 0.18s, color 0.18s;
+}
+
+.zoom-btn:hover { border-color: #7eb8f7; color: #7eb8f7; }
+
+#zoomBadge { min-width: 3.2rem; text-align: center; }
 
 .canvas-scroll {
   flex: 1;
@@ -316,6 +386,9 @@ canvas {
 <header>
   <span style="font-size:1.3rem">🔲</span>
   <h1>圖片方格填充工具</h1>
+  <a class="btn-new-tab" href="" target="_blank" id="newTabBtn" title="在新分頁開啟完整頁面">
+    <span>⧉</span> 新分頁開啟
+  </a>
 </header>
 
 <div class="main">
@@ -331,6 +404,14 @@ canvas {
         <div class="upload-icon">🖼️</div>
         <div class="upload-text" id="uploadText">點擊或拖曳圖片到此</div>
       </label>
+    </div>
+
+    <hr class="sep">
+
+    <!-- Auto fit -->
+    <div class="section">
+      <button class="btn-auto" id="autoFitBtn" disabled>⚡ 一鍵自動調整網格</button>
+      <div class="auto-hint">依圖片比例自動計算最佳邊長與欄列數（最多 40 格）</div>
     </div>
 
     <hr class="sep">
@@ -456,6 +537,11 @@ canvas {
       <span>預覽</span>
       <span class="badge" id="sizeInfo">尚未載入圖片</span>
       <span class="badge" id="gridBadge" style="display:none"></span>
+      <div class="zoom-controls" id="zoomControls">
+        <button class="zoom-btn" id="zoomOut" title="縮小">−</button>
+        <span class="badge" id="zoomBadge">100%</span>
+        <button class="zoom-btn" id="zoomIn" title="放大">+</button>
+      </div>
     </div>
     <div class="canvas-scroll" id="canvasScroll">
       <div class="placeholder" id="placeholder">
@@ -469,6 +555,9 @@ canvas {
 </div>
 
 <script>
+// 設定新分頁按鈕指向自身頁面（在 iframe 內時使用 document.location）
+document.getElementById('newTabBtn').href = window.location.href;
+
 const canvas    = document.getElementById('canvas');
 const ctx       = canvas.getContext('2d');
 const placeholder  = document.getElementById('placeholder');
@@ -479,6 +568,69 @@ const uploadText   = document.getElementById('uploadText');
 const uploadArea   = document.getElementById('uploadArea');
 
 let imgEl = null;
+let zoomLevel = 100;
+
+const zoomControls = document.getElementById('zoomControls');
+const zoomBadge    = document.getElementById('zoomBadge');
+
+function applyZoom() {
+  const scale = zoomLevel / 100;
+  canvas.style.width  = `${canvas.width  * scale}px`;
+  canvas.style.height = `${canvas.height * scale}px`;
+  zoomBadge.textContent = `${zoomLevel}%`;
+}
+
+document.getElementById('zoomIn').addEventListener('click', () => {
+  const steps = [25, 50, 75, 100, 125, 150, 200, 300, 400];
+  const next = steps.find(s => s > zoomLevel);
+  if (next) { zoomLevel = next; applyZoom(); }
+});
+
+document.getElementById('zoomOut').addEventListener('click', () => {
+  const steps = [25, 50, 75, 100, 125, 150, 200, 300, 400];
+  const prev = [...steps].reverse().find(s => s < zoomLevel);
+  if (prev) { zoomLevel = prev; applyZoom(); }
+});
+
+// ─── auto fit ──────────────────────────────────────────────
+function autoFit() {
+  if (!imgEl) return;
+  const W = imgEl.naturalWidth;
+  const H = imgEl.naturalHeight;
+
+  let bestX = 5, bestY = 5, bestS = Math.round(Math.min(W, H) / 5);
+  let bestScore = Infinity;
+
+  for (let x = 1; x <= 40; x++) {
+    for (let y = 1; x * y <= 40; y++) {
+      const sLo = Math.floor(Math.min(W / x, H / y));
+      const sHi = Math.ceil(Math.max(W / x, H / y));
+
+      for (let s = Math.max(1, sLo); s <= sHi; s++) {
+        const covX = (x * s) / W;
+        const covY = (y * s) / H;
+        const underX = Math.max(0, 1 - covX);
+        const underY = Math.max(0, 1 - covY);
+        const overX  = Math.max(0, covX - 1);
+        const overY  = Math.max(0, covY - 1);
+        // 未覆蓋比溢出更差，給 2 倍懲罰
+        const score = 2 * (underX + underY) + (overX + overY);
+
+        if (score < bestScore) {
+          bestScore = score;
+          bestX = x; bestY = y; bestS = s;
+        }
+      }
+    }
+  }
+
+  document.getElementById('size').value   = bestS;
+  document.getElementById('xCount').value = bestX;
+  document.getElementById('yCount').value = bestY;
+  render();
+}
+
+document.getElementById('autoFitBtn').addEventListener('click', autoFit);
 
 // ─── helpers ───────────────────────────────────────────────
 function hexToRgb(hex) {
@@ -561,6 +713,7 @@ function render() {
 
   gridBadge.textContent = `${xCount} × ${yCount} = ${xCount * yCount} 格`;
   gridBadge.style.display = '';
+  applyZoom();
 }
 
 // ─── load image ────────────────────────────────────────────
@@ -574,6 +727,8 @@ function loadFile(file) {
       canvas.style.display = 'block';
       placeholder.style.display = 'none';
       downloadBtn.disabled = false;
+      zoomControls.style.display = 'flex';
+      document.getElementById('autoFitBtn').disabled = false;
       sizeInfo.textContent = `${img.naturalWidth} × ${img.naturalHeight} px`;
       uploadText.textContent = file.name;
       render();
