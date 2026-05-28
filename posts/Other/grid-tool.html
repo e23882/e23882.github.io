@@ -379,6 +379,157 @@ canvas {
   box-shadow: 0 4px 24px rgba(0,0,0,0.6);
   image-rendering: pixelated;
 }
+
+/* ── Context Menu ── */
+#ctxMenu {
+  position: fixed;
+  z-index: 2000;
+  background: #1e2130;
+  border: 1px solid #3a3f58;
+  border-radius: 6px;
+  padding: 0.3rem 0;
+  min-width: 150px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.55);
+  display: none;
+}
+
+.ctx-item {
+  padding: 0.5rem 1rem;
+  font-size: 0.83rem;
+  cursor: pointer;
+  color: #c8c8e0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.12s;
+  user-select: none;
+}
+
+.ctx-item:hover { background: #2a2f48; }
+.ctx-item.danger { color: #e87070; }
+.ctx-item.danger:hover { background: #3a2020; }
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-box {
+  background: #1a1d27;
+  border: 1px solid #3a3f58;
+  border-radius: 10px;
+  width: 340px;
+  max-width: 95vw;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.7);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modal-header {
+  background: #141720;
+  padding: 0.85rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border-bottom: 1px solid #2a2f45;
+}
+
+.modal-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #7eb8f7;
+  flex: 1;
+}
+
+.modal-cell-badge {
+  font-size: 0.74rem;
+  color: #9090b8;
+  background: #11131c;
+  border: 1px solid #2a2f45;
+  border-radius: 4px;
+  padding: 0.15rem 0.5rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  color: #6868a0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.modal-close:hover { color: #d8d8e8; }
+
+.modal-body {
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.modal-section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #7eb8f7;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid #2a2f45;
+}
+
+.modal-row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.modal-footer {
+  padding: 0.8rem 1.1rem;
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-end;
+  border-top: 1px solid #2a2f45;
+}
+
+.btn-modal-apply {
+  background: #3a6fd4;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background 0.18s;
+}
+
+.btn-modal-apply:hover { background: #2a5bbf; }
+
+.btn-modal-cancel {
+  background: #11131c;
+  color: #9090b8;
+  border: 1px solid #2a2f45;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: background 0.18s, color 0.18s;
+}
+
+.btn-modal-cancel:hover { background: #1a1d27; color: #d8d8e8; }
 </style>
 </head>
 <body>
@@ -554,6 +705,70 @@ canvas {
 
 </div>
 
+<!-- Context Menu -->
+<div id="ctxMenu">
+  <div class="ctx-item" id="ctxSubdivide">✦ 再分割</div>
+  <div class="ctx-item danger" id="ctxClear" style="display:none">✕ 清除再分割</div>
+</div>
+
+<!-- Subdivide Modal -->
+<div class="modal-overlay" id="subdivideModal" style="display:none">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="modal-title">再分割格子</span>
+      <span class="modal-cell-badge" id="modalCellInfo">欄 1 / 列 1</span>
+      <button class="modal-close" id="modalClose">×</button>
+    </div>
+    <div class="modal-body">
+
+      <div class="modal-section-title">分割數量</div>
+      <div class="modal-row2">
+        <div class="field">
+          <label>X 欄數</label>
+          <input type="number" id="subXCount" value="3" min="1" max="50">
+        </div>
+        <div class="field">
+          <label>Y 列數</label>
+          <input type="number" id="subYCount" value="3" min="1" max="50">
+        </div>
+      </div>
+
+      <div class="modal-section-title">邊框</div>
+      <div class="field">
+        <label>邊框寬度 (px)</label>
+        <input type="number" id="subBorderWidth" value="1" min="0" max="50">
+      </div>
+      <div class="field">
+        <label>邊框顏色 &amp; 透明度</label>
+        <div class="color-group">
+          <input type="color" id="subBorderColor" value="#ffffff">
+          <div class="opacity-wrap">
+            <span>透明度: <strong id="subBorderOpacityVal">80</strong>%</span>
+            <input type="range" id="subBorderOpacity" value="80" min="0" max="100">
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-section-title">填充色</div>
+      <div class="field">
+        <label>填充顏色 &amp; 透明度</label>
+        <div class="color-group">
+          <input type="color" id="subFillColor" value="#ffffff">
+          <div class="opacity-wrap">
+            <span>透明度: <strong id="subFillOpacityVal">0</strong>%</span>
+            <input type="range" id="subFillOpacity" value="0" min="0" max="100">
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button class="btn-modal-cancel" id="modalCancel">取消</button>
+      <button class="btn-modal-apply" id="modalApply">套用</button>
+    </div>
+  </div>
+</div>
+
 <script>
 // 設定新分頁按鈕指向自身頁面（在 iframe 內時使用 document.location）
 document.getElementById('newTabBtn').href = window.location.href;
@@ -631,6 +846,149 @@ function autoFit() {
 }
 
 document.getElementById('autoFitBtn').addEventListener('click', autoFit);
+
+// ─── sub-grid state ────────────────────────────────────────
+const subGrids = new Map(); // key: "col,row" → { xCount, yCount, bw, bColor, bOpacity, fColor, fOpacity }
+let ctxCol = -1, ctxRow = -1;
+
+// ─── context menu ──────────────────────────────────────────
+const ctxMenu = document.getElementById('ctxMenu');
+
+function showCtxMenu(screenX, screenY, col, row) {
+  ctxCol = col; ctxRow = row;
+  document.getElementById('ctxClear').style.display = subGrids.has(`${col},${row}`) ? '' : 'none';
+  ctxMenu.style.display = 'block';
+  const mw = ctxMenu.offsetWidth, mh = ctxMenu.offsetHeight;
+  ctxMenu.style.left = `${Math.min(screenX, window.innerWidth  - mw - 8)}px`;
+  ctxMenu.style.top  = `${Math.min(screenY, window.innerHeight - mh - 8)}px`;
+}
+
+function hideCtxMenu() { ctxMenu.style.display = 'none'; }
+
+canvas.addEventListener('contextmenu', (e) => {
+  e.preventDefault();
+  if (!imgEl) return;
+  const rect   = canvas.getBoundingClientRect();
+  const scaleX = canvas.width  / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const cx     = (e.clientX - rect.left) * scaleX;
+  const cy     = (e.clientY - rect.top)  * scaleY;
+  const size   = Math.max(1, numVal('size', 60));
+  const xCount = Math.max(1, Math.round(numVal('xCount', 5)));
+  const yCount = Math.max(1, Math.round(numVal('yCount', 5)));
+  const startX = numVal('startX', 0);
+  const startY = numVal('startY', 0);
+  const col    = Math.floor((cx - startX) / size);
+  const row    = Math.floor((cy - startY) / size);
+  if (col >= 0 && col < xCount && row >= 0 && row < yCount) {
+    showCtxMenu(e.clientX, e.clientY, col, row);
+  }
+});
+
+document.addEventListener('click', hideCtxMenu);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') { hideCtxMenu(); closeModal(); }
+});
+
+// ─── subdivide modal ───────────────────────────────────────
+const subdivideModal = document.getElementById('subdivideModal');
+
+function openModal(col, row) {
+  document.getElementById('modalCellInfo').textContent = `欄 ${col + 1} / 列 ${row + 1}`;
+  const sg = subGrids.get(`${col},${row}`);
+  if (sg) {
+    document.getElementById('subXCount').value            = sg.xCount;
+    document.getElementById('subYCount').value            = sg.yCount;
+    document.getElementById('subBorderWidth').value       = sg.bw;
+    document.getElementById('subBorderColor').value       = sg.bColor;
+    document.getElementById('subBorderOpacity').value     = Math.round(sg.bOpacity * 100);
+    document.getElementById('subBorderOpacityVal').textContent = Math.round(sg.bOpacity * 100);
+    document.getElementById('subFillColor').value         = sg.fColor;
+    document.getElementById('subFillOpacity').value       = Math.round(sg.fOpacity * 100);
+    document.getElementById('subFillOpacityVal').textContent   = Math.round(sg.fOpacity * 100);
+  } else {
+    // reset to defaults
+    document.getElementById('subXCount').value            = 3;
+    document.getElementById('subYCount').value            = 3;
+    document.getElementById('subBorderWidth').value       = 1;
+    document.getElementById('subBorderColor').value       = '#ffffff';
+    document.getElementById('subBorderOpacity').value     = 80;
+    document.getElementById('subBorderOpacityVal').textContent = 80;
+    document.getElementById('subFillColor').value         = '#ffffff';
+    document.getElementById('subFillOpacity').value       = 0;
+    document.getElementById('subFillOpacityVal').textContent   = 0;
+  }
+  subdivideModal.style.display = 'flex';
+}
+
+function closeModal() { subdivideModal.style.display = 'none'; }
+
+document.getElementById('ctxSubdivide').addEventListener('click', () => {
+  hideCtxMenu();
+  openModal(ctxCol, ctxRow);
+});
+
+document.getElementById('ctxClear').addEventListener('click', () => {
+  hideCtxMenu();
+  subGrids.delete(`${ctxCol},${ctxRow}`);
+  render();
+});
+
+document.getElementById('modalClose').addEventListener('click',  closeModal);
+document.getElementById('modalCancel').addEventListener('click', closeModal);
+subdivideModal.addEventListener('click', (e) => { if (e.target === subdivideModal) closeModal(); });
+
+document.getElementById('modalApply').addEventListener('click', () => {
+  subGrids.set(`${ctxCol},${ctxRow}`, {
+    xCount:   Math.max(1, parseInt(document.getElementById('subXCount').value)   || 1),
+    yCount:   Math.max(1, parseInt(document.getElementById('subYCount').value)   || 1),
+    bw:       Math.max(0, parseFloat(document.getElementById('subBorderWidth').value) || 0),
+    bColor:   document.getElementById('subBorderColor').value,
+    bOpacity: parseInt(document.getElementById('subBorderOpacity').value) / 100,
+    fColor:   document.getElementById('subFillColor').value,
+    fOpacity: parseInt(document.getElementById('subFillOpacity').value)  / 100,
+  });
+  closeModal();
+  render();
+});
+
+document.getElementById('subBorderOpacity').addEventListener('input', function() {
+  document.getElementById('subBorderOpacityVal').textContent = this.value;
+});
+document.getElementById('subFillOpacity').addEventListener('input', function() {
+  document.getElementById('subFillOpacityVal').textContent = this.value;
+});
+
+// ─── draw sub-grid ─────────────────────────────────────────
+function drawSubGrid(cellX, cellY, cellSize, sg) {
+  const subW = cellSize / sg.xCount;
+  const subH = cellSize / sg.yCount;
+  const [br, bg, bb] = hexToRgb(sg.bColor);
+  const [fr, fg, fb] = hexToRgb(sg.fColor);
+
+  for (let r = 0; r < sg.yCount; r++) {
+    for (let c = 0; c < sg.xCount; c++) {
+      const x = cellX + c * subW;
+      const y = cellY + r * subH;
+
+      if (sg.fOpacity > 0) {
+        ctx.fillStyle = `rgba(${fr},${fg},${fb},${sg.fOpacity})`;
+        ctx.fillRect(x, y, subW, subH);
+      }
+
+      if (sg.bw > 0 && sg.bOpacity > 0) {
+        ctx.strokeStyle = `rgba(${br},${bg},${bb},${sg.bOpacity})`;
+        ctx.lineWidth   = sg.bw;
+        ctx.strokeRect(
+          x + sg.bw / 2,
+          y + sg.bw / 2,
+          subW - sg.bw,
+          subH - sg.bw
+        );
+      }
+    }
+  }
+}
 
 // ─── helpers ───────────────────────────────────────────────
 function hexToRgb(hex) {
@@ -710,6 +1068,14 @@ function render() {
       }
     }
   }
+
+  // draw sub-grids
+  subGrids.forEach((sg, key) => {
+    const [c, r] = key.split(',').map(Number);
+    if (c < xCount && r < yCount) {
+      drawSubGrid(startX + c * size, startY + r * size, size, sg);
+    }
+  });
 
   gridBadge.textContent = `${xCount} × ${yCount} = ${xCount * yCount} 格`;
   gridBadge.style.display = '';
