@@ -530,6 +530,29 @@ canvas {
 }
 
 .btn-modal-cancel:hover { background: #1a1d27; color: #d8d8e8; }
+
+.orient-btns {
+  display: flex;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #2a2f45;
+}
+
+.orient-btn {
+  flex: 1;
+  background: #11131c;
+  border: none;
+  color: #9090b8;
+  padding: 0.42rem 0;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  user-select: none;
+}
+
+.orient-btn + .orient-btn { border-left: 1px solid #2a2f45; }
+.orient-btn.active { background: #253560; color: #7eb8f7; font-weight: 600; }
+.orient-btn:hover:not(.active) { background: #1a1d27; color: #d8d8e8; }
 </style>
 </head>
 <body>
@@ -581,6 +604,13 @@ canvas {
           </div>
         </div>
         <div class="field">
+          <label>方向</label>
+          <div class="orient-btns">
+            <button class="orient-btn active" id="orientPortrait">↕ 直式</button>
+            <button class="orient-btn" id="orientLandscape">↔ 橫式</button>
+          </div>
+        </div>
+        <div class="field">
           <label>解析度</label>
           <select id="canvasDpi">
             <option value="72">72 DPI（螢幕低）</option>
@@ -606,6 +636,16 @@ canvas {
             <option value="stretch">延伸填滿</option>
             <option value="original">原始大小置中</option>
           </select>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>位移 X (px)</label>
+            <input type="number" id="canvasOffsetX" value="0" step="1">
+          </div>
+          <div class="field">
+            <label>位移 Y (px)</label>
+            <input type="number" id="canvasOffsetY" value="0" step="1">
+          </div>
         </div>
         <span class="badge" id="canvasPxBadge" style="text-align:center;padding:0.3rem 0.5rem;">2480 × 3508 px</span>
       </div>
@@ -907,15 +947,38 @@ document.getElementById('canvasModeOn').addEventListener('change', function() {
   if (imgEl) render();
 });
 
+function syncOrientBtns() {
+  const w = parseFloat(document.getElementById('canvasW').value) || 0;
+  const h = parseFloat(document.getElementById('canvasH').value) || 0;
+  document.getElementById('orientPortrait').classList.toggle('active', h >= w);
+  document.getElementById('orientLandscape').classList.toggle('active', w > h);
+}
+
+function setOrientation(mode) {
+  const wEl = document.getElementById('canvasW');
+  const hEl = document.getElementById('canvasH');
+  const w = parseFloat(wEl.value) || 21;
+  const h = parseFloat(hEl.value) || 29.7;
+  if (mode === 'portrait'  && w > h) { wEl.value = h; hEl.value = w; }
+  if (mode === 'landscape' && h > w) { wEl.value = h; hEl.value = w; }
+  syncOrientBtns();
+  updateCanvasPxBadge();
+  if (imgEl) render();
+}
+
+document.getElementById('orientPortrait').addEventListener('click',  () => setOrientation('portrait'));
+document.getElementById('orientLandscape').addEventListener('click', () => setOrientation('landscape'));
+
 document.getElementById('canvasDpi').addEventListener('change', function() {
   document.getElementById('customDpiField').style.display = this.value === 'custom' ? '' : 'none';
   updateCanvasPxBadge();
   if (imgEl) render();
 });
 
-['canvasW', 'canvasH', 'customDpiVal', 'canvasBg', 'canvasFit'].forEach(id => {
+['canvasW', 'canvasH', 'customDpiVal', 'canvasBg', 'canvasFit', 'canvasOffsetX', 'canvasOffsetY'].forEach(id => {
   document.getElementById(id).addEventListener('input', () => {
     updateCanvasPxBadge();
+    if (id === 'canvasW' || id === 'canvasH') syncOrientBtns();
     if (imgEl) render();
   });
 });
@@ -1091,22 +1154,23 @@ function updateCanvasPxBadge() {
   document.getElementById('canvasPxBadge').textContent = `${wp} × ${hp} px`;
 }
 
-function drawImageOnCanvas(fitMode) {
+function drawImageOnCanvas(fitMode, offsetX, offsetY) {
   const cw = canvas.width, ch = canvas.height;
   const iw = imgEl.naturalWidth, ih = imgEl.naturalHeight;
   let dx, dy, dw, dh;
+  const ox = offsetX || 0, oy = offsetY || 0;
   switch (fitMode) {
     case 'fit': {
       const scale = Math.min(cw / iw, ch / ih);
       dw = iw * scale; dh = ih * scale;
-      dx = (cw - dw) / 2; dy = (ch - dh) / 2;
+      dx = (cw - dw) / 2 + ox; dy = (ch - dh) / 2 + oy;
       ctx.drawImage(imgEl, dx, dy, dw, dh);
       break;
     }
     case 'fill': {
       const scale = Math.max(cw / iw, ch / ih);
       dw = iw * scale; dh = ih * scale;
-      dx = (cw - dw) / 2; dy = (ch - dh) / 2;
+      dx = (cw - dw) / 2 + ox; dy = (ch - dh) / 2 + oy;
       ctx.save();
       ctx.beginPath(); ctx.rect(0, 0, cw, ch); ctx.clip();
       ctx.drawImage(imgEl, dx, dy, dw, dh);
@@ -1114,10 +1178,10 @@ function drawImageOnCanvas(fitMode) {
       break;
     }
     case 'stretch':
-      ctx.drawImage(imgEl, 0, 0, cw, ch);
+      ctx.drawImage(imgEl, ox, oy, cw, ch);
       break;
     case 'original':
-      dx = (cw - iw) / 2; dy = (ch - ih) / 2;
+      dx = (cw - iw) / 2 + ox; dy = (ch - ih) / 2 + oy;
       ctx.drawImage(imgEl, dx, dy);
       break;
   }
@@ -1148,7 +1212,9 @@ function render() {
     canvas.height = Math.max(1, Math.round(hCm * dpi / 2.54));
     ctx.fillStyle = document.getElementById('canvasBg').value;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    drawImageOnCanvas(document.getElementById('canvasFit').value);
+    const offX = parseFloat(document.getElementById('canvasOffsetX').value) || 0;
+    const offY = parseFloat(document.getElementById('canvasOffsetY').value) || 0;
+    drawImageOnCanvas(document.getElementById('canvasFit').value, offX, offY);
     sizeInfo.textContent = `${canvas.width} × ${canvas.height} px（畫布）`;
     updateCanvasPxBadge();
   } else {
