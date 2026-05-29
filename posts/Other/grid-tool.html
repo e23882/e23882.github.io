@@ -289,6 +289,22 @@ hr.sep {
 .btn-auto:hover:not(:disabled) { background: #1e3d23; border-color: #3d8a4a; }
 .btn-auto:disabled { background: #2a2f45; color: #555; border-color: #2a2f45; cursor: not-allowed; }
 
+.btn-canvas-fit {
+  background: #121e30;
+  color: #5db8e8;
+  border: 1px solid #2a4a6a;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-size: 0.88rem;
+  width: 100%;
+  transition: background 0.18s, border-color 0.18s;
+  font-weight: 600;
+}
+
+.btn-canvas-fit:hover:not(:disabled) { background: #1a2e45; border-color: #3a6a9a; }
+.btn-canvas-fit:disabled { background: #2a2f45; color: #555; border-color: #2a2f45; cursor: not-allowed; }
+
 .auto-hint {
   font-size: 0.72rem;
   color: #555570;
@@ -695,8 +711,9 @@ canvas {
 
     <!-- Auto fit -->
     <div class="section">
-      <button class="btn-auto" id="autoFitBtn" disabled>⚡ 一鍵自動調整網格</button>
-      <div class="auto-hint">依圖片比例自動計算最佳邊長與欄列數（最多 40 格）</div>
+      <button class="btn-auto" id="autoFitBtn" disabled>⚡ 上傳圖片一鍵調整網格</button>
+      <button class="btn-canvas-fit" id="autoFitCanvasBtn" disabled>⚡ 畫布一鍵調整網格</button>
+      <div class="auto-hint">依比例自動計算最佳邊長與欄列數（最多 40 格）</div>
     </div>
 
     <hr class="sep">
@@ -942,11 +959,7 @@ document.getElementById('zoomOut').addEventListener('click', () => {
 });
 
 // ─── auto fit ──────────────────────────────────────────────
-function autoFit() {
-  if (!imgEl) return;
-  const W = imgEl.naturalWidth;
-  const H = imgEl.naturalHeight;
-
+function calcBestGrid(W, H) {
   let bestX = 5, bestY = 5, bestS = Math.round(Math.min(W, H) / 5);
   let bestScore = Infinity;
 
@@ -962,8 +975,7 @@ function autoFit() {
         const underY = Math.max(0, 1 - covY);
         const overX  = Math.max(0, covX - 1);
         const overY  = Math.max(0, covY - 1);
-        // 未覆蓋比溢出更差，給 2 倍懲罰
-        const score = 2 * (underX + underY) + (overX + overY);
+        const score  = 2 * (underX + underY) + (overX + overY);
 
         if (score < bestScore) {
           bestScore = score;
@@ -972,18 +984,39 @@ function autoFit() {
       }
     }
   }
+  return { x: bestX, y: bestY, s: bestS };
+}
 
-  document.getElementById('size').value   = bestS;
-  document.getElementById('xCount').value = bestX;
-  document.getElementById('yCount').value = bestY;
+function applyGrid(x, y, s) {
+  document.getElementById('size').value   = s;
+  document.getElementById('xCount').value = x;
+  document.getElementById('yCount').value = y;
   render();
 }
 
+function autoFit() {
+  if (!imgEl) return;
+  const { x, y, s } = calcBestGrid(imgEl.naturalWidth, imgEl.naturalHeight);
+  applyGrid(x, y, s);
+}
+
+function autoFitCanvas() {
+  const wCm = parseFloat(document.getElementById('canvasW').value) || 21;
+  const hCm = parseFloat(document.getElementById('canvasH').value) || 29.7;
+  const dpi  = getEffectiveDpi();
+  const W    = Math.max(1, Math.round(wCm * dpi / 2.54));
+  const H    = Math.max(1, Math.round(hCm * dpi / 2.54));
+  const { x, y, s } = calcBestGrid(W, H);
+  applyGrid(x, y, s);
+}
+
 document.getElementById('autoFitBtn').addEventListener('click', autoFit);
+document.getElementById('autoFitCanvasBtn').addEventListener('click', autoFitCanvas);
 
 // ─── canvas mode events ────────────────────────────────────
 document.getElementById('canvasModeOn').addEventListener('change', function() {
   document.getElementById('canvasModeOpts').style.display = this.checked ? 'flex' : 'none';
+  document.getElementById('autoFitCanvasBtn').disabled = !this.checked;
   if (imgEl) render();
 });
 
