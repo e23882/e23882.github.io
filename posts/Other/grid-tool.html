@@ -559,6 +559,60 @@ canvas {
 
     <hr class="sep">
 
+    <!-- Canvas settings -->
+    <div class="section">
+      <div class="section-title">畫布設定</div>
+      <div class="field toggle-row">
+        <label class="toggle-label">
+          <input type="checkbox" id="canvasModeOn">
+          <span class="toggle-switch"></span>
+          啟用畫布模式
+        </label>
+      </div>
+      <div id="canvasModeOpts" style="display:none;flex-direction:column;gap:0.6rem;">
+        <div class="row2">
+          <div class="field">
+            <label>寬度 (cm)</label>
+            <input type="number" id="canvasW" value="21" min="0.1" max="500" step="0.1">
+          </div>
+          <div class="field">
+            <label>高度 (cm)</label>
+            <input type="number" id="canvasH" value="29.7" min="0.1" max="500" step="0.1">
+          </div>
+        </div>
+        <div class="field">
+          <label>解析度</label>
+          <select id="canvasDpi">
+            <option value="72">72 DPI（螢幕低）</option>
+            <option value="96">96 DPI（螢幕）</option>
+            <option value="150">150 DPI（一般列印）</option>
+            <option value="300" selected>300 DPI（高品質列印）</option>
+            <option value="custom">自訂…</option>
+          </select>
+        </div>
+        <div class="field" id="customDpiField" style="display:none">
+          <label>自訂 DPI</label>
+          <input type="number" id="customDpiVal" value="96" min="1" max="2400">
+        </div>
+        <div class="field">
+          <label>背景色</label>
+          <input type="color" id="canvasBg" value="#ffffff" style="width:100%;height:34px;padding:2px 3px;border:1px solid #2a2f45;border-radius:6px;background:#11131c;cursor:pointer;">
+        </div>
+        <div class="field">
+          <label>圖片配置</label>
+          <select id="canvasFit">
+            <option value="fit">置中符合（保持比例）</option>
+            <option value="fill">填滿裁切（保持比例）</option>
+            <option value="stretch">延伸填滿</option>
+            <option value="original">原始大小置中</option>
+          </select>
+        </div>
+        <span class="badge" id="canvasPxBadge" style="text-align:center;padding:0.3rem 0.5rem;">2480 × 3508 px</span>
+      </div>
+    </div>
+
+    <hr class="sep">
+
     <!-- Auto fit -->
     <div class="section">
       <button class="btn-auto" id="autoFitBtn" disabled>⚡ 一鍵自動調整網格</button>
@@ -847,6 +901,25 @@ function autoFit() {
 
 document.getElementById('autoFitBtn').addEventListener('click', autoFit);
 
+// ─── canvas mode events ────────────────────────────────────
+document.getElementById('canvasModeOn').addEventListener('change', function() {
+  document.getElementById('canvasModeOpts').style.display = this.checked ? 'flex' : 'none';
+  if (imgEl) render();
+});
+
+document.getElementById('canvasDpi').addEventListener('change', function() {
+  document.getElementById('customDpiField').style.display = this.value === 'custom' ? '' : 'none';
+  updateCanvasPxBadge();
+  if (imgEl) render();
+});
+
+['canvasW', 'canvasH', 'customDpiVal', 'canvasBg', 'canvasFit'].forEach(id => {
+  document.getElementById(id).addEventListener('input', () => {
+    updateCanvasPxBadge();
+    if (imgEl) render();
+  });
+});
+
 // ─── sub-grid state ────────────────────────────────────────
 const subGrids = new Map(); // key: "col,row" → { xCount, yCount, bw, bColor, bOpacity, fColor, fOpacity }
 let ctxCol = -1, ctxRow = -1;
@@ -1001,6 +1074,55 @@ function hexToRgb(hex) {
 function val(id)      { return document.getElementById(id).value; }
 function numVal(id, fallback=0) { return parseFloat(val(id)) || fallback; }
 
+// ─── canvas mode helpers ───────────────────────────────────
+function getEffectiveDpi() {
+  const sel = document.getElementById('canvasDpi').value;
+  return sel === 'custom'
+    ? (parseFloat(document.getElementById('customDpiVal').value) || 96)
+    : parseFloat(sel);
+}
+
+function updateCanvasPxBadge() {
+  const wCm = parseFloat(document.getElementById('canvasW').value) || 21;
+  const hCm = parseFloat(document.getElementById('canvasH').value) || 29.7;
+  const dpi = getEffectiveDpi();
+  const wp  = Math.max(1, Math.round(wCm * dpi / 2.54));
+  const hp  = Math.max(1, Math.round(hCm * dpi / 2.54));
+  document.getElementById('canvasPxBadge').textContent = `${wp} × ${hp} px`;
+}
+
+function drawImageOnCanvas(fitMode) {
+  const cw = canvas.width, ch = canvas.height;
+  const iw = imgEl.naturalWidth, ih = imgEl.naturalHeight;
+  let dx, dy, dw, dh;
+  switch (fitMode) {
+    case 'fit': {
+      const scale = Math.min(cw / iw, ch / ih);
+      dw = iw * scale; dh = ih * scale;
+      dx = (cw - dw) / 2; dy = (ch - dh) / 2;
+      ctx.drawImage(imgEl, dx, dy, dw, dh);
+      break;
+    }
+    case 'fill': {
+      const scale = Math.max(cw / iw, ch / ih);
+      dw = iw * scale; dh = ih * scale;
+      dx = (cw - dw) / 2; dy = (ch - dh) / 2;
+      ctx.save();
+      ctx.beginPath(); ctx.rect(0, 0, cw, ch); ctx.clip();
+      ctx.drawImage(imgEl, dx, dy, dw, dh);
+      ctx.restore();
+      break;
+    }
+    case 'stretch':
+      ctx.drawImage(imgEl, 0, 0, cw, ch);
+      break;
+    case 'original':
+      dx = (cw - iw) / 2; dy = (ch - ih) / 2;
+      ctx.drawImage(imgEl, dx, dy);
+      break;
+  }
+}
+
 // ─── main render ───────────────────────────────────────────
 function render() {
   if (!imgEl) return;
@@ -1016,9 +1138,25 @@ function render() {
   const startX      = numVal('startX', 0);
   const startY      = numVal('startY', 0);
 
-  canvas.width  = imgEl.naturalWidth;
-  canvas.height = imgEl.naturalHeight;
-  ctx.drawImage(imgEl, 0, 0);
+  const canvasMode = document.getElementById('canvasModeOn').checked;
+
+  if (canvasMode) {
+    const wCm = parseFloat(document.getElementById('canvasW').value) || 21;
+    const hCm = parseFloat(document.getElementById('canvasH').value) || 29.7;
+    const dpi = getEffectiveDpi();
+    canvas.width  = Math.max(1, Math.round(wCm * dpi / 2.54));
+    canvas.height = Math.max(1, Math.round(hCm * dpi / 2.54));
+    ctx.fillStyle = document.getElementById('canvasBg').value;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    drawImageOnCanvas(document.getElementById('canvasFit').value);
+    sizeInfo.textContent = `${canvas.width} × ${canvas.height} px（畫布）`;
+    updateCanvasPxBadge();
+  } else {
+    canvas.width  = imgEl.naturalWidth;
+    canvas.height = imgEl.naturalHeight;
+    ctx.drawImage(imgEl, 0, 0);
+    sizeInfo.textContent = `${imgEl.naturalWidth} × ${imgEl.naturalHeight} px`;
+  }
 
   // binarize (applied before drawing the grid)
   if (document.getElementById('binarizeOn').checked) {
@@ -1095,7 +1233,6 @@ function loadFile(file) {
       downloadBtn.disabled = false;
       zoomControls.style.display = 'flex';
       document.getElementById('autoFitBtn').disabled = false;
-      sizeInfo.textContent = `${img.naturalWidth} × ${img.naturalHeight} px`;
       uploadText.textContent = file.name;
       render();
     };
